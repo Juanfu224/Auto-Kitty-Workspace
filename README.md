@@ -14,7 +14,7 @@ Configuración y instalación automática de programas en Linux Mint o cualquier
 # Instalación
 **1)** Clonar el repositorio:
 ```
-git clone https://github.com/Juanfu224/Auto-Linux-Mint ~/Auto-Linux-Mint
+git clone https://github.com/Juanfu224/Auto-Linux-Mint.git ~/Auto-Linux-Mint
 cd Auto-Linux-Mint
 ```
 
