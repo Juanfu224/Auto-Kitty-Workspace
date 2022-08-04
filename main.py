@@ -179,10 +179,9 @@ def ink():
     print("\nInstalando Inkscape....\n")
 
 # Instalamos Inkscape....
-    os.system("mkdir ~/Programas")
     os.system("sudo wget https://inkscape.org/gallery/item/34672/Inkscape-9c6d41e-x86_64.AppImage")
-    os.system("sudo mv Inkscape-9c6d41e-x86_64.AppImage ~/Programas")
-    os.system("sudo chmod 770 ~/Programas/Inkscape-9c6d41e-x86_64.AppImage")
+    os.system("sudo mv Inkscape-9c6d41e-x86_64.AppImage /opt")
+    os.system("sudo chmod 777 /opt/Inkscape-9c6d41e-x86_64.AppImage")
 
     time.sleep(2)
     print("\n[+] Inkscape instalado correctamente\n")
