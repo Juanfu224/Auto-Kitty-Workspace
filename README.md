@@ -1,5 +1,5 @@
 # Auto-Linux-Mint
-Configuración y instalación automática de programas en Linux Mint o cualquier distro basada en Ubuntu.
+Configuración y instalación automática de programas y configuraciones en Linux Mint o cualquier distro basada en Ubuntu.
 
 ## La utilidad consta de 8 funciones distintas:
 - Instalar tema Papirus.
