@@ -140,7 +140,6 @@ def p10k():
     os.system("sudo cp -r ~/Auto-Linux-Mint/tools/.zshrc ~/")
     os.system("sudo cp -r ~/Auto-Linux-Mint/tools/.p10k.zsh ~/")
     os.system("sudo cp -r ~/Auto-Linux-Mint/tools/.zshrc /root")
-    os.system("sudo cp -r ~/Auto-Linux-Mint/tools/.p10k.zsh ~/")
     os.system("sudo cp -r ~/Auto-Linux-Mint/tools/.p10k.zsh /root")
     os.system("sudo rm -r ~/Auto-Linux-Mint/sudo.plugin*")
     os.system("sudo usermod --shell /usr/bin/zsh root")
