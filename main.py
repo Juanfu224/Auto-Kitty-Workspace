@@ -126,8 +126,8 @@ def p10k():
 
     # Instalamos Powerlevel10k, bat, lsd, git, scrub, FZF, plugins....
     os.system("sudo apt install zsh git zsh-autosuggestions zsh-syntax-highlighting scrub")
-    os.system("sudo dpkg -i ~/Auto-Linux-Mint/bat_0.21.0_amd64.deb")
-    os.system("sudo dpkg -i ~/Auto-Linux-Mint/lsd_0.22.0_amd64.deb")
+    os.system("sudo dpkg -i ~/Auto-Linux-Mint/tools/bat_0.21.0_amd64.deb")
+    os.system("sudo dpkg -i ~/Auto-Linux-Mint/tools/lsd_0.22.0_amd64.deb")
     os.system("sudo wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh")
     os.system("sudo git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k")
     os.system("sudo git clone --depth=1 https://github.com/romkatv/powerlevel10k.git /root/powerlevel10k")
@@ -137,11 +137,11 @@ def p10k():
     os.system("sudo /root/.fzf/install")
     os.system("sudo mkdir /usr/share/zsh-sudo")
     os.system("sudo cp -r sudo.plugin.zsh /usr/share/zsh-sudo")
-    os.system("sudo cp -r ~/Auto-Linux-Mint/.zshrc ~/")
-    os.system("sudo cp -r ~/Auto-Linux-Mint/.p10k.zsh ~/")
-    os.system("sudo cp -r ~/Auto-Linux-Mint/.zshrc /root")
-    os.system("sudo cp -r ~/Auto-Linux-Mint/.p10k.zsh ~/")
-    os.system("sudo cp -r ~/Auto-Linux-Mint/.p10k.zsh /root")
+    os.system("sudo cp -r ~/Auto-Linux-Mint/tools/.zshrc ~/")
+    os.system("sudo cp -r ~/Auto-Linux-Mint/tools/.p10k.zsh ~/")
+    os.system("sudo cp -r ~/Auto-Linux-Mint/tools/.zshrc /root")
+    os.system("sudo cp -r ~/Auto-Linux-Mint/tools/.p10k.zsh ~/")
+    os.system("sudo cp -r ~/Auto-Linux-Mint/tools/.p10k.zsh /root")
     os.system("sudo rm -r ~/Auto-Linux-Mint/sudo.plugin*")
     os.system("sudo usermod --shell /usr/bin/zsh root")
 
@@ -155,7 +155,7 @@ def vpn():
     print("\nInstalando NordVPN....\n")
 
 # Instalamos NordVPN....
-    os.system("sudo dpkg -i ~/Auto-Linux-Mint/nordvpn-release_1.0.0_all.deb")
+    os.system("sudo dpkg -i ~/Auto-Linux-Mint/tools/nordvpn-release_1.0.0_all.deb")
     os.system("sudo apt update")
     os.system("sudo apt install nordvpn")
 
