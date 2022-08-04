@@ -1,5 +1,5 @@
 # Auto-Linux-Mint
-Automatiza la instalación y la configuración de la shell utilizada en el entorno de trabajo S4vitar.
+Automatiza la instalación y la configuración de la shell utilizada en el entorno de trabajo S4vitar y instala el tema Papirus y otras aplicaciones en Linux Mint o cualquier distribución basada en Ubuntu.
 
 ## La utilidad consta de 8 funciones distintas:
 - Instalar tema Papirus.
