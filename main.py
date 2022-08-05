@@ -109,6 +109,7 @@ def papirus():
     os.system("papirus-folders -C yaru --theme Papirus-Dark")
 
     time.sleep(2)
+    green()
     print("\n[+] Papirus ha sido instalado correctamente")
     print("\nRecuerda habilitar los iconos Papirus en la configuración de los temas del sistema\n")
 
@@ -121,7 +122,9 @@ def fonts():
     os.system("unzip Hack.zip")
     os.system("sudo cp Hack*.ttf /usr/local/share/fonts")
     os.system("rm -r Hack*")
+    
     time.sleep(2)
+    green()
     print("\n[+] Hack Nerd Fonts instalados correctamente")
     print("\nRecuerda cambiar la tipografia de la terminal antes de instalar Powerlevel10k\n")
 
@@ -150,9 +153,10 @@ def p10k():
     os.system("sudo usermod --shell /usr/bin/zsh root")
 
     time.sleep(2)
+    green()
     print("\n[+] La instalación y la configuración de Powerlevel10k se ha realizado correctamente")
     print("\nPara que se inicie automáticamente zsh hay que ejecutar el siguiente comando:")
-    print("\nusermod --shell /usr/bin/zsh {NOMBRE DE TU USUARIO}\n")
+    print("\nsudo usermod --shell /usr/bin/zsh {NOMBRE DE TU USUARIO}\n")
 
 def vpn():
     green()
@@ -177,8 +181,8 @@ def vbox():
     os.system("sudo ./VMware-Workstation-Full-16.2.4-20089737.x86_64.bundle")
 
     time.sleep(2)
+    green()
     print("\n[+] VMware instalado correctamente\n")
-
     print("\nInstalando VirtualBox....\n")
 
 # Instalamos VirtualBox....
@@ -187,6 +191,7 @@ def vbox():
     os.system("sudo apt-get -f install")
 
     time.sleep(2)
+    green()
     print("\n[+] VirtualBox instalado correctamente\n")
 
 def ink():
@@ -241,6 +246,7 @@ def sublime():
     os.system("sudo apt install sublime-text")
 
     time.sleep(2)
+    green()
     print("\n[+] Sublime Text instalado correctamente\n")
 
 
