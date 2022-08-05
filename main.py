@@ -127,7 +127,6 @@ def fonts():
     time.sleep(2)
     green()
     print("\n[+] Hack Nerd Fonts instalados correctamente")
-    print("\nRecuerda cambiar la tipografia de la terminal antes de instalar Powerlevel10k\n")
 
 def p10k():
     green()
@@ -155,6 +154,7 @@ def p10k():
     time.sleep(2)
     green()
     print("\n[+] La instalación y la configuración de Powerlevel10k se ha realizado correctamente")
+    print("\nRecuerda cambiar la tipografia de la terminal a Hack Nerd Font Mono para que funcione Powerlevel10k\n")
 
 def vpn():
     green()
