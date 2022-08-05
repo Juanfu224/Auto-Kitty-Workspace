@@ -11,7 +11,6 @@ Automatiza la instalación y la configuración de la shell utilizada en el entor
 - Instalar Discord y Telegram.
 - Instalar Sublime Text.
 - Instalacion ALL IN ONE.
-- Salir
 
 # Instalación
 **1)** Clonar el repositorio:
