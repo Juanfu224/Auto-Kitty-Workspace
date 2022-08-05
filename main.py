@@ -62,7 +62,7 @@ def menu():
     time.sleep(0.5)
     print("\n8 -> Instalar Sublime Text")
     time.sleep(0.5)
-    print("\n9 -> All In One")
+    print("\n9 -> ALL IN ONE")
     time.sleep(0.5)
     print("\n10 -> Salir")
     time.sleep(0.5)
