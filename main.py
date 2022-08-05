@@ -150,13 +150,10 @@ def p10k():
     os.system("sudo cp -r ~/Auto-Linux-Mint/tools/.zshrc /root")
     os.system("sudo cp -r ~/Auto-Linux-Mint/tools/.p10k.zsh /root")
     os.system("sudo rm -r ~/Auto-Linux-Mint/sudo.plugin*")
-    os.system("sudo usermod --shell /usr/bin/zsh root")
 
     time.sleep(2)
     green()
     print("\n[+] La instalación y la configuración de Powerlevel10k se ha realizado correctamente")
-    print("\nPara que se inicie automáticamente zsh hay que ejecutar el siguiente comando:")
-    print("\nsudo usermod --shell /usr/bin/zsh {NOMBRE DE TU USUARIO}\n")
 
 def vpn():
     green()
