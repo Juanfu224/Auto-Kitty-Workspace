@@ -29,7 +29,7 @@ python3 main.py
 # IMPORTANTE
 - Para que funcione correctamente Powerlevel10k es necesario tener las Hack Nerd Fonts puestas en la configuración de la tipografía de la terminal.
 - Hay que poner el tema Papirus el la configuración de temas del sistema.
-- Es recomendable reiniciar el equipo después de hacer una instalaci
+- Es recomendable reiniciar el equipo después de hacer una instalación ALL IN ONE.
 
 ## Inicio automático de zsh:
 ```
