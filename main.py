@@ -177,6 +177,8 @@ def vbox():
     os.system("sudo wget https://download3.vmware.com/software/WKST-1624-LX/VMware-Workstation-Full-16.2.4-20089737.x86_64.bundle")
     os.system("sudo chmod 777 VMware-Workstation-Full-16.2.4-20089737.x86_64.bundle")
     os.system("sudo ./VMware-Workstation-Full-16.2.4-20089737.x86_64.bundle")
+    os.system("sudo apt-get -f install")
+    os.system("sudo rm -r VMware-Workstation*")
 
     time.sleep(2)
     green()
@@ -187,7 +189,8 @@ def vbox():
     os.system("sudo wget https://download.virtualbox.org/virtualbox/6.1.36/virtualbox-6.1_6.1.36-152435~Ubuntu~jammy_amd64.deb")
     os.system("sudo dpkg -i virtualbox-6.1_6.1.36-152435\~Ubuntu\~jammy_amd64.deb")
     os.system("sudo apt-get -f install")
-
+    os.system("sudo rm -r virtualbox*")
+    
     time.sleep(2)
     green()
     print("\n[+] VirtualBox instalado correctamente\n")
@@ -222,7 +225,8 @@ def discord():
     os.system("sudo wget https://dl.discordapp.net/apps/linux/0.0.18/discord-0.0.18.deb")
     os.system("sudo dpkg -i discord-0.0.18.deb")
     os.system("sudo apt-get -f install")
-
+    os.system("sudo rm -r discord*")
+    
     time.sleep(2)
     green()
     print("\n[+] Discord instalado correctamente\n")
