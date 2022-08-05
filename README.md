@@ -5,7 +5,7 @@ Automatiza la instalación y la configuración de la shell utilizada en el entor
 - Instalar tema Papirus.
 - Instalar Hack Nerd Fonts.
 - Instalar y configurar Powerlevel10k, plugins, FZF, etc.
-- Instalar NordVPN (implementado en Powerlevel10k).
+- Instalar NordVPN (implementado con Powerlevel10k).
 - Instalar VMware y VirtualBox.
 - Instalar Inkscape y Gimp.
 - Instalar Discord y Telegram.
