@@ -27,7 +27,7 @@ python3 main.py
 **3)** Disfruta :)
 
 # Vista general
-![autoBspwm2.1](https://raw.githubusercontent.com/Juanfu224/Auto-Linux-Mint/master/tools/Preview.png)
+![vista general](https://raw.githubusercontent.com/Juanfu224/Auto-Linux-Mint/master/tools/Preview.png)
 
 # Importante
 - Para que funcione correctamente Powerlevel10k es necesario tener las Hack Nerd Fonts puestas en la configuración de la tipografía de la terminal.
@@ -39,6 +39,9 @@ python3 main.py
 sudo usermod --shell /usr/bin/zsh [USUARIO]
 sudo usermod --shell /usr/bin/zsh root
 ```
+# Preview Papirus Icon Theme
+![papirus icons](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/preview.png)
+
 # Preview Papirus Folder
 
 | Name | Preview | Name | Preview |
