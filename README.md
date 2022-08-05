@@ -6,9 +6,10 @@ Automatiza la instalación y la configuración de la shell utilizada en el entor
 - Instalar Hack Nerd Fonts.
 - Instalar y configurar Powerlevel10k, plugins, FZF, etc.
 - Instalar NordVPN (implementado en Powerlevel10k).
-- Instalar VMware.
-- Instalar Inkscape.
-- Instalar Gimp.
+- Instalar VMware y VirtualBox.
+- Instalar Inkscape y Gimp.
+- Instalar Discord y Telegram.
+- Instalar Sublime Text.
 - Instalacion ALL IN ONE.
 
 # Instalación
