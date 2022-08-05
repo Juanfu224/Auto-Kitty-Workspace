@@ -64,3 +64,10 @@ sudo usermod --shell /usr/bin/zsh root
 ```
 papirus-folders -C red --theme Papirus-Dark
 ```
+## Créditos
+- Autor del script: Juanfu224 --> https://github.com/Juanfu224
+- Autor de Papirus: Papirus Development Team --> https://github.com/PapirusDevelopmentTeam
+- Autor de Powerlevel10k: romkatv --> https://github.com/romkatv
+- Autor de bat: sharkdp --> https://github.com/sharkdp
+- Autor de lsd: Peltoche --> https://github.com/Peltoche
+- Inspirado en S4vitar y Yorkox0 ❤️
