@@ -1,7 +1,7 @@
 # Auto-Linux-Mint
 Automatiza la instalación y la configuración de la shell utilizada en el entorno de trabajo S4vitar, instala el tema Papirus y otras aplicaciones de escritorio en Linux Mint o cualquier distribución basada en Ubuntu 22.04.
 
-## La utilidad consta de 8 funciones distintas:
+## La utilidad consta de 9 funciones distintas:
 - Instalar tema Papirus.
 - Instalar Hack Nerd Fonts.
 - Instalar y configurar Powerlevel10k, plugins, FZF, etc.
@@ -24,3 +24,12 @@ cd Auto-Linux-Mint
 python3 main.py
 ```
 **3)** Disfruta :)
+
+# IMPORTANTE
+Para que funcione correctamente Powerlevel10k es necesario tener las Hack Nerd Fonts puestas en la configuración de la tipografía de la terminal.
+
+## Inicio automático de zsh:
+```
+sudo usermod --shell /usr/bin/zsh [USUARIO]
+sudo usermod --shell /usr/bin/zsh root
+```
