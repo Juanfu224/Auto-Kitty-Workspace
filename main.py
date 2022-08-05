@@ -107,6 +107,7 @@ def papirus():
     os.system("sudo apt-get install papirus-icon-theme papirus-folders")
     os.system("papirus-folders -l --theme Papirus-Dark")
     os.system("papirus-folders -C yaru --theme Papirus-Dark")
+    os.system("sudo add-apt-repository --remove ppa:papirus/papirus")
 
     time.sleep(2)
     green()
