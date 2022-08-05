@@ -10,7 +10,7 @@ Automatiza la instalación y la configuración de la shell utilizada en el entor
 - Instalar Inkscape y Gimp.
 - Instalar Discord y Telegram.
 - Instalar Sublime Text.
-- Instalacion ALL IN ONE.
+- ALL IN ONE.
 
 # Instalación
 **1)** Clonar el repositorio:
