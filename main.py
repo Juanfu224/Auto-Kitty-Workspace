@@ -245,7 +245,9 @@ def sublime():
     print("\nInstalando Sublime Text....\n")
 
 # Instalamos sublime-text
-    os.system("sudo apt install sublime-text")
+    os.system("sudo wget https://download.sublimetext.com/sublime-text_build-4126_amd64.deb")
+    os.system("sudo dpkg -i sublime-text_build-4126_amd64.deb")
+    os.system("sudo rm -r sublime-text*")
 
     time.sleep(2)
     green()
