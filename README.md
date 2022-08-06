@@ -4,7 +4,7 @@ Automatiza la instalación y la configuración de la shell utilizada en el entor
 ## La utilidad consta de 9 funciones distintas:
 - Instalar tema Papirus.
 - Instalar Hack Nerd Fonts.
-- Instalar y configurar Powerlevel10k, plugins, FZF, etc.
+- Instalar y configurar Powerlevel10k, plugins, lsd, bat, FZF, etc.
 - Instalar NordVPN (implementado con Powerlevel10k).
 - Instalar VMware y VirtualBox.
 - Instalar Inkscape y Gimp.
