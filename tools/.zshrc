@@ -135,3 +135,8 @@ bindkey "^[[F" end-of-line
 bindkey "^[[3~" delete-char
 bindkey "^[[1;3C" forward-word
 bindkey "^[[1;3D" backward-word
+bindkey -s "^[Ok" "+"
+bindkey -s "^[Om" "-"
+bindkey -s "^[OM" "^M"
+bindkey -s "^[Oj" "*"
+bindkey -s "^[Oo" "/"
