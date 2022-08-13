@@ -148,3 +148,10 @@ super + shift + f
 
 super + ctrl + b
 	gksudo burp
+
+# Captura de pantalla
+Print
+        scrot ~/Imágenes/Captura.png
+
+Print + ctrl
+        scrot -s ~/Imágenes/Captura.png
