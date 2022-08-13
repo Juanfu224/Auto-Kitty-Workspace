@@ -1,10 +1,11 @@
 # Auto-Linux-Mint
 Automatiza la instalación y la configuración de la shell utilizada en el entorno de trabajo de S4vitar, instala el tema Papirus, Hack Nerd Fonts y algunos de los programas de escritorio mas utilizados. Es compatible con Linux Mint o cualquier distribución basada en Ubuntu 22.04.
 
-## La utilidad consta de 9 funciones distintas:
+## La utilidad consta de 10 funciones distintas:
 - Instalar tema Papirus.
 - Instalar Hack Nerd Fonts.
-- Instalar y configurar Powerlevel10k, plugins, lsd, bat, FZF, etc.
+- Instalar y configurar Powerlevel10k, Nvim, FZF, plugins, lsd, bat, etc.
+- Instalar y configurar Bspwm, Polybar, Picom y Rofi
 - Instalar NordVPN (implementado con Powerlevel10k).
 - Instalar VMware y VirtualBox.
 - Instalar Inkscape y Gimp.
