@@ -1,5 +1,7 @@
 # Auto-Linux-Mint
-Es compatible con Linux Mint o cualquier distribución basada en Ubuntu y Debian. Testeado en Linux Mint, Ubuntu y Kali Linux.
+Es compatible con Linux Mint o cualquier distribución basada en Ubuntu y Debian.
+
+Testeado en Linux Mint, Ubuntu y Kali Linux.
 
 ## El script consta de 10 funciones distintas:
 - Instalar tema Papirus.
