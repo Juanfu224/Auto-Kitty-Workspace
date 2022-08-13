@@ -1,7 +1,7 @@
 # Auto-Linux-Mint
-Automatiza la instalación y la configuración de la shell utilizada en el entorno de trabajo de S4vitar, instala el tema Papirus, Hack Nerd Fonts y algunos de los programas de escritorio mas utilizados. Es compatible con Linux Mint o cualquier distribución basada en Ubuntu 22.04.
+Automatiza la instalación y la configuración del entorno de trabajo de S4vitar en Bspwm, Powerlevel10k, HNF y algunos de los programas de escritorio mas utilizados. Es compatible con Linux Mint o cualquier distribución basada en Ubuntu.
 
-## La utilidad consta de 10 funciones distintas:
+## El script consta de 10 funciones distintas:
 - Instalar tema Papirus.
 - Instalar Hack Nerd Fonts.
 - Instalar y configurar Powerlevel10k, Nvim, FZF, plugins, lsd, bat, etc.
@@ -39,6 +39,22 @@ python3 main.py
 sudo usermod --shell /usr/bin/zsh [USUARIO]
 sudo usermod --shell /usr/bin/zsh root
 ```
+
+## Utilidades:
+- **Bspwm**: Tiling Window Manager.
+- **ZSH**: Shell.
+- **Powerlevel10k**: Tema de la zsh.
+- **Sxhkd**: Es un "demonio" que escucha los eventos del teclado y ejecuta comandos.
+- **Polybar**: Herramienta rápida y fácil de usar para crear barras de estado.
+- **Polybar-themes**: Temas para la polybar.
+- **Papirus**: Temas para los ficheros y aplicaciones.
+- **Compton**: Es un compositor para X y una bifurcación de xcompmgr-dana.
+- **Rofi**: Selector de ventana y lanzador de aplicaciones.
+- **Feh**: Visor de imágenes ligero, configurable y versátil.
+- **Hack Nerd Font**: Fuente.
+- **HZF**: Buscador difuso de línea de comandos de propósito general.
+- **NordVPN**: Red privada virtual de Nord.
+
 # Preview Papirus Icon Theme
 ![papirus icons](https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/preview.png)
 
@@ -64,6 +80,24 @@ sudo usermod --shell /usr/bin/zsh root
 ```
 papirus-folders -C red --theme Papirus-Dark
 ```
+## Shortcuts (atajos de teclado)
+<kbd>Windows</kbd> + <kbd>Enter</kbd> : Abrir la consola (gnome-terminal).  
+<kbd>Windows</kbd> + <kbd>W</kbd> : Cerrar la ventana actual.  
+<kbd>Windows</kbd> + <kbd>Alt</kbd> + <kbd>R</kbd> : Reiniciar la configuración del bspwm.  
+<kbd>Windows</kbd> + <kbd>Alt</kbd> + <kbd>Q</kbd> : Cerrar sesión.  
+<kbd>Windows</kbd> + <kbd>(⬆⬅⬇➡)</kbd> : Moverse por las ventanas en la workspace actual.  
+<kbd>Windows</kbd> + <kbd>D</kbd> : Abrir el Rofi. <kbd>Esc</kbd> para salir.  
+<kbd>Windows</kbd> + <kbd>(1,2,3,4,5,6,7,8,9,0)</kbd> : Cambiar el workspace.  
+<kbd>Windows</kbd> + <kbd>T</kbd> : Cambiar la ventana actual a modo "terminal" (normal). Nos sirve cuando la ventana está en modo pantalla completa o flotante.  
+<kbd>Windows</kbd> + <kbd>M</kbd> : Cambiar la ventana actual a modo "completo" (no ocupa la polybar). Presione la mismas teclas para volver a modo "terminal" (normal).  
+<kbd>Windows</kbd> + <kbd>F</kbd> : Cambiar la ventana actual a modo pantalla completa (ocupa todo incluyendo la polybar).  
+<kbd>Windows</kbd> + <kbd>S</kbd> : Cambiar la ventana actual a modo "flotante".  
+<kbd>Windows</kbd> + <kbd>Alt</kbd> + <kbd>(1,2,3,4,5,6,7,8,9,0)</kbd> : Mover la ventana actual a otro workspace.  
+<kbd>Windows</kbd> + <kbd>Alt</kbd> + <kbd>(⬆⬅⬇➡)</kbd> : Cambiar el tamaño de la ventana actual (solo funciona si está en modo terminal o flotante).  
+<kbd>Windows</kbd> + <kbd>Ctrl</kbd> + <kbd>(⬆⬅⬇➡)</kbd> : Cambiar la posición de la ventana actual (solo funciona en modo flotante).  
+<kbd>Windows</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd> : Abrir Google Chrome (es necesario instalarlo primero).  
+<kbd>Windows</kbd> + <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>(⬆⬅⬇➡)</kbd> : Mostrar una preselección para luego abrir una ventana (una terminal, Google Chrome, un archivo, etc.). <kbd>Windows</kbd> + <kbd>Ctrl</kbd> + <kbd>Space</kbd> para deshacer la preselección.
+
 ## Créditos
 - Autor del script: Juanfu224 --> https://github.com/Juanfu224
 - Autor de Papirus: Papirus Development Team --> https://github.com/PapirusDevelopmentTeam
