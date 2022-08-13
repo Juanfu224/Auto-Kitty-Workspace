@@ -152,8 +152,8 @@ def p10k():
     os.system("sudo rm -r ~/Auto-Linux-Mint/sudo.plugin*")
     os.system("sudo mkdir -p ~/.config/nvim")
     os.system("sudo mkdir -p /root/.config/nvim")
-    os.system("sudo cp nvim/* ~/.config/nvim")
-    os.system("sudo cp nvim/* /root/.config/nvim")
+    os.system("sudo cp tools/nvim/* ~/.config/nvim")
+    os.system("sudo cp tools/nvim/* /root/.config/nvim")
 
     time.sleep(2)
     green()
