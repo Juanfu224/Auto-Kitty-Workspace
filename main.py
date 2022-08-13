@@ -130,7 +130,7 @@ def fonts():
 
 def p10k():
     green()
-    print("\nInstalando y configurando Powerlevel10k, plugins, FZF, etc....\n")
+    print("\nInstalando y configurando Powerlevel10k, plugins, FZF, Nvim, etc....\n")
 
     # Instalamos Powerlevel10k, bat, lsd, git, scrub, FZF, plugins....
     os.system("sudo apt install zsh git zsh-autosuggestions zsh-syntax-highlighting scrub neovim")
