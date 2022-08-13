@@ -1,5 +1,5 @@
 # Auto-Linux-Mint
-Automatiza la instalación y la configuración del entorno de trabajo de S4vitar en Bspwm, Powerlevel10k, HNF y algunos de los programas de escritorio mas utilizados. Es compatible con Linux Mint o cualquier distribución basada en Ubuntu y Debian. Testeado en Linux Mint, Ubuntu y Kali Linux.
+Es compatible con Linux Mint o cualquier distribución basada en Ubuntu y Debian. Testeado en Linux Mint, Ubuntu y Kali Linux.
 
 ## El script consta de 10 funciones distintas:
 - Instalar tema Papirus.
