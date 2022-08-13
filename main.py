@@ -50,7 +50,7 @@ def menu():
     time.sleep(0.5)
     print("\n2 -> Instalar Hack Nerd Fonts")
     time.sleep(0.5)
-    print("\n3 -> Instalar y configurar Powerlevel10k, plugins, FZF, etc...")
+    print("\n3 -> Instalar y configurar Powerlevel10k, plugins, FZF, Nvim, etc...")
     time.sleep(0.5)
     print("\n4 -> Instalar NordVPN")
     time.sleep(0.5)
@@ -133,7 +133,7 @@ def p10k():
     print("\nInstalando y configurando Powerlevel10k, plugins, FZF, etc....\n")
 
     # Instalamos Powerlevel10k, bat, lsd, git, scrub, FZF, plugins....
-    os.system("sudo apt install zsh git zsh-autosuggestions zsh-syntax-highlighting scrub")
+    os.system("sudo apt install zsh git zsh-autosuggestions zsh-syntax-highlighting scrub neovim")
     os.system("sudo dpkg -i ~/Auto-Linux-Mint/tools/bat_0.21.0_amd64.deb")
     os.system("sudo dpkg -i ~/Auto-Linux-Mint/tools/lsd_0.22.0_amd64.deb")
     os.system("sudo wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh")
@@ -150,11 +150,15 @@ def p10k():
     os.system("sudo cp -r ~/Auto-Linux-Mint/tools/.zshrc /root")
     os.system("sudo cp -r ~/Auto-Linux-Mint/tools/.p10k.zsh /root")
     os.system("sudo rm -r ~/Auto-Linux-Mint/sudo.plugin*")
+    os.system("sudo mkdir -p ~/.config/nvim")
+    os.system("sudo mkdir -p /root/.config/nvim")
+    os.system("sudo cp nvim/* ~/.config/nvim")
+    os.system("sudo cp nvim/* /root/.config/nvim")
 
     time.sleep(2)
     green()
     print("\n[+] La instalación y la configuración de Powerlevel10k se ha realizado correctamente")
-    print("\nRecuerda cambiar la tipografia de la terminal a Hack Nerd Font Mono para que funcione Powerlevel10k\n")
+    print("\nRecuerda cambiar la tipografia de la terminal a Hack Nerd Font para que funcione Powerlevel10k\n")
 
 def vpn():
     green()
