@@ -41,6 +41,11 @@ python3 main.py
 sudo usermod --shell /usr/bin/zsh [USUARIO]
 sudo usermod --shell /usr/bin/zsh root
 ```
+## Configurar IP en la Polybar:
+En el caso de que de error al mostrarse la IP en la polybar, hay que cambiar "wlp1s0" por el nombre de tu tarjeta de red en el siguiente archivo:
+```
+~/.config/bin/ethernet_status.sh 
+```
 
 ## Utilidades:
 - **Bspwm**: Tiling Window Manager.
