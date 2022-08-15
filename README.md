@@ -47,7 +47,7 @@ En el caso de que de error al mostrarse la IP en la polybar, hay que cambiar "wl
 ~/.config/bin/ethernet_status.sh 
 ```
 
-## Utilidades:
+# Utilidades:
 - **Bspwm**: Tiling Window Manager.
 - **ZSH**: Shell.
 - **Powerlevel10k**: Tema de la zsh.
