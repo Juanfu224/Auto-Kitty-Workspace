@@ -157,8 +157,8 @@ def p10k():
     os.system("sudo rm -r ~/Auto-Linux-Mint/sudo.plugin*")
     os.system("sudo mkdir -p ~/.config/nvim")
     os.system("sudo mkdir -p /root/.config/nvim")
-    os.system("sudo cp tools/nvim/* ~/.config/nvim")
-    os.system("sudo cp tools/nvim/* /root/.config/nvim")
+    os.system("sudo cp ~/Auto-Linux-Mint/tools/nvim/* ~/.config/nvim")
+    os.system("sudo cp ~/Auto-Linux-Mint/tools/nvim/* /root/.config/nvim")
 
     time.sleep(2)
     green()
@@ -215,7 +215,7 @@ def bspwm():
 
     # Elimina los archivos de sxhkd
     os.system("sudo rm -r contrib/ doc/ examples/ src/ grab.o helpers.o LICENSE Makefile parse.o README.md Sourcedeps sxhkd sxhkd.o types.o VERSION")
-    os.system("cp tools/bspwm/sxhkdrc ~/.config/sxhkd")
+    os.system("cp ~/Auto-Linux-Mint/tools/bspwm/sxhkdrc ~/.config/sxhkd")
     
     time.sleep(2)
     green()
@@ -250,7 +250,7 @@ def bspwm():
 
     # Añade el wallpaper
     os.system("mkdir ~/.wallpapers")
-    os.system("cp tools/bspwm/wallpaper.jpg ~/.wallpapers")
+    os.system("cp ~/Auto-Linux-Mint/tools/bspwm/wallpaper.jpg ~/.wallpapers")
     os.system("echo 'feh --bg-fill ~/.wallpapers/wallpaper.jpg' >> ~/.config/bspwm/bspwmrc")
     os.system("echo 'xsetroot -cursor_name left_ptr &' >> ~/.config/bspwm/bspwmrc")
     os.system("echo 'wmname LG3D &' >> ~/.config/bspwm/bspwmrc")
@@ -266,7 +266,7 @@ def bspwm():
     #os.system("fc-cache -v")                                                          |
 
     # Copia el tema de polybar a ~/.config
-    os.system("cp tools/bspwm/polybar-backup.zip .")
+    os.system("cp ~/Auto-Linux-Mint/tools/bspwm/polybar-backup.zip .")
     os.system("unzip polybar-backup.zip")
     os.system("sudo mv polybar-backup/ ~/.config/")
     os.system("sudo rm -r ~/.config/polybar/ 2>/dev/null")
@@ -280,10 +280,10 @@ def bspwm():
     expback = input("\nDesea usear los experimental-backends en picom? Si no se activa se puede detectar lentitud en el equipo al no disponer de una buena GPU. si/no -> ")
 
     if expback == "si":
-        os.system("cp tools/bspwm/picom.conf ~/.config/picom")
+        os.system("cp ~/Auto-Linux-Mint/tools/bspwm/picom.conf ~/.config/picom")
 
     if expback == "no":
-        os.system("cp tools/bspwm/picom-blur.conf ~/.config/picom/picom.conf")
+        os.system("cp ~/Auto-Linux-Mint/tools/bspwm/picom-blur.conf ~/.config/picom/picom.conf")
 
     os.system("echo 'bspc config border_width 0' >> ~/.config/bspwm/bspwmrc")
     os.system("mkdir ~/.config/bin")
@@ -293,30 +293,30 @@ def bspwm():
     os.system("sudo cp ~/.config/polybar/fonts/* /usr/share/fonts")
 
     # Mete el ethernet_status.sh, hackthebox_status.sh, target_to_hack.sh y target en ~/.config/bin
-    os.system("chmod +x tools/bspwm/ethernet_status.sh 2>/dev/null")
-    os.system("mv tools/bspwm/ethernet_status.sh ~/.config/bin")
-    os.system("chmod +x tools/bspwm/hackthebox.sh")
-    os.system("mv tools/bspwm/hackthebox.sh ~/.config/bin")
-    os.system("cp tools/bspwm/target_to_hack.sh .")
-    os.system("chmod +x tools/bspwm/target_to_hack.sh")
-    os.system("mv tools/bspwm/target_to_hack.sh ~/.config/bin")
+    os.system("chmod +x ~/Auto-Linux-Mint/tools/bspwm/ethernet_status.sh 2>/dev/null")
+    os.system("mv ~/Auto-Linux-Mint/tools/bspwm/ethernet_status.sh ~/.config/bin")
+    os.system("chmod +x ~/Auto-Linux-Mint/tools/bspwm/hackthebox.sh")
+    os.system("mv ~/Auto-Linux-Mint/tools/bspwm/hackthebox.sh ~/.config/bin")
+    os.system("cp ~/Auto-Linux-Mint/tools/bspwm/target_to_hack.sh .")
+    os.system("chmod +x ~/Auto-Linux-Mint/tools/bspwm/target_to_hack.sh")
+    os.system("mv ~/Auto-Linux-Mint/tools/bspwm/target_to_hack.sh ~/.config/bin")
     os.system("echo '' > ~/.config/bin/target")
-    os.system("chmod +x tools/bspwm/battery.sh")
-    os.system("mv tools/bspwm/battery.sh ~/.config/bin/")
+    os.system("chmod +x ~/Auto-Linux-Mint/tools/bspwm/battery.sh")
+    os.system("mv ~/Auto-Linux-Mint/tools/bspwm/battery.sh ~/.config/bin/")
     os.system("echo '' > ~/.config/bin/target")
 
     # Copia la config de polybar personalizada
-    #os.system("cp tools/bspwm/launch.sh ~/.config/polybar")
-    #os.system("cp tools/bspwm/current.ini ~/.config/polybar")
+    #os.system("cp ~/Auto-Linux-Mint/tools/bspwm/launch.sh ~/.config/polybar")
+    #os.system("cp ~/Auto-Linux-Mint/tools/bspwm/current.ini ~/.config/polybar")
 
     # Copia la config de rofi personalizada
     os.system("mkdir ~/.config/rofi")
     os.system("mkdir ~/.config/rofi/themes")
-    os.system("cp tools/bspwm/nord.rasi ~/.config/rofi/themes")
+    os.system("cp ~/Auto-Linux-Mint/tools/bspwm/nord.rasi ~/.config/rofi/themes")
 
     # Mueve los comandos settarget y cleartarget a /bin
-    os.system("sudo cp tools/bspwm/settarget /bin")
-    os.system("sudo cp tools/bspwm/cleartarget /bin")
+    os.system("sudo cp ~/Auto-Linux-Mint/tools/bspwm/settarget /bin")
+    os.system("sudo cp ~/Auto-Linux-Mint/tools/bspwm/cleartarget /bin")
     os.system("sudo chmod +x /bin/settarget")
     os.system("sudo chmod +x /bin/cleartarget")
 
