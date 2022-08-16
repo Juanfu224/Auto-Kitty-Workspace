@@ -165,10 +165,9 @@ def p10k():
     print("\n[+] La instalación y la configuración de Powerlevel10k se ha realizado correctamente")
     print("\nRecuerda cambiar la tipografia de la terminal a Hack Nerd Font para que funcione Powerlevel10k\n")
 
-
 def bspwm():
     green()
-    print("\n[+] Instalando requerimientos...\n")
+    print("[+] Instalando requerimientos necesarios...\n")
 
     # Instalando Requerimientos
     os.system("sudo apt-get update -y")
@@ -176,24 +175,26 @@ def bspwm():
     os.system("sudo apt install cmake cmake-data pkg-config python3-sphinx libcairo2-dev libxcb1-dev libxcb-util0-dev libxcb-randr0-dev libxcb-composite0-dev python3-xcbgen xcb-proto libxcb-image0-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-xkb-dev libxcb-xrm-dev libxcb-cursor-dev libasound2-dev libpulse-dev libjsoncpp-dev libmpdclient-dev libcurl4-openssl-dev libnl-genl-3-dev -y")
     os.system("sudo apt install meson libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev libxcb-xinerama0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl1-mesa-dev libpcre2-dev libevdev-dev uthash-dev libev-dev libx11-xcb-dev libxcb-glx0-dev -y")
     os.system("sudo apt install bspwm rofi caja feh gnome-terminal scrot neovim xclip tmux acpi scrub bat wmname -y")
-
+    os.system("sudo apt-get -f -y install")
+    os.system("sudo apt autoclean")
+   
     time.sleep(2)
     green()
     print("\n[+] Requetimientos instalados correctamente\n")
 
-    # Clona el repositorio de bspwm
+    # Clona la repo de bspwm
     os.system("git clone https://github.com/baskerville/bspwm.git")
     os.system("mv bspwm/* .")
     os.system("sudo rm -r bspwm/")
     os.system("make")
 
-    # Acaba el build
+    # Acava del build
     os.system("sudo make install")
 
     # Elimina los archivos de bspwm
     os.system("sudo rm -r artworks/ contrib/ doc/ src/ tests/ bspc bspc.o bspwm bspwm.o desktop.o events.o ewmh.o geometry.o helpers.o history.o jsmn.o LICENSE Makefile messages.o monitor.o parse.o pointer.o query.o README.md restore.o rule.o settings.o Sourcedeps stack.o subscribe.o tree.o VERSION window.o")
 
-    # Clona el repositorio de sxhkd
+    # Clona la repo de sxhkd
     os.system("git clone https://github.com/baskerville/sxhkd.git")
     os.system("mv sxhkd/* .")
     os.system("sudo rm -r sxhkd/")
@@ -204,21 +205,25 @@ def bspwm():
     os.system("sudo make install")
 
     # Crea las carpetas de bspwm y sxhkd en ~/.config
-    os.system("sudo mkdir ~/.config/bspwm")
-    os.system("sudo mkdir ~/.config/sxhkd")
-    os.system("sudo cp examples/bspwmrc ~/.config/bspwm/")
+    os.system("mkdir ~/.config/bspwm")
+    os.system("mkdir ~/.config/sxhkd")
+    os.system("cp examples/bspwmrc ~/.config/bspwm/")
 
     # Les da permisos de ejecucion a bspwmrc
-    os.system("sudo chmod +x ~/.config/bspwm/bspwmrc")
-    os.system("sudo cp examples/sxhkdrc ~/.config/sxhkd/")
+    os.system("chmod +x ~/.config/bspwm/bspwmrc")
+    os.system("cp examples/sxhkdrc ~/.config/sxhkd/")
 
     # Elimina los archivos de sxhkd
     os.system("sudo rm -r contrib/ doc/ examples/ src/ grab.o helpers.o LICENSE Makefile parse.o README.md Sourcedeps sxhkd sxhkd.o types.o VERSION")
-    os.system("sudo cp tools/bspwm/sxhkdrc ~/.config/sxhkd")
+    os.system("cp tools/bspwm/sxhkdrc ~/.config/sxhkd")
+    
+    time.sleep(2)
+    green()
+    print("\n[+] Bspwm instalado correctamente!")
 
     # Clona el repo de polybar
     os.system("git clone --recursive https://github.com/polybar/polybar")
-    os.system("sudo mv polybar/* .")
+    os.system("mv polybar/* .")
     os.system("sudo rm -r polybar/")
     os.system("cmake .")
     os.system("make -j$(nproc)")
@@ -231,7 +236,7 @@ def bspwm():
 
     # Clona el repo de picom
     os.system("git clone https://github.com/ibhagwan/picom.git")
-    os.system("sudo mv picom/* .")
+    os.system("mv picom/* .")
     os.system("sudo rm -r picom/")
     os.system("git submodule update --init --recursive")
     os.system("meson --buildtype=release . build")
@@ -244,15 +249,24 @@ def bspwm():
     os.system("sudo rm -r *.md *.conf *.desktop *.txt *.build *.spdx *.glsl COPYING Doxyfile CONTRIBUTORS bin/ build/ dbus-examples/ LICENSES/ man/ media/ meson/ src/ subprojects/ tests/")
 
     # Añade el wallpaper
-    os.system("sudo mkdir ~/.wallpapers")
-    os.system("sudo cp tools/bspwm/wallpaper.jpg ~/.wallpapers")
+    os.system("mkdir ~/.wallpapers")
+    os.system("cp tools/bspwm/wallpaper.jpg ~/.wallpapers")
+    os.system("echo 'feh --bg-fill ~/.wallpapers/wallpaper.jpg' >> ~/.config/bspwm/bspwmrc")
+    os.system("echo 'xsetroot -cursor_name left_ptr &' >> ~/.config/bspwm/bspwmrc")
+    os.system("echo 'wmname LG3D &' >> ~/.config/bspwm/bspwmrc")
 
     # Clona el tema de blue-sky
     os.system("git clone https://github.com/VaughnValle/blue-sky.git")
-    os.system("sudo mkdir ~/.config/polybar")
+    os.system("mkdir ~/.config/polybar")
+
+    # Copia el tema de blue-sky a la config de polybar                                 |
+    #os.system("cp -r blue-sky/polybar/* ~/.config/polybar")                           |
+    #os.system("echo '~/.config/polybar/./launch.sh' >> ~/.config/bspwm/bspwmrc")      | #OLD SETTINGS
+    #os.system("sudo cp blue-sky/polybar/fonts/* /usr/share/fonts/truetype")           |
+    #os.system("fc-cache -v")                                                          |
 
     # Copia el tema de polybar a ~/.config
-    os.system("sudo cp tools/bspwm/polybar-backup.zip .")
+    os.system("cp tools/bspwm/polybar-backup.zip .")
     os.system("unzip polybar-backup.zip")
     os.system("sudo mv polybar-backup/ ~/.config/")
     os.system("sudo rm -r ~/.config/polybar/ 2>/dev/null")
@@ -260,10 +274,10 @@ def bspwm():
     os.system("echo '~/.config/polybar/./launch.sh' >> ~/.config/bspwm/bspwmrc")
 
     # Copia la config de picom
-    os.system("sudo mkdir ~/.config/picom")
+    os.system("mkdir ~/.config/picom")
     os.system("echo 'bspc config focus_follows_pointer true' >> ~/.config/bspwm/bspwmrc")
-
-    expback = input("\nDesea usar los experimental-backends en picom? Si no se activa se puede detectar lentitud en el equipo al no disponer de una buena GPU. si/no -> ")
+    
+    expback = input("\nDesea usear los experimental-backends en picom? Si no se activa se puede detectar lentitud en el equipo al no disponer de una buena GPU. si/no -> ")
 
     if expback == "si":
         os.system("cp tools/bspwm/picom.conf ~/.config/picom")
@@ -279,21 +293,25 @@ def bspwm():
     os.system("sudo cp ~/.config/polybar/fonts/* /usr/share/fonts")
 
     # Mete el ethernet_status.sh, hackthebox_status.sh, target_to_hack.sh y target en ~/.config/bin
-    os.system("sudo chmod +x /tools/bspwm/ethernet_status.sh 2>/dev/null")
-    os.system("sudo mv /tools/bspwm/ethernet_status.sh ~/.config/bin")
-    os.system("sudo chmod +x /tools/bspwm/hackthebox.sh")
-    os.system("sudo mv hackthebox.sh ~/.config/bin")
-    os.system("sudo cp tools/bspwm/target_to_hack.sh .")
-    os.system("sudo chmod +x target_to_hack.sh")
-    os.system("sudo mv target_to_hack.sh ~/.config/bin")
+    os.system("chmod +x tools/bspwm/ethernet_status.sh 2>/dev/null")
+    os.system("mv tools/bspwm/ethernet_status.sh ~/.config/bin")
+    os.system("chmod +x tools/bspwm/hackthebox.sh")
+    os.system("mv tools/bspwm/hackthebox.sh ~/.config/bin")
+    os.system("cp tools/bspwm/target_to_hack.sh .")
+    os.system("chmod +x tools/bspwm/target_to_hack.sh")
+    os.system("mv tools/bspwm/target_to_hack.sh ~/.config/bin")
     os.system("echo '' > ~/.config/bin/target")
-    os.system("sudo chmod +x tools/bspwm/battery.sh")
+    os.system("chmod +x tools/bspwm/battery.sh")
     os.system("mv tools/bspwm/battery.sh ~/.config/bin/")
     os.system("echo '' > ~/.config/bin/target")
 
+    # Copia la config de polybar personalizada
+    #os.system("cp tools/bspwm/launch.sh ~/.config/polybar")
+    #os.system("cp tools/bspwm/current.ini ~/.config/polybar")
+
     # Copia la config de rofi personalizada
-    os.system("sudo mkdir ~/.config/rofi")
-    os.system("sudo mkdir ~/.config/rofi/themes")
+    os.system("mkdir ~/.config/rofi")
+    os.system("mkdir ~/.config/rofi/themes")
     os.system("cp tools/bspwm/nord.rasi ~/.config/rofi/themes")
 
     # Mueve los comandos settarget y cleartarget a /bin
@@ -301,29 +319,6 @@ def bspwm():
     os.system("sudo cp tools/bspwm/cleartarget /bin")
     os.system("sudo chmod +x /bin/settarget")
     os.system("sudo chmod +x /bin/cleartarget")
-
-    # Instalando Oh My Tmux
-    os.system("git clone https://github.com/gpakosz/.tmux.git /home/$USER/.tmux")
-    os.system("ln -s -f .tmux/.tmux.conf /home/$USER")
-    os.system("cp /home/$USER/.tmux/.tmux.conf.local /home/$USER")
-
-    # Instalando Oh My Tmux para root
-    os.system("sudo git clone https://github.com/gpakosz/.tmux.git /root/.tmux")
-    os.system("sudo ln -s -f .tmux/.tmux.conf /root")
-    os.system("sudo cp /root/.tmux/.tmux.conf.local /root")
-
-    # Instalando fastTCPscan.go
-    os.system("sudo chmod +x tools/bspwm/fastTCPscan.go")
-    os.system("sudo cp tools/bspwm/fastTCPscan.go /bin")
-
-    # Instalando wichSystem.py
-    os.system("sudo chmod +x tools/bspwm/wichSystem.py")
-    os.system("sudo mv tools/bspwm/wichSystem.py /bin/")
-
-    time.sleep(2)
-    green()
-    print("\n[+] Bspwm se ha instalado y configurado correctamente\n")
-
 
 def vpn():
     green()
