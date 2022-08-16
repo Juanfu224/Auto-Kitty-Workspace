@@ -181,7 +181,8 @@ def bspwm():
     time.sleep(2)
     green()
     print("\n[+] Requetimientos instalados correctamente\n")
-
+    print("\n[+] Instalando y configurando bspwm.....\n")
+    
     # Clona la repo de bspwm
     os.system("git clone https://github.com/baskerville/bspwm.git")
     os.system("mv bspwm/* .")
@@ -217,10 +218,6 @@ def bspwm():
     os.system("sudo rm -r contrib/ doc/ examples/ src/ grab.o helpers.o LICENSE Makefile parse.o README.md Sourcedeps sxhkd sxhkd.o types.o VERSION")
     os.system("cp ~/Auto-Linux-Mint/tools/bspwm/sxhkdrc ~/.config/sxhkd")
     
-    time.sleep(2)
-    green()
-    print("\n[+] Bspwm instalado correctamente!")
-
     # Clona el repo de polybar
     os.system("git clone --recursive https://github.com/polybar/polybar")
     os.system("mv polybar/* .")
@@ -337,6 +334,10 @@ def bspwm():
     # Instalando wichSystem.py
     os.system("chmod +x ~/Auto-Linux-Mint/tools/bspwm/wichSystem.py")
     os.system("sudo mv ~/Auto-Linux-Mint/tools/bspwm/wichSystem.py /bin/")
+    
+    time.sleep(2)
+    green()
+    print("\n[+] Bspwm se ha instalado y configurado correctamente\n")
 
 def vpn():
     green()
