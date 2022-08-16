@@ -319,6 +319,24 @@ def bspwm():
     os.system("sudo cp ~/Auto-Linux-Mint/tools/bspwm/cleartarget /bin")
     os.system("sudo chmod +x /bin/settarget")
     os.system("sudo chmod +x /bin/cleartarget")
+    
+    # Instalando Oh My Tmux
+    os.system("git clone https://github.com/gpakosz/.tmux.git /home/$USER/.tmux")
+    os.system("ln -s -f .tmux/.tmux.conf /home/$USER")
+    os.system("cp /home/$USER/.tmux/.tmux.conf.local /home/$USER")
+    
+    # Instalando Oh My Tmux para root
+    os.system("sudo git clone https://github.com/gpakosz/.tmux.git /root/.tmux")
+    os.system("sudo ln -s -f .tmux/.tmux.conf /root")
+    os.system("sudo cp /root/.tmux/.tmux.conf.local /root")
+
+    # Instalando fastTCPscan.go
+    os.system("chmod +x ~/Auto-Linux-Mint/tools/bspwm/fastTCPscan.go")
+    os.system("sudo cp ~/Auto-Linux-Mint/tools/bspwm/fastTCPscan.go /bin")
+
+    # Instalando wichSystem.py
+    os.system("chmod +x ~/Auto-Linux-Mint/tools/bspwm/wichSystem.py")
+    os.system("sudo mv ~/Auto-Linux-Mint/tools/bspwm/wichSystem.py /bin/")
 
 def vpn():
     green()
