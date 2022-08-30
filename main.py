@@ -106,7 +106,7 @@ def papirus():
     green()
     print("\n[+] Instalando Papirus....\n")
 
-    # Instalando Papirus
+    # Instalando Tema Papirus
     os.system("sudo add-apt-repository ppa:papirus/papirus")
     os.system("sudo apt-get update")
     os.system("sudo apt-get install papirus-icon-theme papirus-folders")
