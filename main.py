@@ -302,10 +302,6 @@ def bspwm():
     os.system("mv ~/Auto-Linux-Mint/tools/bspwm/battery.sh ~/.config/bin/")
     os.system("echo '' > ~/.config/bin/target")
 
-    # Copia la config de polybar personalizada
-    #os.system("cp ~/Auto-Linux-Mint/tools/bspwm/launch.sh ~/.config/polybar")
-    #os.system("cp ~/Auto-Linux-Mint/tools/bspwm/current.ini ~/.config/polybar")
-
     # Copia la config de rofi personalizada
     os.system("mkdir ~/.config/rofi")
     os.system("mkdir ~/.config/rofi/themes")
@@ -334,6 +330,9 @@ def bspwm():
     # Instalando wichSystem.py
     os.system("chmod +x ~/Auto-Linux-Mint/tools/bspwm/wichSystem.py")
     os.system("sudo mv ~/Auto-Linux-Mint/tools/bspwm/wichSystem.py /bin/")
+    
+    # Copiamos configuración de Rofi
+    os.system("cp ~/Auto-Linux-Mint/tools/bspwm/powermenu_alt.rasi ~/.config/polybar/scripts/themes/powermenu_alt.rasi")
     
     time.sleep(2)
     green()
