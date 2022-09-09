@@ -61,6 +61,9 @@ alias lla='lsd -lha --group-dirs=first'
 alias ls='lsd --group-dirs=first'
 alias cat='bat'
 alias clean-zsh-history='rm $HISTFILE'
+alias more-light='sudo brightnessctl set +5%'
+alias less-light='sudo brightnessctl set 5-%'
+alias set-volumen='pamix'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
