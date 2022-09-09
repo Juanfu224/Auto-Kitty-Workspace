@@ -404,8 +404,8 @@ def discord():
     print("\nInstalando Discord....\n")
 
 # Instalamos Discord
-    os.system("sudo wget https://dl.discordapp.net/apps/linux/0.0.18/discord-0.0.18.deb")
-    os.system("sudo dpkg -i discord-0.0.18.deb")
+    os.system("sudo wget https://dl.discordapp.net/apps/linux/0.0.19/discord-0.0.19.deb")
+    os.system("sudo dpkg -i discord-0.0.19.deb")
     os.system("sudo apt-get -f install")
     os.system("sudo rm -r discord*")
 
