@@ -138,7 +138,7 @@ def p10k():
     print("\nInstalando y configurando Powerlevel10k, plugins, FZF, Nvim, etc....\n")
 
     # Instalamos Powerlevel10k, bat, lsd, git, scrub, FZF, plugins....
-    os.system("sudo apt install zsh git zsh-autosuggestions zsh-syntax-highlighting scrub neovim")
+    os.system("sudo apt install zsh git zsh-autosuggestions zsh-syntax-highlighting scrub neovim fzf")
     os.system("sudo dpkg -i ~/Auto-Linux-Mint/tools/zsh/bat_0.21.0_amd64.deb")
     os.system("sudo dpkg -i ~/Auto-Linux-Mint/tools/zsh/lsd_0.22.0_amd64.deb")
     os.system("sudo wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh")
