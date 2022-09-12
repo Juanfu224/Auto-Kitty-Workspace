@@ -50,7 +50,7 @@ def menu():
     time.sleep(0.5)
     print("\n2 -> Instalar Hack Nerd Fonts")
     time.sleep(0.5)
-    print("\n3 -> Instalar y configurar Powerlevel10k, plugins, Nvim, FZF, etc...")
+    print("\n3 -> Instalar y configurar Powerlevel10k, Kitty, Nvim, FZF, etc...")
     time.sleep(0.5)
     print("\n4 -> Instalar y configurar Bspwm, Polybar, Picom y Rofi")
     time.sleep(0.5)
@@ -137,8 +137,8 @@ def p10k():
     green()
     print("\nInstalando y configurando Powerlevel10k, plugins, FZF, Nvim, etc....\n")
 
-    # Instalamos Powerlevel10k, bat, lsd, git, scrub, FZF, plugins....
-    os.system("sudo apt install zsh git zsh-autosuggestions zsh-syntax-highlighting scrub neovim fzf")
+    # Instalamos Powerlevel10k, kitty, bat, lsd, git, scrub, FZF, plugins....
+    os.system("sudo apt install zsh git zsh-autosuggestions zsh-syntax-highlighting scrub neovim fzf kitty")
     os.system("sudo dpkg -i ~/Auto-Linux-Mint/tools/zsh/bat*")
     os.system("sudo dpkg -i ~/Auto-Linux-Mint/tools/zsh/lsd*")
     os.system("sudo wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh")
@@ -151,6 +151,8 @@ def p10k():
     os.system("sudo mkdir /usr/share/zsh-sudo")
     os.system("sudo cp -r sudo.plugin.zsh /usr/share/zsh-sudo")
     os.system("sudo cp -r ~/Auto-Linux-Mint/tools/zsh/.zshrc ~/")
+    os.system("sudo cp -r ~/Auto-Linux-Mint/tools/terminal/kitty.conf ~/.config/kitty")
+    os.system("sudo cp -r ~/Auto-Linux-Mint/tools/terminal/color.ini ~/.config/kitty")
     os.system("sudo cp -r ~/Auto-Linux-Mint/tools/zsh/.p10k.zsh ~/")
     os.system("sudo cp -r ~/Auto-Linux-Mint/tools/zsh/.zshrc /root")
     os.system("sudo cp -r ~/Auto-Linux-Mint/tools/zsh/.p10k.zsh /root")
