@@ -342,7 +342,6 @@ def bspwm():
     green()
     print("\n[+] Bspwm se ha instalado y configurado correctamente\n")
 
-
 def vpn():
     green()
     print("\nInstalando NordVPN....\n")
