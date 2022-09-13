@@ -109,7 +109,7 @@ def papirus():
     # Instalando Tema Papirus
     os.system("sudo add-apt-repository ppa:papirus/papirus")
     os.system("sudo apt-get update")
-    os.system("sudo apt-get install papirus-icon-theme papirus-folders")
+    os.system("sudo apt-get install papirus-icon-theme papirus-folders -y")
     os.system("papirus-folders -l --theme Papirus-Dark")
     os.system("papirus-folders -C yaru --theme Papirus-Dark")
     os.system("sudo add-apt-repository --remove ppa:papirus/papirus")
@@ -138,7 +138,7 @@ def p10k():
     print("\nInstalando y configurando Powerlevel10k, plugins, FZF, Nvim, etc....\n")
 
     # Instalamos Powerlevel10k, kitty, bat, lsd, git, scrub, FZF, plugins....
-    os.system("sudo apt install zsh git zsh-autosuggestions zsh-syntax-highlighting scrub neovim fzf kitty")
+    os.system("sudo apt install zsh git zsh-autosuggestions zsh-syntax-highlighting scrub neovim fzf kitty -y")
     os.system("sudo dpkg -i ~/Auto-Linux-Mint/tools/zsh/bat*")
     os.system("sudo dpkg -i ~/Auto-Linux-Mint/tools/zsh/lsd*")
     os.system("sudo rm -r kitty")
@@ -178,7 +178,7 @@ def bspwm():
     os.system("sudo apt install net-tools libuv1-dev build-essential git vim xcb libxcb-util0-dev libxcb-ewmh-dev libxcb-randr0-dev libxcb-icccm4-dev libxcb-keysyms1-dev libxcb-xinerama0-dev libasound2-dev libxcb-xtest0-dev libxcb-shape0-dev -y")
     os.system("sudo apt install cmake cmake-data pkg-config python3-sphinx libcairo2-dev libxcb1-dev libxcb-util0-dev libxcb-randr0-dev libxcb-composite0-dev python3-xcbgen xcb-proto libxcb-image0-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-xkb-dev libxcb-xrm-dev libxcb-cursor-dev libasound2-dev libpulse-dev libjsoncpp-dev libmpdclient-dev libcurl4-openssl-dev libnl-genl-3-dev -y")
     os.system("sudo apt install meson libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev libxcb-xinerama0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl1-mesa-dev libpcre2-dev libevdev-dev uthash-dev libev-dev libx11-xcb-dev libxcb-glx0-dev -y")
-    os.system("sudo apt install bspwm rofi caja feh scrot xclip tmux acpi scrub bat wmname pulseaudio alsa-utils pamix -y")
+    os.system("sudo apt install bspwm rofi caja feh scrot xclip tmux acpi scrub bat wmname pulseaudio alsa-utils pamix brightnessctl -y")
     os.system("sudo apt-get -f -y install")
     os.system("sudo apt autoclean")
 
@@ -374,7 +374,7 @@ def vbox():
 # Instalamos VirtualBox....
     os.system("sudo wget https://download.virtualbox.org/virtualbox/6.1.38/virtualbox-6.1_6.1.38-153438~Ubuntu~jammy_amd64.deb")
     os.system("sudo dpkg -i virtualbox-6.1_6.1.38-153438~Ubuntu~jammy_amd64.deb")
-    os.system("sudo apt-get -f install")
+    os.system("sudo apt -f -y install")
     os.system("sudo rm -r virtualbox*")
 
     time.sleep(2)
@@ -397,7 +397,7 @@ def ink():
 
 # Instalamos Gimp....
     os.system("sudo apt update")
-    os.system("sudo apt install gimp")
+    os.system("sudo apt -f -y install gimp")
 
     time.sleep(2)
     green()
@@ -410,7 +410,7 @@ def discord():
 # Instalamos Discord
     os.system("sudo wget https://dl.discordapp.net/apps/linux/0.0.19/discord-0.0.19.deb")
     os.system("sudo dpkg -i discord-0.0.19.deb")
-    os.system("sudo apt-get -f install")
+    os.system("sudo apt -f -y install")
     os.system("sudo rm -r discord*")
 
     time.sleep(2)
@@ -420,7 +420,7 @@ def discord():
 
 # Instalamos Telegram....
     os.system("sudo apt update")
-    os.system("sudo apt install telegram-desktop")
+    os.system("sudo apt -f -y install telegram-desktop")
 
     time.sleep(2)
     green()
