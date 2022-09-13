@@ -212,15 +212,15 @@ def bspwm():
     # Crea las carpetas de bspwm y sxhkd en ~/.config
     os.system("mkdir ~/.config/bspwm")
     os.system("mkdir ~/.config/sxhkd")
-    os.system("sudo cp -r examples/bspwmrc ~/.config/bspwm/")
+    os.system("cp examples/bspwmrc ~/.config/bspwm/")
 
     # Les da permisos de ejecucion a bspwmrc
     os.system("chmod +x ~/.config/bspwm/bspwmrc")
-    os.system("sudo cp -r examples/sxhkdrc ~/.config/sxhkd/")
+    os.system("cp examples/sxhkdrc ~/.config/sxhkd/")
 
     # Elimina los archivos de sxhkd
     os.system("sudo rm -r contrib/ doc/ examples/ src/ grab.o helpers.o LICENSE Makefile parse.o README.md Sourcedeps sxhkd sxhkd.o types.o VERSION")
-    os.system("sudo cp -r ~/Auto-Linux-Mint/tools/bspwm/sxhkdrc ~/.config/sxhkd")
+    os.system("cp ~/Auto-Linux-Mint/tools/bspwm/sxhkdrc ~/.config/sxhkd")
     
     # Clona el repo de polybar
     os.system("git clone --recursive https://github.com/polybar/polybar")
@@ -260,8 +260,14 @@ def bspwm():
     os.system("git clone https://github.com/VaughnValle/blue-sky.git")
     os.system("mkdir ~/.config/polybar")
 
+    # Copia el tema de blue-sky a la config de polybar                                 |
+    #os.system("cp -r blue-sky/polybar/* ~/.config/polybar")                           |
+    #os.system("echo '~/.config/polybar/./launch.sh' >> ~/.config/bspwm/bspwmrc")      | #OLD SETTINGS
+    #os.system("sudo cp blue-sky/polybar/fonts/* /usr/share/fonts/truetype")           |
+    #os.system("fc-cache -v")                                                          |
+
     # Copia el tema de polybar a ~/.config
-    os.system("sudo cp -r ~/Auto-Linux-Mint/tools/bspwm/polybar-backup.zip .")
+    os.system("cp ~/Auto-Linux-Mint/tools/bspwm/polybar-backup.zip .")
     os.system("unzip polybar-backup.zip")
     os.system("sudo mv polybar-backup/ ~/.config/")
     os.system("sudo rm -r ~/.config/polybar/ 2>/dev/null")
@@ -271,20 +277,28 @@ def bspwm():
     # Copia la config de picom
     os.system("mkdir ~/.config/picom")
     os.system("echo 'bspc config focus_follows_pointer true' >> ~/.config/bspwm/bspwmrc")
-    os.system("cp ~/Auto-Linux-Mint/tools/bspwm/picom.conf ~/.config/picom")
+    
+    expback = input("\nDesea usear los experimental-backends en picom? Si no se activa se puede detectar lentitud en el equipo al no disponer de una buena GPU. si/no -> ")
+
+    if expback == "si":
+        os.system("cp ~/Auto-Linux-Mint/tools/bspwm/picom.conf ~/.config/picom")
+
+    if expback == "no":
+        os.system("cp ~/Auto-Linux-Mint/tools/bspwm/picom-blur.conf ~/.config/picom/picom.conf")
+
     os.system("echo 'bspc config border_width 0' >> ~/.config/bspwm/bspwmrc")
     os.system("mkdir ~/.config/bin")
     os.system("echo 'picom --experimental-backends &' >> ~/.config/bspwm/bspwmrc")
 
     # Instalacion de Fuentes para Polybar
-    os.system("sudo cp -r ~/.config/polybar/fonts/* /usr/share/fonts")
+    os.system("sudo cp ~/.config/polybar/fonts/* /usr/share/fonts")
 
     # Mete el ethernet_status.sh, hackthebox_status.sh, target_to_hack.sh y target en ~/.config/bin
     os.system("chmod +x ~/Auto-Linux-Mint/tools/bspwm/ethernet_status.sh 2>/dev/null")
     os.system("mv ~/Auto-Linux-Mint/tools/bspwm/ethernet_status.sh ~/.config/bin")
     os.system("chmod +x ~/Auto-Linux-Mint/tools/bspwm/hackthebox.sh")
     os.system("mv ~/Auto-Linux-Mint/tools/bspwm/hackthebox.sh ~/.config/bin")
-    os.system("sudo cp -r ~/Auto-Linux-Mint/tools/bspwm/target_to_hack.sh .")
+    os.system("cp ~/Auto-Linux-Mint/tools/bspwm/target_to_hack.sh .")
     os.system("chmod +x ~/Auto-Linux-Mint/tools/bspwm/target_to_hack.sh")
     os.system("mv ~/Auto-Linux-Mint/tools/bspwm/target_to_hack.sh ~/.config/bin")
     os.system("echo '' > ~/.config/bin/target")
@@ -327,6 +341,7 @@ def bspwm():
     time.sleep(2)
     green()
     print("\n[+] Bspwm se ha instalado y configurado correctamente\n")
+
 
 def vpn():
     green()
