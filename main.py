@@ -260,12 +260,6 @@ def bspwm():
     os.system("git clone https://github.com/VaughnValle/blue-sky.git")
     os.system("mkdir ~/.config/polybar")
 
-    # Copia el tema de blue-sky a la config de polybar                                 |
-    #os.system("cp -r blue-sky/polybar/* ~/.config/polybar")                           |
-    #os.system("echo '~/.config/polybar/./launch.sh' >> ~/.config/bspwm/bspwmrc")      | #OLD SETTINGS
-    #os.system("sudo cp blue-sky/polybar/fonts/* /usr/share/fonts/truetype")           |
-    #os.system("fc-cache -v")                                                          |
-
     # Copia el tema de polybar a ~/.config
     os.system("cp ~/Auto-Linux-Mint/tools/bspwm/polybar-backup.zip .")
     os.system("unzip polybar-backup.zip")
@@ -277,15 +271,7 @@ def bspwm():
     # Copia la config de picom
     os.system("mkdir ~/.config/picom")
     os.system("echo 'bspc config focus_follows_pointer true' >> ~/.config/bspwm/bspwmrc")
-
-    expback = input("\nDesea usear los experimental-backends en picom? Si no se activa se puede detectar lentitud en el equipo al no disponer de una buena GPU. si/no -> ")
-
-    if expback == "si":
-        os.system("cp ~/Auto-Linux-Mint/tools/bspwm/picom.conf ~/.config/picom")
-
-    if expback == "no":
-        os.system("cp ~/Auto-Linux-Mint/tools/bspwm/picom-blur.conf ~/.config/picom/picom.conf")
-
+    os.system("cp ~/Auto-Linux-Mint/tools/bspwm/picom.conf ~/.config/picom")
     os.system("echo 'bspc config border_width 0' >> ~/.config/bspwm/bspwmrc")
     os.system("mkdir ~/.config/bin")
     os.system("echo 'picom --experimental-backends &' >> ~/.config/bspwm/bspwmrc")
