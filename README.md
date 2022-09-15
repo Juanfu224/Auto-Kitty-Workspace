@@ -6,7 +6,7 @@ Testeado en Linux Mint, Ubuntu, Kali Linux y Parrot OS.
 ## El script consta de 10 funciones distintas:
 - Instalar tema Papirus.
 - Instalar Hack Nerd Fonts.
-- Instalar y configurar Powerlevel10k, Nvim, FZF, plugins, lsd, bat, etc.
+- Instalar y configurar Powerlevel10k, Kitty, Nvim, FZF, lsd, bat, plugins, etc.
 - Instalar y configurar Bspwm, Polybar, Picom y Rofi
 - Instalar NordVPN (implementado con Powerlevel10k).
 - Instalar VMware y VirtualBox.
