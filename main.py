@@ -139,8 +139,8 @@ def p10k():
 
     # Instalamos Powerlevel10k, kitty, bat, lsd, git, scrub, FZF, plugins....
     os.system("sudo apt install zsh git zsh-autosuggestions zsh-syntax-highlighting scrub neovim fzf kitty -y")
-    os.system("sudo dpkg -i ~/Auto-Linux-Mint/tools/zsh/bat*")
-    os.system("sudo dpkg -i ~/Auto-Linux-Mint/tools/zsh/lsd*")
+    os.system("sudo dpkg -i ~/Auto-Linux-Mint/tools/zsh/bat_0.22.1_amd64.deb")
+    os.system("sudo dpkg -i ~/Auto-Linux-Mint/tools/zsh/lsd_0.23.0_amd64.deb")
     os.system("sudo rm -r kitty")
     os.system("sudo mkdir ~/.config/kitty")
     os.system("sudo wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh")
