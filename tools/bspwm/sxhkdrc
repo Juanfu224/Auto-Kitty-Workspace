@@ -144,6 +144,11 @@ super + shift + g
 super + shift + f
         firefox
 
+# Explorer
+
+super + e
+        nautilus
+
 # Open Burpsuite Professional
 
 super + ctrl + b
