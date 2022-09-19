@@ -48,25 +48,23 @@ def menu():
     time.sleep(0.5)
     print("1 -> Instalar Tema Papirus")
     time.sleep(0.5)
-    print("\n2 -> Instalar Hack Nerd Fonts")
+    print("\n2 -> Instalar y configurar Powerlevel10k, HNF, Kitty, Nvim, FZF, etc...")
     time.sleep(0.5)
-    print("\n3 -> Instalar y configurar Powerlevel10k, Kitty, Nvim, FZF, etc...")
+    print("\n3 -> Instalar y configurar Bspwm, Polybar, Picom y Rofi")
     time.sleep(0.5)
-    print("\n4 -> Instalar y configurar Bspwm, Polybar, Picom y Rofi")
+    print("\n4 -> Instalar NordVPN")
     time.sleep(0.5)
-    print("\n5 -> Instalar NordVPN")
+    print("\n5 -> Instalar VirtualBox")
     time.sleep(0.5)
-    print("\n6 -> Instalar VMware y VirtualBox")
+    print("\n6 -> Instalar Inkscape y Gimp")
     time.sleep(0.5)
-    print("\n7 -> Instalar Inkscape y Gimp")
+    print("\n7 -> Instalar Telegram")
     time.sleep(0.5)
-    print("\n8 -> Instalar Discord y Telegram")
+    print("\n8 -> Instalar Sublime Text")
     time.sleep(0.5)
-    print("\n9 -> Instalar Sublime Text")
+    print("\n9 -> ALL IN ONE")
     time.sleep(0.5)
-    print("\n10 -> ALL IN ONE")
-    time.sleep(0.5)
-    print("\n11 -> Salir")
+    print("\n10 -> Salir")
     time.sleep(0.5)
 
     option = input("\n-->> ")
@@ -74,32 +72,29 @@ def menu():
     if option == "1":
         papirus()
     if option == "2":
-        fonts()
-    if option == "3":
         p10k()
-    if option == "4":
+    if option == "3":
         bspwm()
-    if option == "5":
+    if option == "4":
         vpn()
-    if option == "6":
+    if option == "5":
         vbox()
-    if option == "7":
+    if option == "6":
         ink()
+    if option == "7":
+        telegram()
     if option == "8":
-        discord()
+        sublime()
     if option == "9":
+        papirus()
+        p10k()
+        bspwm()
+        vpn()
+        vbox()
+        ink()
+        telegram()
         sublime()
     if option == "10":
-        papirus()
-        fonts()
-        p10k()
-        bspwm()
-        vpn()
-        vbox()
-        ink()
-        discord()
-        sublime()
-    if option == "11":
         exit()
 
 def papirus():
@@ -119,9 +114,6 @@ def papirus():
     print("\n[+] Papirus ha sido instalado correctamente")
     print("\nRecuerda habilitar los iconos Papirus en la configuración de los temas del sistema\n")
 
-def fonts():
-    green()
-    print("\nInstalando Hack Nerd Fonts....\n")
 
     # Descargar  e instalar las Hack Nerd Fonts
     os.system("wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip")
@@ -136,9 +128,15 @@ def fonts():
 def p10k():
     green()
     print("\nInstalando y configurando Powerlevel10k, plugins, FZF, Nvim, etc....\n")
-
+    
+    # Descargar  e instalar las Hack Nerd Fonts
+    os.system("wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip")
+    os.system("unzip Hack.zip")
+    os.system("sudo cp Hack*.ttf /usr/local/share/fonts")
+    os.system("rm -r Hack*")
+    
     # Instalamos Powerlevel10k, kitty, bat, lsd, git, scrub, FZF, plugins....
-    os.system("sudo apt install zsh git zsh-autosuggestions zsh-syntax-highlighting scrub neovim fzf kitty -y")
+    os.system("sudo apt install zsh git zsh-autosuggestions zsh-syntax-highlighting scrub neovim fzf kitty btop -y")
     os.system("sudo dpkg -i ~/Auto-Linux-Mint/tools/zsh/bat_0.22.1_amd64.deb")
     os.system("sudo dpkg -i ~/Auto-Linux-Mint/tools/zsh/lsd_0.23.0_amd64.deb")
     os.system("sudo rm -r kitty")
@@ -389,20 +387,9 @@ def ink():
     green()
     print("\n[+] Gimp instalado correctamente\n")
 
-def discord():
+def telegram():
     green()
     print("\nInstalando Discord....\n")
-
-# Instalamos Discord
-    os.system("sudo wget https://dl.discordapp.net/apps/linux/0.0.19/discord-0.0.19.deb")
-    os.system("sudo dpkg -i discord-0.0.19.deb")
-    os.system("sudo apt -f -y install")
-    os.system("sudo rm -r discord*")
-
-    time.sleep(2)
-    green()
-    print("\n[+] Discord instalado correctamente\n")
-    print("\nInstalando Telegram....\n")
 
 # Instalamos Telegram....
     os.system("sudo apt update")
@@ -424,7 +411,6 @@ def sublime():
     time.sleep(2)
     green()
     print("\n[+] Sublime Text instalado correctamente\n")
-
 
 if __name__ == '__main__':
     menu()
