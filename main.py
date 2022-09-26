@@ -114,17 +114,6 @@ def papirus():
     print("\n[+] Papirus ha sido instalado correctamente")
     print("\nRecuerda habilitar los iconos Papirus en la configuración de los temas del sistema\n")
 
-
-    # Descargar  e instalar las Hack Nerd Fonts
-    os.system("wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip")
-    os.system("unzip Hack.zip")
-    os.system("sudo cp Hack*.ttf /usr/local/share/fonts")
-    os.system("rm -r Hack*")
-
-    time.sleep(2)
-    green()
-    print("\n[+] Hack Nerd Fonts instalados correctamente")
-
 def p10k():
     green()
     print("\nInstalando y configurando Powerlevel10k, plugins, FZF, Nvim, etc....\n")
