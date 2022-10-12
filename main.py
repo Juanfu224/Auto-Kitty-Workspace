@@ -330,7 +330,7 @@ def vpn():
 
 def vbox():
     green()
-    print("\nInstalando Vmware....\n")
+    print("\nInstalando VirtualBox....\n")
 
 # Instalamos VirtualBox....
     os.system("sudo wget https://download.virtualbox.org/virtualbox/7.0.0/virtualbox-7.0_7.0.0-153978~Ubuntu~jammy_amd64.deb")
