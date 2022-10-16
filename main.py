@@ -48,7 +48,7 @@ def menu():
     time.sleep(0.5)
     print("1 -> Instalar Tema Papirus")
     time.sleep(0.5)
-    print("\n2 -> Instalar y configurar Powerlevel10k, HNF, Kitty, Nvim, FZF, etc...")
+    print("\n2 -> Instalar y configurar Kitty, P10k, FZF, Nvim, plugins etc...")
     time.sleep(0.5)
     print("\n3 -> Instalar y configurar Bspwm, Polybar, Picom y Rofi")
     time.sleep(0.5)
@@ -158,7 +158,7 @@ def p10k():
 
     #Configurar Nvim
     os.system("sudo apt install ./nvim-linux64.deb")
-    os.system("sudo git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim")
+    os.system("git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim")
     os.system("sudo rm -r nvim*")
 
     time.sleep(2)
