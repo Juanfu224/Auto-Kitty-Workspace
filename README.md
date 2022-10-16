@@ -15,17 +15,12 @@ Testeado en Linux Mint, Ubuntu, Kali Linux y Parrot OS.
 - ALL IN ONE.
 
 # Instalación
-**1)** Clonar el repositorio:
 ```
 git clone https://github.com/Juanfu224/Auto-Linux-Mint.git ~/Auto-Linux-Mint
-cd Auto-Linux-Mint
-```
-
-**2)** Ejecutamos el archivo 'main.py':
-```
+cd ~/Auto-Linux-Mint
 python3 main.py
 ```
-**3)** Disfruta :)
+
 
 # Vista general
 ![vista general](https://raw.githubusercontent.com/Juanfu224/Auto-Linux-Mint/master/tools/Vista.png)
@@ -40,6 +35,13 @@ python3 main.py
 sudo usermod --shell /usr/bin/zsh [USUARIO]
 sudo usermod --shell /usr/bin/zsh root
 ```
+## Reinstalar Nvim:
+A veces suelen ocurrir fallos a la hora de instalar Nvim, por lo que es necesario ejecutar los siguientes comando y volver a instalarlo seleccionando la segunda opción del script.
+```
+sudo rm -rf ~/.config/nvim
+sudo rm -rf ~/.local/share/nvim
+sudo rm -rf ~/.cache/nvim 
+```
 ## Configurar IP en la Polybar:
 En el caso de que de error al mostrarse la IP en la polybar o no sea correcta, hay que cambiar "wlp1s0" por el nombre de tu tarjeta de red en el siguiente archivo:
 ```
@@ -47,18 +49,15 @@ En el caso de que de error al mostrarse la IP en la polybar o no sea correcta, h
 ```
 
 # Utilidades:
-- **Bspwm**: Tiling Window Manager.
-- **ZSH**: Shell.
-- **Powerlevel10k**: Tema de la zsh.
-- **Sxhkd**: Es un "demonio" que escucha los eventos del teclado y ejecuta comandos.
-- **Polybar**: Herramienta rápida y fácil de usar para crear barras de estado.
-- **Polybar-themes**: Temas para la polybar.
 - **Papirus**: Temas para los ficheros y aplicaciones.
-- **Compton**: Es un compositor para X y una bifurcación de xcompmgr-dana.
-- **Rofi**: Selector de ventana y lanzador de aplicaciones.
-- **Feh**: Visor de imágenes ligero, configurable y versátil.
+- **kitty**: Emulador de terminal para usuarios avanzados.
+- **Powerlevel10k**: Tema de la zsh.
+- **ZSH**: Shell.
+- **FZF**: Buscador difuso de línea de comandos de propósito general.
 - **Hack Nerd Font**: Fuente.
-- **HZF**: Buscador difuso de línea de comandos de propósito general.
+- **Bspwm**: Tiling Window Manager.
+- **Rofi**: Selector de ventana y lanzador de aplicaciones.
+- **Polybar**: Herramienta rápida y fácil de usar para crear barras de estado.
 - **NordVPN**: Red privada virtual de Nord.
 
 # Preview Papirus Icon Theme
