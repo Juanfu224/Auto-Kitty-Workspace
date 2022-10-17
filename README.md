@@ -26,7 +26,7 @@ python3 main.py
 ![vista general](https://raw.githubusercontent.com/Juanfu224/Auto-Linux-Mint/master/tools/Vista.png)
 
 # Importante
-- Para que funcione correctamente Powerlevel10k es necesario tener las Hack Nerd Fonts puestas en la configuración de la tipografía de la terminal.
+- Para que funcione correctamente Powerlevel10k es necesario tener las Hack Nerd Fonts puestas en la configuración de la tipografía de la terminal que uses, pero en la Kitty ya está todo configurado y no es necesario retocarlo.
 - Hay que poner el tema Papirus en la configuración de temas del sistema.
 - Es recomendable reiniciar el equipo después de hacer una instalación completa.
 
