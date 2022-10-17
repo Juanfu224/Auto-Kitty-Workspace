@@ -44,7 +44,7 @@ sudo rm -rf ~/.cache/nvim
 ```
 En caso de tener una versión antigua de Neovim ya instalada, es muy recomendable desinstalarlo y borrar los archivos residuales que hayan quedado en el sistema con los siguientes comandos:
 ```
-sudo apt remove neovim
+sudo apt purge neovim
 sudo apt autoremove
 ```
 
