@@ -42,6 +42,12 @@ sudo rm -rf ~/.config/nvim
 sudo rm -rf ~/.local/share/nvim
 sudo rm -rf ~/.cache/nvim 
 ```
+En caso de tener una versión antigua de Neovim ya instalada, es muy recomendable desinstalarlo y borrar los archivos residuales que hayan quedado en el sistema con los siguientes comandos:
+```
+sudo apt remove neovim
+sudo apt autoremove
+```
+
 ## Configurar IP en la Polybar:
 En el caso de que de error al mostrarse la IP en la polybar o no sea correcta, hay que cambiar "wlp1s0" por el nombre de tu tarjeta de red en el siguiente archivo:
 ```
