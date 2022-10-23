@@ -183,7 +183,12 @@ def p10k():
     print("\n[+] Aplicando la nueva configuración de Nvim en root....\n")
     os.system("sudo git clone https://github.com/NvChad/NvChad /root/.config/nvim --depth 1 && sudo nvim")
     os.system("sudo rm -r nvim*")
-
+    
+    #Configurar zsh por defecto
+    print("\n[+] Configurando zsh por defecto....\n")
+    os.system("sudo usermod --shell /usr/bin/zsh $USER")
+    os.system("sudo usermod --shell /usr/bin/zsh root")  
+    
     time.sleep(2)
     green()
     print("\n[+] La instalación y la configuración de tu terminal se ha realizado corectamente")
