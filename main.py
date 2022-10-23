@@ -101,7 +101,7 @@ def papirus():
     green()
     print("\n[+] Instalando Papirus....\n")
 
-    # Instalando Tema Papirus
+    # Instalar Tema Papirus
     os.system("sudo add-apt-repository ppa:papirus/papirus")
     os.system("sudo apt-get update")
     os.system("sudo apt-get install papirus-icon-theme papirus-folders -y")
@@ -117,8 +117,9 @@ def papirus():
 def p10k():
     green()
     print("\nInstalando y configurando Powerlevel10k, plugins, FZF, Nvim, etc....\n")
-
+    
     # Descargar todo lo necesario
+    print("\n[+] Descargando todo lo necesario....\n")
     os.system("sudo apt install zsh zsh-autosuggestions zsh-syntax-highlighting scrub fzf kitty -y")
     os.system("sudo wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip")
     os.system("sudo wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh")
@@ -129,34 +130,43 @@ def p10k():
     os.system("sudo git clone --depth=1 https://github.com/junegunn/fzf.git /root/.fzf")
 
     # Instalar Hack Nerd Fonts
+    print("\n[+] Instalando las Hack Nerd Fonts....\n")
     os.system("unzip Hack.zip")
     os.system("sudo cp -r Hack*.ttf /usr/local/share/fonts")
     os.system("sudo rm -r Hack*")
 
     #Configurar Kitty
+    print("\nConfigurando la Kitty....\n")
     os.system("sudo rm -r ~/.config/kitty*")
     os.system("sudo mkdir ~/.config/kitty")
     os.system("sudo cp -r ~/Auto-Linux-Mint/tools/terminal/kitty.conf ~/.config/kitty")
     os.system("sudo cp -r ~/Auto-Linux-Mint/tools/terminal/color.ini ~/.config/kitty")
 
-    #Instalar HNF
+    #Instalar P10k
+    print("\nInstalando Powerlevel10k....\n")
     os.system("sudo cp -r ~/Auto-Linux-Mint/tools/zsh/.zshrc ~/")
     os.system("sudo cp -r ~/Auto-Linux-Mint/tools/zsh/.zshrc /root")
     os.system("sudo cp -r ~/Auto-Linux-Mint/tools/zsh/.p10k.zsh ~/")
     os.system("sudo cp -r ~/Auto-Linux-Mint/tools/zsh/.p10k.zsh /root")
 
     #Instalar plugins
+    print("\nInstalando plugins....\n")
     os.system("sudo dpkg -i ~/Auto-Linux-Mint/tools/zsh/bat*")
     os.system("sudo dpkg -i ~/Auto-Linux-Mint/tools/zsh/lsd*")
     os.system("sudo mkdir /usr/share/zsh-sudo")
     os.system("sudo cp -r sudo.plugin.zsh /usr/share/zsh-sudo")
     os.system("sudo rm -r ~/Auto-Linux-Mint/sudo.plugin*")
 
-    #Instalar FZF
+    #Instalar FZF en usuario
+    print("\nInstalando FZF en tu usuario....\n")
     os.system("sudo ~/.fzf/install")
+
+    #Instalar FZF en root
+    print("\nInstalando FZF en root....\n")
     os.system("sudo /root/.fzf/install")
 
     #Borrar antigua configuración de Nvim
+    print("\n[+] Borrando antigua configuración de Nvim....\n")
     os.system("sudo rm -rf ~/.config/nvim")
     os.system("sudo rm -rf ~/.local/share/nvim")
     os.system("sudo rm -rf ~/.cache/nvim")
@@ -164,20 +174,24 @@ def p10k():
     os.system("sudo rm -rf /root/.local/share/nvim")
     os.system("sudo rm -rf /root/.config/nvim")
     
-    #Configurar Nvim
+    #Configurar Nvim en usuario
+    print("\nAplicando la nueva configuración de Nvim en tu usuario....\n")
     os.system("sudo apt install ./nvim-linux64.deb")
     os.system("git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim")
+    
+    #Configurar Nvim en root
+    print("\nAplicando la nueva configuración de Nvim en root....\n")
     os.system("sudo git clone https://github.com/NvChad/NvChad /root/.config/nvim --depth 1 && sudo nvim")
     os.system("sudo rm -r nvim*")
 
     time.sleep(2)
     green()
-    print("\n[+] La instalación y la configuración de Powerlevel10k se ha realizado correctamente")
+    print("\n[+] La instalación y la configuración de tu terminal se ha realizado corectamente")
     print("\nPara que funcione correctamente Powerlevel10k es necesario tener las Hack Nerd Fonts puestas en la configuración de la tipografía de la terminal, aún asi, la Kitty ya viene configurada con todo lo necesario.\n")
 
 def bspwm():
     green()
-    print("[+] Instalando requerimientos necesarios...\n")
+    print("[+] Instalando requerimientos necesarios para bspwm...\n")
 
     # Instalando Requerimientos
     os.system("sudo apt update")
