@@ -167,13 +167,13 @@ def p10k():
     #Configurar Nvim
     os.system("sudo apt install ./nvim-linux64.deb")
     os.system("git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim")
-    os.system("sudo git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && sudo nvim")
+    os.system("sudo git clone https://github.com/NvChad/NvChad /root/.config/nvim --depth 1 && sudo nvim")
     os.system("sudo rm -r nvim*")
 
     time.sleep(2)
     green()
     print("\n[+] La instalación y la configuración de Powerlevel10k se ha realizado correctamente")
-    print("\nRecuerda cambiar la tipografia de la terminal a Hack Nerd Font para que funcione Powerlevel10k\n")
+    print("\nPara que funcione correctamente Powerlevel10k es necesario tener las Hack Nerd Fonts puestas en la configuración de la tipografía de la terminal, aún asi, la Kitty ya viene configurada con todo lo necesario.\n")
 
 def bspwm():
     green()
