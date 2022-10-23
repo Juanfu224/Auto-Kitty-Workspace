@@ -30,23 +30,13 @@ python3 main.py
 - Hay que poner el tema Papirus en la configuración de temas del sistema.
 - Es recomendable reiniciar el equipo después de hacer una instalación completa.
 
-## Inicio automático de zsh:
-```
-sudo usermod --shell /usr/bin/zsh [USUARIO]
-sudo usermod --shell /usr/bin/zsh root
-```
 ## Reinstalar Nvim:
-A veces suelen ocurrir fallos a la hora de instalar Nvim, por lo que es necesario ejecutar los siguientes comando y volver a instalarlo seleccionando la segunda opción del script.
-```
-sudo rm -rf ~/.config/nvim
-sudo rm -rf ~/.local/share/nvim
-sudo rm -rf ~/.cache/nvim 
-```
 En caso de tener una versión antigua de Neovim ya instalada, es muy recomendable desinstalarlo y borrar los archivos residuales que hayan quedado en el sistema con los siguientes comandos:
 ```
 sudo apt purge neovim
 sudo apt autoremove
 ```
+A veces suelen ocurrir fallos a la hora de instalar Nvim, por lo que hay que volver a ejecutar la 2º opción del script. 
 
 ## Configurar IP en la Polybar:
 En el caso de que de error al mostrarse la IP en la polybar o no sea correcta, hay que cambiar "wlp1s0" por el nombre de tu tarjeta de red en el siguiente archivo:
