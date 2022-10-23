@@ -112,11 +112,11 @@ def papirus():
     time.sleep(2)
     green()
     print("\n[+] Papirus ha sido instalado correctamente")
-    print("\nRecuerda habilitar los iconos Papirus en la configuración de los temas del sistema\n")
+    print("\n[+] Recuerda habilitar los iconos Papirus en la configuración de los temas del sistema\n")
 
 def p10k():
     green()
-    print("\nInstalando y configurando Powerlevel10k, plugins, FZF, Nvim, etc....\n")
+    print("\n[+] Instalando y configurando Powerlevel10k, plugins, FZF, Nvim, etc....\n")
     
     # Descargar todo lo necesario
     print("\n[+] Descargando todo lo necesario....\n")
@@ -136,21 +136,21 @@ def p10k():
     os.system("sudo rm -r Hack*")
 
     #Configurar Kitty
-    print("\nConfigurando la Kitty....\n")
+    print("\n[+] Configurando la Kitty....\n")
     os.system("sudo rm -r ~/.config/kitty*")
     os.system("sudo mkdir ~/.config/kitty")
     os.system("sudo cp -r ~/Auto-Linux-Mint/tools/terminal/kitty.conf ~/.config/kitty")
     os.system("sudo cp -r ~/Auto-Linux-Mint/tools/terminal/color.ini ~/.config/kitty")
 
     #Instalar P10k
-    print("\nInstalando Powerlevel10k....\n")
+    print("\n[+] Instalando Powerlevel10k....\n")
     os.system("sudo cp -r ~/Auto-Linux-Mint/tools/zsh/.zshrc ~/")
     os.system("sudo cp -r ~/Auto-Linux-Mint/tools/zsh/.zshrc /root")
     os.system("sudo cp -r ~/Auto-Linux-Mint/tools/zsh/.p10k.zsh ~/")
     os.system("sudo cp -r ~/Auto-Linux-Mint/tools/zsh/.p10k.zsh /root")
 
     #Instalar plugins
-    print("\nInstalando plugins....\n")
+    print("\n[+] Instalando plugins....\n")
     os.system("sudo dpkg -i ~/Auto-Linux-Mint/tools/zsh/bat*")
     os.system("sudo dpkg -i ~/Auto-Linux-Mint/tools/zsh/lsd*")
     os.system("sudo mkdir /usr/share/zsh-sudo")
@@ -158,11 +158,11 @@ def p10k():
     os.system("sudo rm -r ~/Auto-Linux-Mint/sudo.plugin*")
 
     #Instalar FZF en usuario
-    print("\nInstalando FZF en tu usuario....\n")
+    print("\n[+] Instalando FZF en tu usuario....\n")
     os.system("sudo ~/.fzf/install")
 
     #Instalar FZF en root
-    print("\nInstalando FZF en root....\n")
+    print("\n[+] Instalando FZF en root....\n")
     os.system("sudo /root/.fzf/install")
 
     #Borrar antigua configuración de Nvim
@@ -175,19 +175,19 @@ def p10k():
     os.system("sudo rm -rf /root/.config/nvim")
     
     #Configurar Nvim en usuario
-    print("\nAplicando la nueva configuración de Nvim en tu usuario....\n")
+    print("\n[+] Aplicando la nueva configuración de Nvim en tu usuario....\n")
     os.system("sudo apt install ./nvim-linux64.deb")
     os.system("git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim")
     
     #Configurar Nvim en root
-    print("\nAplicando la nueva configuración de Nvim en root....\n")
+    print("\n[+] Aplicando la nueva configuración de Nvim en root....\n")
     os.system("sudo git clone https://github.com/NvChad/NvChad /root/.config/nvim --depth 1 && sudo nvim")
     os.system("sudo rm -r nvim*")
 
     time.sleep(2)
     green()
     print("\n[+] La instalación y la configuración de tu terminal se ha realizado corectamente")
-    print("\nPara que funcione correctamente Powerlevel10k es necesario tener las Hack Nerd Fonts puestas en la configuración de la tipografía de la terminal, aún asi, la Kitty ya viene configurada con todo lo necesario.\n")
+    print("\n[+] Para que funcione correctamente Powerlevel10k es necesario tener las Hack Nerd Fonts puestas en la configuración de la tipografía de la terminal, aún asi, la Kitty ya viene configurada con todo lo necesario.\n")
 
 def bspwm():
     green()
