@@ -158,7 +158,7 @@ def p10k():
     os.system("sudo rm -r ~/Auto-Linux-Mint/sudo.plugin*")
 
     #Instalar FZF en usuario
-    print("\n[+] Instalando FZF en tu usuario....\n")
+    print("\n[+] Instalando FZF en usuario....\n")
     os.system("sudo ~/.fzf/install")
 
     #Instalar FZF en root
@@ -175,7 +175,7 @@ def p10k():
     os.system("sudo rm -rf /root/.config/nvim")
     
     #Configurar Nvim en usuario
-    print("\n[+] Aplicando la nueva configuración de Nvim en tu usuario....\n")
+    print("\n[+] Aplicando la nueva configuración de Nvim en usuario....\n")
     os.system("sudo apt install ./nvim-linux64.deb")
     os.system("git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim")
     
@@ -191,7 +191,7 @@ def p10k():
     
     time.sleep(2)
     green()
-    print("\n[+] La instalación y la configuración de tu terminal se ha realizado corectamente")
+    print("\n[+] La instalación y la configuración de la terminal se ha realizado corectamente")
     print("\n[+] Para que funcione correctamente Powerlevel10k es necesario tener las Hack Nerd Fonts puestas en la configuración de la tipografía de la terminal, aún asi, la Kitty ya viene configurada con todo lo necesario.\n")
 
 def bspwm():
