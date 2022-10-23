@@ -156,9 +156,18 @@ def p10k():
     os.system("sudo ~/.fzf/install")
     os.system("sudo /root/.fzf/install")
 
+    #Borrar antigua configuración de Nvim
+    os.system("sudo rm -rf ~/.config/nvim")
+    os.system("sudo rm -rf ~/.local/share/nvim")
+    os.system("sudo rm -rf ~/.cache/nvim")
+    os.system("sudo rm -rf /root/.config/nvim")
+    os.system("sudo rm -rf /root/.local/share/nvim")
+    os.system("sudo rm -rf /root/.config/nvim")
+    
     #Configurar Nvim
     os.system("sudo apt install ./nvim-linux64.deb")
     os.system("git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim")
+    os.system("sudo git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && sudo nvim")
     os.system("sudo rm -r nvim*")
 
     time.sleep(2)
