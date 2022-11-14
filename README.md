@@ -4,13 +4,12 @@ Es compatible con Linux Mint o cualquier distribución basada en Ubuntu y Debian
 Testeado en Linux Mint, Ubuntu, Kali Linux y Parrot OS.
 
 ## El script consta de 10 funciones distintas:
-- Instalar tema Papirus.
 - Instalar y configurar Kitty, P10k, FZF, Nvim, plugins etc...
 - Instalar y configurar Bspwm, Polybar, Picom y Rofi
 - Instalar NordVPN (implementado con Powerlevel10k).
 - Instalar VirtualBox.
 - Instalar Inkscape y Gimp.
-- Instalar Telegram.
+- Instalar LibreOffice.
 - Instalar Sublime Text.
 - ALL IN ONE.
 
