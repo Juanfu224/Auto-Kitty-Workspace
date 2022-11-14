@@ -349,28 +349,6 @@ def vbox():
     green()
     print("\n[+] VirtualBox instalado correctamente\n")
 
-def ink():
-    green()
-    print("\nInstalando Inkscape....\n")
-
-# Instalamos Inkscape....
-    os.system("sudo wget https://inkscape.org/gallery/item/34672/Inkscape-9c6d41e-x86_64.AppImage")
-    os.system("sudo mv Inkscape-9c6d41e-x86_64.AppImage /opt")
-    os.system("sudo chmod 777 /opt/Inkscape-9c6d41e-x86_64.AppImage")
-
-    time.sleep(2)
-    green()
-    print("\n[+] Inkscape instalado correctamente en /opt\n")
-    print("\nInstalando Gimp....\n")
-
-# Instalamos Gimp....
-    os.system("sudo apt update")
-    os.system("sudo apt -f -y install gimp")
-
-    time.sleep(2)
-    green()
-    print("\n[+] Gimp instalado correctamente\n")
-
 def office():
     green()
     print("\nInstalando LibreOffice....\n")
