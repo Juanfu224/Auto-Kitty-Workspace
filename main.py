@@ -54,15 +54,13 @@ def menu():
     time.sleep(0.5)
     print("\n4 -> Instalar VirtualBox")
     time.sleep(0.5)
-    print("\n5 -> Instalar Inkscape y Gimp")
+    print("\n5 -> Instalar LibreOffice")
     time.sleep(0.5)
-    print("\n6 -> Instalar LibreOffice")
+    print("\n6 -> Instalar Sublime Text")
     time.sleep(0.5)
-    print("\n7 -> Instalar Sublime Text")
+    print("\n7 -> ALL IN ONE")
     time.sleep(0.5)
-    print("\n8 -> ALL IN ONE")
-    time.sleep(0.5)
-    print("\n9 -> Salir")
+    print("\n8 -> Salir")
     time.sleep(0.5)
 
     option = input("\n-->> ")
@@ -76,20 +74,17 @@ def menu():
     if option == "4":
         vbox()
     if option == "5":
-        ink()
-    if option == "6":
         office()
-    if option == "7":
+    if option == "6":
         sublime()
-    if option == "8":
+    if option == "7":
         p10k()
         bspwm()
         vpn()
         vbox()
-        ink()
         office()
         sublime()
-    if option == "9":
+    if option == "8":
         exit()
 
 def p10k():
