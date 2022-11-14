@@ -56,7 +56,7 @@ def menu():
     time.sleep(0.5)
     print("\n5 -> Instalar Inkscape y Gimp")
     time.sleep(0.5)
-    print("\n6 -> Instalar Telegram")
+    print("\n6 -> Instalar Libre Office")
     time.sleep(0.5)
     print("\n7 -> Instalar Sublime Text")
     time.sleep(0.5)
@@ -167,7 +167,12 @@ def p10k():
     #Configurar zsh por defecto
     print("\n[+] Configurando zsh por defecto....\n")
     os.system("sudo usermod --shell /usr/bin/zsh $USER")
-    os.system("sudo usermod --shell /usr/bin/zsh root")  
+    os.system("sudo usermod --shell /usr/bin/zsh root")
+    
+    #Cambiar terminal por defecto
+    print("\n[+] Configurando terminal por defecto....\n")
+    print("\n[+] Elige que terminal quieres tener por defecto:")
+    os.system("sudo update-alternatives --config x-terminal-emulator")
     
     time.sleep(2)
     green()
@@ -375,15 +380,23 @@ def ink():
 
 def office():
     green()
-    print("\nInstalando Telegram....\n")
+    print("\nInstalando LibreOffice....\n")
 
-# Instalamos Telegram....
-    os.system("sudo apt update")
-    os.system("sudo apt -f -y install telegram-desktop")
-
+# Instalamos LibreOffice....
+    os.system("wget https://download.documentfoundation.org/libreoffice/stable/7.4.2/deb/x86_64/LibreOffice_7.4.2_Linux_x86-64_deb.tar.gz")
+    os.system("wget https://ftp.acc.umu.se/mirror/documentfoundation.org/libreoffice/stable/7.4.2/deb/x86_64/LibreOffice_7.4.2_Linux_x86-64_deb_langpack_es.tar.gz")
+    os.system("wget https://ftp.snt.utwente.nl/pub/software/tdf/libreoffice/stable/7.4.2/deb/x86_64/LibreOffice_7.4.2_Linux_x86-64_deb_helppack_es.tar.gz")
+    os.system("tar -xvzf LibreOffice_7.4.2_Linux_x86-64_deb.tar.gz")
+    os.system("tar -xvzf LibreOffice_7.4.2_Linux_x86-64_deb_langpack_es.tar.gz")
+    os.system("tar -xvzf LibreOffice_7.4.2_Linux_x86-64_deb_helppack_es.tar.gz")
+    os.system("sudo dpkg -i ~/Auto-Linux-Mint/LibreOffice_7.4.2.3_Linux_x86-64_deb/DEBS/*")
+    os.system("sudo dpkg -i ~/Auto-Linux-Mint/LibreOffice_7.4.2.3_Linux_x86-64_deb_langpack_es/DEBS/*")
+    os.system("sudo dpkg -i ~/Auto-Linux-Mint/LibreOffice_7.4.2.3_Linux_x86-64_deb_helppack_es/DEBS/*")
+    os.system("sudo rm -r ~/Auto-Linux-Mint/LibreOffice*")
+    
     time.sleep(2)
     green()
-    print("\n[+] Telegram instalado correctamente\n")
+    print("\n[+] LibreOffice instalado correctamente\n")
 
 def sublime():
     green()
