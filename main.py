@@ -339,7 +339,7 @@ def vbox():
     print("\nInstalando VirtualBox....\n")
 
 # Instalamos VirtualBox....
-    os.system("sudo wget https://download.virtualbox.org/virtualbox/7.0.0/virtualbox-7.0_7.0.0-153978~Ubuntu~jammy_amd64.deb")
+    os.system("sudo wget https://download.virtualbox.org/virtualbox/7.0.2/virtualbox-7.0_7.0.2-154219~Ubuntu~jammy_amd64.deb")
     os.system("sudo dpkg -i virtualbox*")
     os.system("sudo apt -f -y install")
     os.system("sudo rm -r virtualbox*")
