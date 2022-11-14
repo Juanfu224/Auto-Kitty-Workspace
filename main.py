@@ -46,19 +46,19 @@ def menu():
     print(banner)
     blue()
     time.sleep(0.5)
-    print("1 -> Instalar Tema Papirus")
+    print("1 -> Instalar y configurar Kitty, P10k, FZF, Nvim, plugins etc...")
     time.sleep(0.5)
-    print("\n2 -> Instalar y configurar Kitty, P10k, FZF, Nvim, plugins etc...")
+    print("\n2 -> Instalar y configurar Bspwm, Polybar, Picom y Rofi")
     time.sleep(0.5)
-    print("\n3 -> Instalar y configurar Bspwm, Polybar, Picom y Rofi")
+    print("\n3 -> Instalar NordVPN")
     time.sleep(0.5)
-    print("\n4 -> Instalar NordVPN")
+    print("\n4 -> Instalar VirtualBox")
     time.sleep(0.5)
-    print("\n5 -> Instalar VirtualBox")
+    print("\n5 -> Instalar Inkscape y Gimp")
     time.sleep(0.5)
-    print("\n6 -> Instalar Inkscape y Gimp")
+    print("\n6 -> Instalar Telegram")
     time.sleep(0.5)
-    print("\n7 -> Instalar Telegram")
+    print("\n7 -> Instalar Sublime Text")
     time.sleep(0.5)
     print("\n8 -> Instalar Sublime Text")
     time.sleep(0.5)
@@ -70,49 +70,29 @@ def menu():
     option = input("\n-->> ")
 
     if option == "1":
-        papirus()
-    if option == "2":
         p10k()
-    if option == "3":
+    if option == "2":
         bspwm()
-    if option == "4":
+    if option == "3":
         vpn()
-    if option == "5":
+    if option == "4":
         vbox()
-    if option == "6":
+    if option == "5":
         ink()
+    if option == "6":
+        office()
     if option == "7":
-        telegram()
+        sublime()
     if option == "8":
+        p10k()
+        bspwm()
+        vpn()
+        vbox()
+        ink()
+        office()
         sublime()
     if option == "9":
-        papirus()
-        p10k()
-        bspwm()
-        vpn()
-        vbox()
-        ink()
-        telegram()
-        sublime()
-    if option == "10":
         exit()
-
-def papirus():
-    green()
-    print("\n[+] Instalando Papirus....\n")
-
-    # Instalar Tema Papirus
-    os.system("sudo add-apt-repository ppa:papirus/papirus")
-    os.system("sudo apt-get update")
-    os.system("sudo apt-get install papirus-icon-theme papirus-folders -y")
-    os.system("papirus-folders -l --theme Papirus-Dark")
-    os.system("papirus-folders -C yaru --theme Papirus-Dark")
-    os.system("sudo add-apt-repository --remove ppa:papirus/papirus")
-
-    time.sleep(2)
-    green()
-    print("\n[+] Papirus ha sido instalado correctamente")
-    print("\n[+] Recuerda habilitar los iconos Papirus en la configuración de los temas del sistema\n")
 
 def p10k():
     green()
@@ -365,6 +345,7 @@ def vbox():
     os.system("sudo dpkg -i virtualbox*")
     os.system("sudo apt -f -y install")
     os.system("sudo rm -r virtualbox*")
+    os.system("sudo adduser $USER vboxusers")
 
     time.sleep(2)
     green()
@@ -392,7 +373,7 @@ def ink():
     green()
     print("\n[+] Gimp instalado correctamente\n")
 
-def telegram():
+def office():
     green()
     print("\nInstalando Telegram....\n")
 
@@ -409,7 +390,7 @@ def sublime():
     print("\nInstalando Sublime Text....\n")
 
 # Instalamos sublime-text
-    os.system("sudo wget https://download.sublimetext.com/sublime-text_build-4126_amd64.deb")
+    os.system("sudo wget https://download.sublimetext.com/sublime-text_build-4143_amd64.deb")
     os.system("sudo dpkg -i sublime-text*")
     os.system("sudo rm -r sublime-text*")
 
