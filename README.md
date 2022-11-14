@@ -8,7 +8,6 @@ Testeado en Linux Mint, Ubuntu, Kali Linux y Parrot OS.
 - Instalar y configurar Bspwm, Polybar, Picom y Rofi
 - Instalar NordVPN (implementado con Powerlevel10k).
 - Instalar VirtualBox.
-- Instalar Inkscape y Gimp.
 - Instalar LibreOffice.
 - Instalar Sublime Text.
 - ALL IN ONE.
