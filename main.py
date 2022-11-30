@@ -94,7 +94,7 @@ def p10k():
     # Descargar todo lo necesario
     print("\n[+] Descargando todo lo necesario....\n")
     os.system("sudo apt install zsh zsh-autosuggestions zsh-syntax-highlighting scrub fzf kitty -y")
-    os.system("sudo wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip")
+    os.system("sudo wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/Hack.zip")
     os.system("sudo wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh")
     os.system("sudo wget https://github.com/neovim/neovim/releases/download/v0.8.0/nvim-linux64.deb")
     os.system("sudo git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k")
@@ -105,7 +105,7 @@ def p10k():
     # Instalar Hack Nerd Fonts
     print("\n[+] Instalando las Hack Nerd Fonts....\n")
     os.system("unzip Hack.zip")
-    os.system("sudo cp -r Hack*.ttf /usr/local/share/fonts")
+    os.system("sudo cp -r Hack*.ttf /usr/share/fonts ")
     os.system("sudo rm -r Hack*")
 
     #Configurar Kitty
