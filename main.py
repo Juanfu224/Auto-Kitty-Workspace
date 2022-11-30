@@ -96,7 +96,7 @@ def p10k():
     os.system("sudo apt install zsh zsh-autosuggestions zsh-syntax-highlighting scrub fzf kitty -y")
     os.system("sudo wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/Hack.zip")
     os.system("sudo wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh")
-    os.system("sudo wget https://github.com/neovim/neovim/releases/download/v0.8.0/nvim-linux64.deb")
+    os.system("sudo wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.deb")
     os.system("sudo git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k")
     os.system("sudo git clone --depth=1 https://github.com/romkatv/powerlevel10k.git /root/powerlevel10k")
     os.system("sudo git clone --depth=1 https://github.com/junegunn/fzf.git ~/.fzf")
