@@ -1,7 +1,5 @@
 # Auto-Linux-Workspace
-Es compatible con Linux Mint o cualquier distribución basada en Ubuntu y Debian.
-
-Testeado en Ubuntu, Linux Mint, Kali Linux y Parrot OS.
+Es compatible con cualquier distribución basada en Ubuntu.
 
 ## El script consta de 10 funciones distintas:
 - Instalar y configurar Kitty, P10k, FZF, Nvim, plugins etc...
