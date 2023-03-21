@@ -14,7 +14,7 @@ Testeado en Ubuntu, Linux Mint, Kali Linux y Parrot OS.
 
 # Instalación
 ```
-git clone https://github.com/Juanfu224/Auto-Linux-Mint.git ~/Auto-Linux-Mint
+git clone https://github.com/Juanfu224/Auto-Linux-Mint.git ~/Auto-Linux-Workspace
 cd ~/Auto-Linux-Workspace
 python3 main.py
 ```
