@@ -56,7 +56,7 @@ def menu():
     time.sleep(0.5)
     print("\n5 -> Instalar LibreOffice")
     time.sleep(0.5)
-    print("\n6 -> Instalar Sublime Text")
+    print("\n6 -> Instalar Text")
     time.sleep(0.5)
     print("\n7 -> ALL IN ONE")
     time.sleep(0.5)
@@ -355,16 +355,16 @@ def office():
     print("\nInstalando LibreOffice....\n")
 
 # Instalamos LibreOffice....
-    os.system("wget https://download.documentfoundation.org/libreoffice/stable/7.4.4/deb/x86_64/LibreOffice_7.4.4_Linux_x86-64_deb.tar.gz")
-    os.system("wget https://download.documentfoundation.org/libreoffice/stable/7.4.4/deb/x86_64/LibreOffice_7.4.4_Linux_x86-64_deb_helppack_es.tar.gz")
-    os.system("wget https://download.documentfoundation.org/libreoffice/stable/7.4.4/deb/x86_64/LibreOffice_7.4.4_Linux_x86-64_deb_langpack_es.tar.gz")
-    os.system("tar -xvzf LibreOffice_7.4.4_Linux_x86-64_deb.tar.gz")
-    os.system("tar -xvzf LibreOffice_7.4.4_Linux_x86-64_deb_langpack_es.tar.gz")
-    os.system("tar -xvzf LibreOffice_7.4.4_Linux_x86-64_deb_helppack_es.tar.gz")
-    os.system("sudo dpkg -i ~/Auto-Linux-Mint/LibreOffice_7.4.4.2_Linux_x86-64_deb/DEBS/*")
-    os.system("sudo dpkg -i ~/Auto-Linux-Mint/LibreOffice_7.4.4.2_Linux_x86-64_deb_langpack_es/DEBS/*")
-    os.system("sudo dpkg -i ~/Auto-Linux-Mint/LibreOffice_7.4.4.2_Linux_x86-64_deb_helppack_es/DEBS/*")
-    os.system("sudo rm -r ~/Auto-Linux-Mint/LibreOffice*")
+    os.system("wget https://download.documentfoundation.org/libreoffice/stable/7.5.1/deb/x86_64/LibreOffice_7.5.1_Linux_x86-64_deb.tar.gz")
+    os.system("wget https://download.documentfoundation.org/libreoffice/stable/7.5.1/deb/x86_64/LibreOffice_7.5.1_Linux_x86-64_deb_helppack_es.tar.gz")
+    os.system("wget https://download.documentfoundation.org/libreoffice/stable/7.5.1/deb/x86_64/LibreOffice_7.5.1_Linux_x86-64_deb_langpack_es.tar.gz")
+    os.system("tar -xvzf LibreOffice_7.5.1_Linux_x86-64_deb.tar.gz")
+    os.system("tar -xvzf LibreOffice_7.5.1_Linux_x86-64_deb_helppack_es.tar.gz")
+    os.system("tar -xvzf LibreOffice_7.5.1_Linux_x86-64_deb_langpack_es.tar.gz")
+    os.system("sudo dpkg -i LibreOffice_7.5.1.2_Linux_x86-64_deb/DEBS/*")
+    os.system("sudo dpkg -i LibreOffice_7.5.1.2_Linux_x86-64_deb_langpack_es/DEBS/*")
+    os.system("sudo dpkg -i LibreOffice_7.5.1.2_Linux_x86-64_deb_helppack_es/DEBS/*")
+    os.system("sudo rm -r LibreOffice*")
     
     time.sleep(2)
     green()
@@ -374,10 +374,12 @@ def sublime():
     green()
     print("\nInstalando Sublime Text....\n")
 
-# Instalamos sublime-text
-    os.system("sudo wget https://download.sublimetext.com/sublime-text_build-4143_amd64.deb")
-    os.system("sudo dpkg -i sublime-text*")
-    os.system("sudo rm -r sublime-text*")
+# Instalamos Sublime-text
+    os.system("wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/sublimehq-archive.gpg > /dev/null")
+    os.system("echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list")
+    os.system("sudo apt update")
+    os.system("sudo apt install sublime-text -y")
+
 
     time.sleep(2)
     green()
