@@ -1,5 +1,5 @@
 # Auto-Linux-Workspace
-Es compatible con cualquier distribución basada en Ubuntu.
+Automatiza la instalación y la configuración de un entorno de trabajo inspirado en el de S4vitar en Bspwm, con la Kitty, Powerlevel10k, Nvim, VPN y algunos de los programas de escritorio más utilizados.
 
 ## El script consta de 10 funciones distintas:
 - Instalar y configurar Kitty, P10k, FZF, Nvim, plugins etc...
