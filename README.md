@@ -1,7 +1,7 @@
-# Auto-Linux-Mint
+# Auto-Linux-Workspace
 Es compatible con Linux Mint o cualquier distribución basada en Ubuntu y Debian.
 
-Testeado en Linux Mint, Ubuntu, Kali Linux y Parrot OS.
+Testeado en Ubuntu, Linux Mint, Kali Linux y Parrot OS.
 
 ## El script consta de 10 funciones distintas:
 - Instalar y configurar Kitty, P10k, FZF, Nvim, plugins etc...
@@ -15,7 +15,7 @@ Testeado en Linux Mint, Ubuntu, Kali Linux y Parrot OS.
 # Instalación
 ```
 git clone https://github.com/Juanfu224/Auto-Linux-Mint.git ~/Auto-Linux-Mint
-cd ~/Auto-Linux-Mint
+cd ~/Auto-Linux-Workspace
 python3 main.py
 ```
 
