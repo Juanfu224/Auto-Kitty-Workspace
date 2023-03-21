@@ -19,9 +19,8 @@ cd ~/Auto-Linux-Workspace
 python3 main.py
 ```
 
-
 # Vista general
-![vista general](https://raw.githubusercontent.com/Juanfu224/Auto-Linux-Mint/master/tools/Vista.png)
+![vista general](https://raw.githubusercontent.com/Juanfu224/Auto-Linux-Workspace/master/tools/Vista.png)
 
 # Importante
 - Para que funcione correctamente Powerlevel10k es necesario tener las Hack Nerd Fonts puestas en la configuración de la tipografía de la terminal, aún asi, la Kitty ya viene configurada con todo lo necesario.
