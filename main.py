@@ -259,14 +259,9 @@ def bspwm():
     os.system("echo 'xsetroot -cursor_name left_ptr &' >> ~/.config/bspwm/bspwmrc")
     os.system("echo 'wmname LG3D &' >> ~/.config/bspwm/bspwmrc")
 
-    # Clona el tema de blue-sky
-    os.system("git clone https://github.com/VaughnValle/blue-sky.git")
-    os.system("mkdir ~/.config/polybar")
-
     # Copia el tema de polybar a ~/.config
-    os.system("cp ~/Auto-Linux-Workspace/tools/bspwm/polybar-backup.zip .")
-    os.system("unzip polybar-backup.zip")
-    os.system("sudo mv polybar-backup/ ~/.config/")
+    os.system("unzip ~/Auto-Linux-Workspace/tools/bspwm/polybar-backup.zip .")
+    os.system("sudo mv ~/Auto-Linux-Workspace/tools/bspwm/polybar-backup/ ~/.config/")
     os.system("sudo rm -r ~/.config/polybar/ 2>/dev/null")
     os.system("sudo mv ~/.config/polybar-backup/ ~/.config/polybar/")
     os.system("echo '~/.config/polybar/./launch.sh' >> ~/.config/bspwm/bspwmrc")
@@ -287,7 +282,6 @@ def bspwm():
     os.system("mv ~/Auto-Linux-Workspace/tools/bspwm/ethernet_status.sh ~/.config/bin")
     os.system("chmod +x ~/Auto-Linux-Workspace/tools/bspwm/hackthebox.sh")
     os.system("mv ~/Auto-Linux-Workspace/tools/bspwm/hackthebox.sh ~/.config/bin")
-    os.system("cp ~/Auto-Linux-Workspace/tools/bspwm/target_to_hack.sh .")
     os.system("chmod +x ~/Auto-Linux-Workspace/tools/bspwm/target_to_hack.sh")
     os.system("mv ~/Auto-Linux-Workspace/tools/bspwm/target_to_hack.sh ~/.config/bin")
     os.system("echo '' > ~/.config/bin/target")
@@ -298,7 +292,9 @@ def bspwm():
     # Copia la config de rofi personalizada
     os.system("mkdir ~/.config/rofi")
     os.system("mkdir ~/.config/rofi/themes")
-    os.system("cp ~/Auto-Linux-Workspace/tools/bspwm/nord.rasi ~/.config/rofi/themes")
+    os.system("wget https://raw.githubusercontent.com/VaughnValle/blue-sky/master/nord.rasi")
+    os.system("cp -r ~/Auto-Linux-Workspace/nord.rasi ~/.config/rofi/themes")
+    os.system("sudo rm -r ~/Auto-Linux-Workspace/nord.rasi")
 
     # Mueve los comandos settarget y cleartarget a /bin
     os.system("sudo cp ~/Auto-Linux-Workspace/tools/bspwm/settarget /bin")
@@ -358,13 +354,13 @@ def office():
     os.system("wget https://download.documentfoundation.org/libreoffice/stable/7.5.1/deb/x86_64/LibreOffice_7.5.1_Linux_x86-64_deb.tar.gz")
     os.system("wget https://download.documentfoundation.org/libreoffice/stable/7.5.1/deb/x86_64/LibreOffice_7.5.1_Linux_x86-64_deb_helppack_es.tar.gz")
     os.system("wget https://download.documentfoundation.org/libreoffice/stable/7.5.1/deb/x86_64/LibreOffice_7.5.1_Linux_x86-64_deb_langpack_es.tar.gz")
-    os.system("tar -xvzf LibreOffice_7.5.1_Linux_x86-64_deb.tar.gz")
-    os.system("tar -xvzf LibreOffice_7.5.1_Linux_x86-64_deb_helppack_es.tar.gz")
-    os.system("tar -xvzf LibreOffice_7.5.1_Linux_x86-64_deb_langpack_es.tar.gz")
-    os.system("sudo dpkg -i LibreOffice_7.5.1.2_Linux_x86-64_deb/DEBS/*")
-    os.system("sudo dpkg -i LibreOffice_7.5.1.2_Linux_x86-64_deb_langpack_es/DEBS/*")
-    os.system("sudo dpkg -i LibreOffice_7.5.1.2_Linux_x86-64_deb_helppack_es/DEBS/*")
-    os.system("sudo rm -r LibreOffice*")
+    os.system("tar -xvzf ~/Auto-Linux-Workspace/LibreOffice_7.5.1_Linux_x86-64_deb.tar.gz")
+    os.system("tar -xvzf ~/Auto-Linux-Workspace/LibreOffice_7.5.1_Linux_x86-64_deb_helppack_es.tar.gz")
+    os.system("tar -xvzf ~/Auto-Linux-Workspace/LibreOffice_7.5.1_Linux_x86-64_deb_langpack_es.tar.gz")
+    os.system("sudo dpkg -i ~/Auto-Linux-Workspace/LibreOffice_7.5.1.2_Linux_x86-64_deb/DEBS/*")
+    os.system("sudo dpkg -i ~/Auto-Linux-Workspace/LibreOffice_7.5.1.2_Linux_x86-64_deb_langpack_es/DEBS/*")
+    os.system("sudo dpkg -i ~/Auto-Linux-Workspace/LibreOffice_7.5.1.2_Linux_x86-64_deb_helppack_es/DEBS/*")
+    os.system("sudo rm -r ~/Auto-Linux-Workspace/LibreOffice*")
     
     time.sleep(2)
     blue()
