@@ -292,8 +292,7 @@ def bspwm():
     os.system("echo '' > ~/.config/bin/target")
 
     # Copia la config de rofi personalizada
-    os.system("mkdir ~/.config/rofi")
-    os.system("mkdir ~/.config/rofi/themes")
+    os.system("sudo mkdir -p ~/.config/rofi/themes")
     os.system("wget https://raw.githubusercontent.com/VaughnValle/blue-sky/master/nord.rasi")
     os.system("cp -r ~/Auto-Linux-Workspace/nord.rasi ~/.config/rofi/themes")
     os.system("sudo rm -r ~/Auto-Linux-Workspace/nord.rasi")
