@@ -181,7 +181,7 @@ def bspwm():
     os.system("sudo apt install net-tools libuv1-dev build-essential git vim xcb libxcb-util0-dev libxcb-ewmh-dev libxcb-randr0-dev libxcb-icccm4-dev libxcb-keysyms1-dev libxcb-xinerama0-dev libasound2-dev libxcb-xtest0-dev libxcb-shape0-dev -y")
     os.system("sudo apt install cmake cmake-data pkg-config python3-sphinx libcairo2-dev libxcb1-dev libxcb-util0-dev libxcb-randr0-dev libxcb-composite0-dev python3-xcbgen xcb-proto libxcb-image0-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-xkb-dev libxcb-xrm-dev libxcb-cursor-dev libasound2-dev libpulse-dev libjsoncpp-dev libmpdclient-dev libcurl4-openssl-dev libnl-genl-3-dev -y")
     os.system("sudo apt install meson libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev libxcb-xinerama0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl1-mesa-dev libpcre2-dev libevdev-dev uthash-dev libev-dev libx11-xcb-dev libxcb-glx0-dev -y")
-    os.system("sudo apt install bspwm rofi caja feh scrot xclip tmux acpi scrub bat wmname pulseaudio alsa-utils pamix brightnessctl isc-dhcp-server -y")
+    os.system("sudo apt install bspwm caja feh scrot xclip tmux acpi scrub bat wmname pulseaudio alsa-utils pamix brightnessctl isc-dhcp-server -y")
     os.system("sudo apt -f -y install")
     os.system("sudo apt autoclean")
 
@@ -196,7 +196,7 @@ def bspwm():
     os.system("sudo rm -r bspwm/")
     os.system("make")
 
-    # Acava del build
+    # Acaba del build
     os.system("sudo make install")
 
     # Elimina los archivos de bspwm
@@ -291,11 +291,19 @@ def bspwm():
     os.system("mv ~/Auto-Linux-Workspace/tools/bspwm/battery.sh ~/.config/bin/")
     os.system("echo '' > ~/.config/bin/target")
 
-    # Copia la config de rofi personalizada
-    os.system("sudo mkdir -p ~/.config/rofi/themes")
-    os.system("wget https://raw.githubusercontent.com/VaughnValle/blue-sky/master/nord.rasi")
-    os.system("cp -r ~/Auto-Linux-Workspace/nord.rasi ~/.config/rofi/themes")
-    os.system("sudo rm -r ~/Auto-Linux-Workspace/nord.rasi")
+    # Instalar Rofi
+    os.system("wget https://github.com/davatorium/rofi/releases/download/1.7.5/rofi-1.7.5.tar.gz")
+    os.system("tar -xvzf rofi-1.7.5.tar.gz")
+    os.system("./configure")
+    os.system("make")
+    os.system("sudo make install")
+
+    # Cpnfigurar Rofi
+    os.system("git clone https://github.com/adi1090x/rofi.git")
+    os.system("mv rofi/* .")
+    os.system("chmod +x setup.sh")
+    os.system("sudo ./setup.sh")
+    os.system("sudo rm -rf files fonts previews rofi LICENSE README.md setup.sh")
 
     # Mueve los comandos settarget y cleartarget a /bin
     os.system("sudo cp ~/Auto-Linux-Workspace/tools/bspwm/settarget /bin")
