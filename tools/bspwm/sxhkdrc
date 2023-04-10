@@ -160,3 +160,7 @@ Print
 
 Print + shift
         scrot -s ~/Imágenes/Captura.png
+
+#Power Menu
+super + alt + p
+        ~/.config/rofi/powermenu/type-1/powermenu.sh
