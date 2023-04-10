@@ -301,9 +301,11 @@ def bspwm():
     # Configurar Rofi
     os.system("git clone https://github.com/adi1090x/rofi.git")
     os.system("mv rofi/* .")
-    os.system("chmod +x setup.sh")
+    os.system("sudo chmod +x setup.sh")
     os.system("sudo ./setup.sh")
     os.system("sudo rm -rf files fonts previews rofi LICENSE README.md setup.sh")
+    os.system("sudo cp -r ~/Auto-Linux-Workspace/tree/main/tools/bspwm/launcher.sh")
+    os.system("sudo chmod +x ~/Auto-Linux-Workspace/tree/main/tools/bspwm/launcher.sh")
 
     # Mueve los comandos settarget y cleartarget a /bin
     os.system("sudo cp ~/Auto-Linux-Workspace/tools/bspwm/settarget /bin")
