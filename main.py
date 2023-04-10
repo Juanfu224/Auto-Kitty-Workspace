@@ -311,7 +311,8 @@ def bspwm():
     os.system("sudo mv ~/Auto-Linux-Workspace/tools/bspwm/wichSystem.py /bin/")
 
     # Copiamos configuración de Rofi
-    os.system("cp ~/Auto-Linux-Workspace/tools/bspwm/powermenu_alt.rasi ~/.config/polybar/scripts/themes/powermenu_alt.rasi")
+    os.system("sudo mkdir -p ~/.config/polybar/scripts/themes/")
+    os.system("sudo cp ~/Auto-Linux-Workspace/tools/bspwm/powermenu_alt.rasi ~/.config/polybar/scripts/themes/powermenu_alt.rasi")
 
     time.sleep(2)
     blue()
