@@ -223,7 +223,7 @@ def bspwm():
 
     # Elimina los archivos de sxhkd
     os.system("sudo rm -r contrib/ doc/ examples/ src/ grab.o helpers.o LICENSE Makefile parse.o README.md Sourcedeps sxhkd sxhkd.o types.o VERSION")
-    os.system("cp ~/Auto-Linux-Workspace/tools/bspwm/sxhkdrc ~/.config/sxhkd")
+    os.system("sudo cp -r ~/Auto-Linux-Workspace/tools/bspwm/sxhkdrc ~/.config/sxhkd")
 
     # Clona el repo de polybar
     os.system("git clone --recursive https://github.com/polybar/polybar")
@@ -260,7 +260,7 @@ def bspwm():
     os.system("echo 'wmname LG3D &' >> ~/.config/bspwm/bspwmrc")
 
     # Copia el tema de polybar a ~/.config
-    os.system("unzip ~/Auto-Linux-Workspace/tools/bspwm/polybar-backup.zip .")
+    os.system("unzip ~/Auto-Linux-Workspace/tools/bspwm/polybar-backup.zip")
     os.system("sudo mv ~/Auto-Linux-Workspace/tools/bspwm/polybar-backup/ ~/.config/")
     os.system("sudo rm -r ~/.config/polybar/ 2>/dev/null")
     os.system("sudo mv ~/.config/polybar-backup/ ~/.config/polybar/")
