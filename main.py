@@ -260,11 +260,13 @@ def bspwm():
     os.system("echo 'wmname LG3D &' >> ~/.config/bspwm/bspwmrc")
 
     # Copia el tema de polybar a ~/.config
-    os.system("unzip ~/Auto-Linux-Workspace/tools/bspwm/polybar-backup.zip")
-    os.system("sudo mv ~/Auto-Linux-Workspace/tools/bspwm/polybar-backup/ ~/.config/")
+    os.system("sudo mv ~/Auto-Linux-Workspace/tools/bspwm/polybar-backup.zip .")
+    os.system("unzip ~/Auto-Linux-Workspace/polybar-backup.zip")
+    os.system("sudo mv ~/Auto-Linux-Workspace/polybar-backup/ ~/.config/")
     os.system("sudo rm -r ~/.config/polybar/ 2>/dev/null")
     os.system("sudo mv ~/.config/polybar-backup/ ~/.config/polybar/")
     os.system("echo '~/.config/polybar/./launch.sh' >> ~/.config/bspwm/bspwmrc")
+    os.system("sudo rm -r ~/Auto-Linux-Workspace/polybar-backup/")
 
     # Copia la config de picom
     os.system("mkdir ~/.config/picom")
