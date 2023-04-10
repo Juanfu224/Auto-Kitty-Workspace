@@ -8,7 +8,7 @@ super + Return
 
 # program launcher
 super + d
-	$HOME/.config/rofi/launchers/type-1/launcher.sh
+	~/.config/rofi/launchers/type-1/launcher.sh
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -127,7 +127,7 @@ super + ctrl + {Left,Down,Up,Right}
 
 # Custom move/resize
 alt + super + {Left,Down,Up,Right}
-	$HOME/.config/bspwm/scripts/bspwm_resize {west,south,north,east}
+	~/.config/bspwm/scripts/bspwm_resize {west,south,north,east}
 
 
 # ---------------------------------------------
