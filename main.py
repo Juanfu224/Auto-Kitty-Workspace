@@ -298,7 +298,7 @@ def bspwm():
     os.system("make")
     os.system("sudo make install")
 
-    # Cpnfigurar Rofi
+    # Configurar Rofi
     os.system("git clone https://github.com/adi1090x/rofi.git")
     os.system("mv rofi/* .")
     os.system("chmod +x setup.sh")
