@@ -96,7 +96,7 @@ def p10k():
     os.system("sudo apt install zsh zsh-autosuggestions zsh-syntax-highlighting scrub fzf kitty -y")
     os.system("sudo wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/Hack.zip")
     os.system("sudo wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh")
-    os.system("sudo wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.deb")
+    os.system("sudo wget https://github.com/neovim/neovim/releases/download/stable/nvim.appimage")
     os.system("sudo git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k")
     os.system("sudo git clone --depth=1 https://github.com/romkatv/powerlevel10k.git /root/powerlevel10k")
     os.system("sudo git clone --depth=1 https://github.com/junegunn/fzf.git ~/.fzf")
@@ -147,15 +147,16 @@ def p10k():
     os.system("sudo rm -rf /root/.local/share/nvim")
     os.system("sudo rm -rf /root/.config/nvim")
     
-    #Configurar Nvim en usuario
+    #Instalar Nvim
     print("\n[+] Aplicando la nueva configuración de Nvim en usuario....\n")
     os.system("sudo apt install ./nvim-linux64.deb")
-    os.system("git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim")
+    os.system("sudo mv nvim.appimage /bin")
+    os.system("sudo chmod u+x /bin/nvim.appimage")
     
-    #Configurar Nvim en root
+    #Iniciar configuración Nvim
     print("\n[+] Aplicando la nueva configuración de Nvim en root....\n")
-    os.system("sudo git clone https://github.com/NvChad/NvChad /root/.config/nvim --depth 1 && sudo nvim")
-    os.system("sudo rm -r nvim*")
+    os.system("nvim")
+    os.system("sudo nvim*")
     
     #Configurar zsh por defecto
     print("\n[+] Configurando zsh por defecto....\n")
@@ -318,7 +319,7 @@ def bspwm():
     os.system("sudo cp ~/Auto-Linux-Workspace/tools/bspwm/fastTCPscan.go /bin")
 
     # Instalando wichSystem.py
-    os.system("chmod +x ~/Auto-Linux-Workspace/tools/bspwm/wichSystem.py")
+    os.system("sudo chmod +x ~/Auto-Linux-Workspace/tools/bspwm/wichSystem.py")
     os.system("sudo mv ~/Auto-Linux-Workspace/tools/bspwm/wichSystem.py /bin/")
 
     # Copiamos configuración de Rofi
