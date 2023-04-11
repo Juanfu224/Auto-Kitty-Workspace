@@ -60,10 +60,11 @@ alias l='lsd --group-dirs=first'
 alias lla='lsd -lha --group-dirs=first'
 alias ls='lsd --group-dirs=first'
 alias cat='bat'
-alias clean-zsh-history='rm $HISTFILE'
+alias clear-zsh-history='rm $HISTFILE'
 alias more-light='sudo brightnessctl set +5%'
 alias less-light='sudo brightnessctl set 5-%'
 alias set-volumen='pamix'
+alias nvim ='nvim.appimage'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
