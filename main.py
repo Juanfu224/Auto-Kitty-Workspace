@@ -300,6 +300,7 @@ def bspwm():
     # Instalar Rofi
     os.system("wget https://github.com/davatorium/rofi/releases/download/1.7.5/rofi-1.7.5.tar.gz")
     os.system("tar -xvzf rofi-1.7.5.tar.gz")
+    os.system("sudo mv rofi-1.7.5/* .")
     os.system("./configure")
     os.system("make")
     os.system("sudo make install")
@@ -310,8 +311,8 @@ def bspwm():
     os.system("sudo chmod +x setup.sh")
     os.system("sudo ./setup.sh")
     os.system("sudo rm -rf files fonts previews rofi LICENSE README.md setup.sh")
-    os.system("sudo cp -r ~/Auto-Linux-Workspace/tree/main/tools/bspwm/launcher.sh")
-    os.system("sudo chmod +x ~/Auto-Linux-Workspace/tree/main/tools/bspwm/launcher.sh")
+    os.system("sudo cp -r ~/Auto-Linux-Workspace/tools/bspwm/launcher.sh ~/.config/rofi/launchers/type-1/")
+    os.system("sudo chmod +x ~/.config/rofi/launchers/type-1/launcher.sh")
 
     # Mueve los comandos settarget y cleartarget a /bin
     os.system("sudo cp ~/Auto-Linux-Workspace/tools/bspwm/settarget /bin")
