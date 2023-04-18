@@ -2,6 +2,16 @@
 Automatiza la instalación y la configuración de un entorno de trabajo inspirado en el de S4vitar en Bspwm, con la Kitty, Powerlevel10k, Nvim, VPN y algunos de los programas de escritorio más utilizados.
 Es compatible con cualquier distribución basada en Ubuntu.
 
+# Vista general
+![vista general](https://raw.githubusercontent.com/Juanfu224/Auto-Linux-Workspace/master/tools/Vista.png)
+
+# Instalación
+```
+git clone https://github.com/Juanfu224/Auto-Linux-Mint.git ~/Auto-Linux-Workspace
+cd ~/Auto-Linux-Workspace
+python3 main.py
+```
+
 ## El script consta de 10 funciones distintas:
 - Instalar y configurar Kitty, P10k, FZF, Nvim, plugins etc...
 - Instalar y configurar Bspwm, Polybar, Picom y Rofi
@@ -11,20 +21,16 @@ Es compatible con cualquier distribución basada en Ubuntu.
 - Instalar Sublime Text.
 - ALL IN ONE.
 
-# Instalación
-```
-git clone https://github.com/Juanfu224/Auto-Linux-Mint.git ~/Auto-Linux-Workspace
-cd ~/Auto-Linux-Workspace
-python3 main.py
-```
-
-# Vista general
-![vista general](https://raw.githubusercontent.com/Juanfu224/Auto-Linux-Workspace/master/tools/Vista.png)
-
 # Importante
 - Para que funcione correctamente Powerlevel10k es necesario tener las Hack Nerd Fonts puestas en la configuración de la tipografía de la terminal, aún asi, la Kitty ya viene configurada con todo lo necesario.
 - Hay que poner el tema Papirus en la configuración de temas del sistema.
 - Es recomendable reiniciar el equipo después de hacer una instalación completa.
+
+## Configurar IP en la Polybar:
+En el caso de que de error al mostrarse la IP en la polybar o no sea correcta, hay que cambiar "wlp1s0" por el nombre de tu tarjeta de red en el siguiente archivo:
+```
+~/.config/bin/ethernet_status.sh 
+```
 
 ## Reinstalar Nvim:
 En caso de tener una versión antigua de Neovim ya instalada, es muy recomendable desinstalarlo y borrar los archivos residuales que hayan quedado en el sistema con los siguientes comandos:
@@ -33,12 +39,6 @@ sudo apt purge neovim
 sudo apt autoremove
 ```
 A veces suelen ocurrir fallos a la hora de instalar Nvim, por lo que hay que volver a ejecutar la 2º opción del script. 
-
-## Configurar IP en la Polybar:
-En el caso de que de error al mostrarse la IP en la polybar o no sea correcta, hay que cambiar "wlp1s0" por el nombre de tu tarjeta de red en el siguiente archivo:
-```
-~/.config/bin/ethernet_status.sh 
-```
 
 # Utilidades:
 - **Papirus**: Temas para los ficheros y aplicaciones.
