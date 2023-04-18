@@ -1,5 +1,5 @@
 # Auto-Linux-Workspace
-Automatiza la instalación y la configuración de un entorno de trabajo inspirado en el de S4vitar en Bspwm, con la Kitty, Powerlevel10k, Nvim, VPN y algunos de los programas de escritorio más utilizados.
+Automatiza la instalación y la configuración de un entorno de trabajo en Bspwm, con la Kitty, Powerlevel10k, Nvim, VPN y algunos de los programas de escritorio más utilizados.
 Es compatible con cualquier distribución basada en Ubuntu.
 
 # Vista general
