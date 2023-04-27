@@ -64,7 +64,7 @@ alias clear-zsh-history='rm $HISTFILE'
 alias more-light='sudo brightnessctl set +5%'
 alias less-light='sudo brightnessctl set 5-%'
 alias set-volumen='pamix'
-alias nvim ='nvim.appimage'
+alias nvim='nvim.appimage'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
