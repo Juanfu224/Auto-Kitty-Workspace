@@ -149,7 +149,7 @@ def p10k():
     
     #Instalar Nvim
     print("\n[+] Aplicando la nueva configuración de Nvim en usuario....\n")
-    os.system("sudo chmod 755 nvim.appimage && ./nvim.appimage")
+    os.system("sudo chmod 755 nvim.appimage")
     os.system("sudo mv nvim.appimage /bin")
     
     #Configurar Nvim en usuario
@@ -352,7 +352,7 @@ def vbox():
     print("\nInstalando VirtualBox....\n")
 
 # Instalamos VirtualBox....
-    os.system("sudo wget https://download.virtualbox.org/virtualbox/7.0.6/virtualbox-7.0_7.0.6-155176~Ubuntu~jammy_amd64.deb")
+    os.system("sudo wget https://download.virtualbox.org/virtualbox/7.0.8/virtualbox-7.0_7.0.8-156879~Ubuntu~jammy_amd64.deb")
     os.system("sudo dpkg -i virtualbox*")
     os.system("sudo apt -f -y install")
     os.system("sudo rm -r virtualbox*")
