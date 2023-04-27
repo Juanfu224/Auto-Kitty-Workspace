@@ -149,9 +149,8 @@ def p10k():
     
     #Instalar Nvim
     print("\n[+] Aplicando la nueva configuración de Nvim en usuario....\n")
-    os.system("sudo chmod u+x nvim.appimage && ./nvim.appimage")
+    os.system("sudo chmod 755 nvim.appimage && ./nvim.appimage")
     os.system("sudo mv nvim.appimage /bin")
-    os.system("sudo chmod u+x /bin/nvim.appimage")
     
     #Configurar zsh por defecto
     print("\n[+] Configurando zsh por defecto....\n")
