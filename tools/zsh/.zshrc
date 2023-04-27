@@ -65,6 +65,7 @@ alias more-light='sudo brightnessctl set +5%'
 alias less-light='sudo brightnessctl set 5-%'
 alias set-volumen='pamix'
 alias nvim='nvim.appimage'
+alias c='clear'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
