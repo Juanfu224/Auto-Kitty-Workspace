@@ -297,6 +297,7 @@ def bspwm():
     os.system("echo '' > ~/.config/bin/target")
 
     # Instalar Rofi
+    os.system("sudo apt install libxkbcommon-x11-dev librust-pangocairo-sys-dev libstartup-notification0-dev libgdk-pixbuf-2.0-dev check")
     os.system("wget https://github.com/davatorium/rofi/releases/download/1.7.5/rofi-1.7.5.tar.gz")
     os.system("tar -xvzf rofi-1.7.5.tar.gz")
     os.system("sudo mv rofi-1.7.5/* .")
