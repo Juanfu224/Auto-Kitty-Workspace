@@ -170,9 +170,9 @@ if __name__ == '__main__':
     time.sleep(2)
     blue()
     while True:
-        cambiar = input("\n¿Desea cambiar la terminal por defecto? (s/n): ").lower()
+        cambiar = input("\n¿Deseas cambiar la terminal por defecto? (s/n): ").lower()
         if cambiar not in ["s", "n"]:
-            print("\nSolo puede responder 's' o 'n'\n")
+            print("\nSolo puedes responder 's' o 'n'\n")
             continue
         if cambiar == "s":
             cambiar_terminal()
