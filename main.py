@@ -85,6 +85,7 @@ def hnf():
 
 def kitty():
     # Configurar Kitty
+    os.system("sudo apt update")
     os.system("sudo apt install kitty -y")
     os.system("rm -rf ~/.config/kitty/*")  # borra config anterior
     os.system("mkdir -p ~/.config/kitty")
