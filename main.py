@@ -149,31 +149,37 @@ def cambiar_terminal():
 
 def instalar():
     # Instalar Kitty
+    white()
     print("\n[+] Instalando la Kitty....\n")
     time.sleep(3)
     kitty()
 
     # Instalar zsh
+    white()
     print("\n[+] Instalando ZSH....\n")
     time.sleep(3)
     zsh()
 
     # Instalar Hack Nerd Fonts
+    white()
     print("\n[+] Instalando las Hack Nerd Fonts....\n")
     time.sleep(3)
     hnf()
 
     # Aplicar config de p10k
+    white()
     print("\n[+] Instalando Powerlevel10k....\n")
     time.sleep(3)
     p10k()
 
     # Instalar FZF
+    white()
     print("\n[+] Instalando FZF....\n")
     time.sleep(3)
     fzf()
 
     # Instalar Nvim
+    white()
     print("\n[+] Instalando Nvim....\n")
     time.sleep(3)
     nvim()
@@ -186,7 +192,6 @@ if __name__ == '__main__':
     print(BANNER)
     
     # Funcion principal
-    white()
     instalar()
  
  # Cambiar terminal por defecto
