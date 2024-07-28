@@ -22,7 +22,13 @@ def yellow():
     YELLOW = "\033[1;33m"
     stdout.write(YELLOW)
 
+def orange():
+    ORANGE = "\033[1;38;5;208m"
+    stdout.write(ORANGE)
 
+def white():
+    WHITE = "\033[1;37m"
+    stdout.write(WHITE)
 
 banner = """
  █████╗ ██╗   ██╗████████╗ ██████╗       ██╗  ██╗██╗████████╗████████╗██╗   ██╗
@@ -52,7 +58,7 @@ def p10k():
 def hnf():
     # Instalar Hack Nerd Fonts
     os.system("wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Hack.zip")
-    os.system("sudo unzip Hack.zip")
+    os.system("unzip -o Hack.zip")
     os.system("sudo cp -r Hack*.ttf /usr/share/fonts ")
     os.system("sudo rm -r Hack*")
 
@@ -121,37 +127,31 @@ def cambiar_terminal():
 
 def instalar():
     # Instalar Kitty
-    blue()
     print("\n[+] Instalando la Kitty....\n")
     time.sleep(3)
     kitty()
 
     # Instalar zsh
-    blue()
     print("\n[+] Instalando ZSH....\n")
     time.sleep(3)
     zsh()
 
     # Instalar Hack Nerd Fonts
-    blue()
     print("\n[+] Instalando las Hack Nerd Fonts....\n")
     time.sleep(3)
     hnf()
 
     # Aplicar config de p10k
-    blue()
     print("\n[+] Instalando Powerlevel10k....\n")
     time.sleep(3)
     p10k()
 
     # Instalar FZF
-    blue()
     print("\n[+] Instalando FZF....\n")
     time.sleep(3)
     fzf()
 
     # Instalar Nvim
-    blue()
     print("\n[+] Instalando Nvim....\n")
     time.sleep(3)
     nvim()
@@ -159,10 +159,11 @@ def instalar():
 
 if __name__ == '__main__':
     # Imprimir banner del programa
-    yellow()
+    green()
     print(banner)
     
     # Funcion principal
+    white()
     instalar()
  
  # Cambiar terminal por defecto
@@ -180,5 +181,4 @@ if __name__ == '__main__':
     # Mensaje final
     green()
     print("\n[+] La instalación y la configuración de la terminal se ha realizado correctamente")
-    print("\n[+] Para que funcione correctamente Powerlevel10k en su terminal, es necesario tener las Hack Nerd Fonts \
-          puestas en la configuración de la tipografía. Aún así, Kitty ya viene configurada con todo lo necesario.\n")
+    print("\n[+] Para que funcione correctamente Powerlevel10k en su terminal, es necesario tener las Hack Nerd Fonts puestas en la configuración de la tipografía. Aún así, Kitty ya viene configurada con todo lo necesario.\n")
