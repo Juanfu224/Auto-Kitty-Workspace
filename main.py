@@ -38,14 +38,40 @@ def yellow():
     YELLOW = "\033[1;33m"
     stdout.write(YELLOW)
 
+
 def orange():
     ORANGE = "\033[1;38;5;208m"
     stdout.write(ORANGE)
+
 
 def white():
     WHITE = "\033[1;37m"
     stdout.write(WHITE)
 
+
+def purple():
+    PURPLE = "\033[1;35m"
+    stdout.write(PURPLE)
+
+
+def cyan():
+    CYAN = "\033[1;36m"
+    stdout.write(CYAN)
+
+
+def light_gray():
+    LIGHT_GRAY = "\033[0;37m"
+    stdout.write(LIGHT_GRAY)
+
+
+def dark_gray():
+    DARK_GRAY = "\033[1;30m"
+    stdout.write(DARK_GRAY)
+
+
+def light_blue():
+    LIGHT_BLUE = "\033[1;94m"
+    stdout.write(LIGHT_BLUE)
 
 def p10k():
     # Aplicar config de p10k
@@ -159,7 +185,7 @@ def instalar():
 
 if __name__ == '__main__':
     # Imprimir banner del programa
-    green()
+    purple()
     print(BANNER)
     
     # Funcion principal
