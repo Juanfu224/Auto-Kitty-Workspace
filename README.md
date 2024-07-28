@@ -69,7 +69,7 @@ A veces suelen ocurrir fallos a la hora de instalar Nvim, por lo que hay que vol
 - **Neovim**: Editor de texto modernizado basado en Vim, enfocado en extensibilidad y usabilidad.
 
 ## Shortcuts (atajos de teclado)
-<kbd>Ctrl</kbd> + <kbd>r</kbd> : Ver el historial del comando y buscar en ellos
+<kbd>Ctrl</kbd> + <kbd>R</kbd> : Ver el historial del comando y buscar en ellos
 
 <kbd>Ctrl</kbd> + <kbd>←</kbd> : Cambiar a la ventana vecina a la izquierda.
 
