@@ -3,6 +3,7 @@ import time
 from sys import stdout
 
 
+"""LOGOTIPO DE LA APLICACIÓN"""
 BANNER = """
  █████╗ ██╗   ██╗████████╗ ██████╗       ██╗  ██╗██╗████████╗████████╗██╗   ██╗
 ██╔══██╗██║   ██║╚══██╔══╝██╔═══██╗      ██║ ██╔╝██║╚══██╔══╝╚══██╔══╝╚██╗ ██╔╝
@@ -19,60 +20,54 @@ BANNER = """
                                                              (by Juanfu224)
 """
 
-def red():
+
+"""COLORES"""
+def red():  # Rojo
     RED = "\033[1;31m"
     stdout.write(RED)
 
-
-def green():
+def green():  # Verde
     GREEN = "\033[0;32m"
     stdout.write(GREEN)
 
-
-def blue():
+def blue():  # Azul
     BLUE = "\033[1;34m"
     stdout.write(BLUE)
 
-
-def yellow():
+def yellow():  # Amarillo
     YELLOW = "\033[1;33m"
     stdout.write(YELLOW)
 
-
-def orange():
+def orange():  # Naranja
     ORANGE = "\033[1;38;5;208m"
     stdout.write(ORANGE)
 
-
-def white():
+def white():  # Blanco
     WHITE = "\033[1;37m"
     stdout.write(WHITE)
 
-
-def purple():
+def purple():  # Morado
     PURPLE = "\033[1;35m"
     stdout.write(PURPLE)
 
-
-def cyan():
+def cyan():  # Cian
     CYAN = "\033[1;36m"
     stdout.write(CYAN)
 
-
-def light_gray():
+def light_gray():  # Gris claro
     LIGHT_GRAY = "\033[0;37m"
     stdout.write(LIGHT_GRAY)
 
-
-def dark_gray():
+def dark_gray():  # Gris oscuro
     DARK_GRAY = "\033[1;30m"
     stdout.write(DARK_GRAY)
 
-
-def light_blue():
+def light_blue():  # Azul claro
     LIGHT_BLUE = "\033[1;94m"
     stdout.write(LIGHT_BLUE)
 
+
+"""FUNCIONES PRINCIPALES"""
 def p10k():
     # Aplicar config de p10k
     os.system("git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k")
