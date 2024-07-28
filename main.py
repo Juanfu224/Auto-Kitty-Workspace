@@ -177,7 +177,7 @@ def instalar():
     time.sleep(3)
     nvim()
 
-
+"""PROGRAMA PRINCIPAL"""
 if __name__ == '__main__':
     # Imprimir banner del programa
     purple()
