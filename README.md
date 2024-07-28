@@ -8,6 +8,7 @@ Es compatible con cualquier distribución basada en Ubuntu. Probado en Linux Min
 
 # Instalación
 ```
+sudo apt install git
 git clone https://github.com/Juanfu224/Auto-Kitty-Workspace.git ~/Auto-Kitty-Workspace
 cd ~/Auto-Kitty-Workspace
 python3 main.py
