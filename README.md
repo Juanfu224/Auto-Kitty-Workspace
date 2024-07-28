@@ -1,74 +1,77 @@
-# Auto-Linux-Workspace
-Automatiza la instalación y la configuración de un entorno de trabajo en Bspwm, con la Kitty, Powerlevel10k, Nvim, VPN y algunos de los programas de escritorio más utilizados.
-Es compatible con cualquier distribución basada en Ubuntu.
+# Auto-Kitty-Workspace
+Automatiza la instalación y la configuración de un entorno de trabajo en la famosa terminal Kitty, con el ZSH, Powerlevel10k, Nvchad, FZF, compativilidad con NordVPN y algunas funciones mas.
+
+Es compatible con cualquier distribución basada en Ubuntu. Probado en Linux Mint 22 (Wilma) y Ubuntu 22.04 LTS.
 
 # Vista general
 ![vista general](https://raw.githubusercontent.com/Juanfu224/Auto-Linux-Workspace/master/tools/Vista.png)
 
 # Instalación
 ```
-git clone https://github.com/Juanfu224/Auto-Linux-Mint.git ~/Auto-Linux-Workspace
-cd ~/Auto-Linux-Workspace
+git clone https://github.com/Juanfu224/Auto-Kitty-Mint.git ~/Auto-Kitty-Workspace
+cd ~/Auto-Kitty-Workspace
 python3 main.py
 ```
 
-## El script consta de 10 funciones distintas:
-- Instalar y configurar Kitty, P10k, FZF, Nvim, plugins etc...
-- Instalar y configurar Bspwm, Polybar, Picom y Rofi
-- Instalar NordVPN (implementado con Powerlevel10k).
-- Instalar VirtualBox.
-- Instalar LibreOffice.
-- Instalar Sublime Text.
-- ALL IN ONE.
+## Funciones del Script
+El script consta de varias funciones distintas:
+- **Instalar y configurar Kitty**: Emulador de terminal para usuarios avanzados.
+- **Instalar y configurar Powerlevel10k en la ZSH**: Tema de la zsh que proporciona un prompt rápido y altamente personalizable.
+- **Configurar Neovim con NvChad**: Configuración de Neovim para desarrolladores, proporcionando una experiencia de edición de texto moderna y modular.
+- **Instalar FZF**: Buscador difuso de línea de comandos de propósito general, útil para buscar archivos, comandos y más.
+- **Proporcionar plugins**: Incluye Zsh-autosuggestions, Zsh-syntax-highlighting, bat, lsd, entre otros.
 
 # Importante
-- Para que funcione correctamente Powerlevel10k es necesario tener las Hack Nerd Fonts puestas en la configuración de la tipografía de la terminal, aún asi, la Kitty ya viene configurada con todo lo necesario.
-- Hay que poner el tema Papirus en la configuración de temas del sistema.
+- Para que funcione correctamente Powerlevel10k en su terminal, es necesario tener las Hack Nerd Fonts puestas en la configuración de la tipografía. Aún asi, la Kitty ya viene configurada con todo lo necesario.
 - Es recomendable reiniciar el equipo después de hacer una instalación completa.
-
-## Configurar IP en la Polybar:
-En el caso de que de error al mostrarse la IP en la polybar o no sea correcta, hay que cambiar "wlp1s0" por el nombre de tu tarjeta de red en el siguiente archivo:
-```
-~/.config/bin/ethernet_status.sh 
-```
 
 ## Reinstalar Nvim:
 En caso de tener una versión antigua de Neovim ya instalada, es muy recomendable desinstalarlo y borrar los archivos residuales que hayan quedado en el sistema con los siguientes comandos:
 ```
-sudo apt purge neovim
-sudo apt autoremove
+sudo rm -rf ~/.config/nvim
+sudo rm -rf ~/.local/share/nvim
+sudo rm -rf ~/.cache/nvim
+sudo rm -rf /root/.config/nvim
+sudo rm -rf /root/.local/share/nvim
+sudo rm -rf /root/.config/nvim
 ```
-A veces suelen ocurrir fallos a la hora de instalar Nvim, por lo que hay que volver a ejecutar la 2º opción del script. 
+A veces suelen ocurrir fallos a la hora de instalar Nvim, por lo que hay que volver a ejecutar el script. Este script ya borra toda la configuración anterior de nvim de forma automática.
 
-# Utilidades:
-- **Papirus**: Temas para los ficheros y aplicaciones.
 - **Kitty**: Emulador de terminal para usuarios avanzados.
-- **Powerlevel10k**: Tema de la zsh.
-- **ZSH**: Shell.
-- **FZF**: Buscador difuso de línea de comandos de propósito general.
-- **Hack Nerd Font**: Fuente.
-- **Bspwm**: Tiling Window Manager.
-- **Rofi**: Selector de ventana y lanzador de aplicaciones.
-- **Polybar**: Herramienta rápida y fácil de usar para crear barras de estado.
-- **NordVPN**: Red privada virtual de Nord.
+- **Powerlevel10k**: Tema de la zsh que proporciona un prompt rápido y altamente personalizable.
+- **zsh**: Shell poderoso y amigable con los desarrolladores, conocido por su robusta capacidad de configuración y plugins.
+- **FZF**: Buscador difuso de línea de comandos de propósito general, útil para buscar archivos, comandos y más.
+- **Hack Nerd Font**: Fuente principal utilizada, diseñada para mejorar la legibilidad y compatibilidad con iconos en terminales y editores de código.
+- **NordVPN**: Red privada virtual de Nord, utilizada para mantener la privacidad y seguridad en línea.
+- **NvChad**: Configuración de Neovim para desarrolladores, proporcionando una experiencia de edición de texto moderna y modular.
+- **Zsh-autosuggestions**: Plugin de Zsh que sugiere comandos mientras escribes basándose en tu historial.
+- **Zsh-syntax-highlighting**: Plugin de Zsh que resalta la sintaxis del comando actual.
+- **bat**: Clon de `cat` con resaltado de sintaxis y paginación integrada, útil para visualizar archivos en la terminal.
+- **lsd**: Mejorado y moderno `ls` que ofrece colores, iconos y una mejor experiencia visual al listar archivos y directorios en la terminal.
+- **Neovim**: Editor de texto modernizado basado en Vim, enfocado en extensibilidad y usabilidad.
 
-## Shortcuts (atajos de teclado)
-<kbd>Windows</kbd> + <kbd>Enter</kbd> : Abrir la consola (gnome-terminal).  
-<kbd>Windows</kbd> + <kbd>W</kbd> : Cerrar la ventana actual.  
-<kbd>Windows</kbd> + <kbd>Alt</kbd> + <kbd>R</kbd> : Reiniciar la configuración del bspwm.  
-<kbd>Windows</kbd> + <kbd>Alt</kbd> + <kbd>Q</kbd> : Cerrar sesión.  
-<kbd>Windows</kbd> + <kbd>(⬆⬅⬇➡)</kbd> : Moverse por las ventanas en la workspace actual.  
-<kbd>Windows</kbd> + <kbd>D</kbd> : Abrir el Rofi. <kbd>Esc</kbd> para salir.  
-<kbd>Windows</kbd> + <kbd>(1,2,3,4,5,6,7,8,9,0)</kbd> : Cambiar el workspace.  
-<kbd>Windows</kbd> + <kbd>T</kbd> : Cambiar la ventana actual a modo "terminal" (normal). Nos sirve cuando la ventana está en modo pantalla completa o flotante.  
-<kbd>Windows</kbd> + <kbd>M</kbd> : Cambiar la ventana actual a modo "completo" (no ocupa la polybar). Presione la mismas teclas para volver a modo "terminal" (normal).  
-<kbd>Windows</kbd> + <kbd>F</kbd> : Cambiar la ventana actual a modo pantalla completa (ocupa todo incluyendo la polybar).  
-<kbd>Windows</kbd> + <kbd>S</kbd> : Cambiar la ventana actual a modo "flotante".  
-<kbd>Windows</kbd> + <kbd>Alt</kbd> + <kbd>(1,2,3,4,5,6,7,8,9,0)</kbd> : Mover la ventana actual a otro workspace.  
-<kbd>Windows</kbd> + <kbd>Alt</kbd> + <kbd>(⬆⬅⬇➡)</kbd> : Cambiar el tamaño de la ventana actual (solo funciona si está en modo terminal o flotante).  
-<kbd>Windows</kbd> + <kbd>Ctrl</kbd> + <kbd>(⬆⬅⬇➡)</kbd> : Cambiar la posición de la ventana actual (solo funciona en modo flotante).  
-<kbd>Windows</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd> : Abrir Google Chrome (es necesario instalarlo primero).  
-<kbd>Windows</kbd> + <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>(⬆⬅⬇➡)</kbd> : Mostrar una preselección para luego abrir una ventana (una terminal, Google Chrome, un archivo, etc.). <kbd>Windows</kbd> + <kbd>Ctrl</kbd> + <kbd>Space</kbd> para deshacer la preselección.
+## Shortcuts (atajos de teclado) 
+<kbd>Ctrl</kbd> + <kbd>←</kbd> : Cambiar a la ventana vecina a la izquierda.
+
+<kbd>Ctrl</kbd> + <kbd>→</kbd> : Cambiar a la ventana vecina a la derecha.
+
+<kbd>Ctrl</kbd> + <kbd>↑</kbd> : Cambiar a la ventana vecina arriba.
+
+<kbd>Ctrl</kbd> + <kbd>↓</kbd> : Cambiar a la ventana vecina abajo.
+
+<kbd>F1</kbd> : Copiar al buffer a.
+
+<kbd>F2</kbd> : Pegar desde el buffer a.
+
+<kbd>F3</kbd> : Copiar al buffer b.
+
+<kbd>F4</kbd> : Pegar desde el buffer b.
+
+<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Z</kbd> : Cambiar al diseño de ventanas en pila.
+
+<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Enter</kbd> : Abrir una nueva ventana con el directorio actual.
+
+<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>T</kbd> : Abrir una nueva pestaña con el directorio actual.
 
 ## Créditos
 - Autor del script: Juanfu224 --> https://github.com/Juanfu224
