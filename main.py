@@ -161,7 +161,6 @@ if __name__ == '__main__':
     # Imprimir banner del programa
     yellow()
     print(banner)
-    time.sleep(3)
     
     # Funcion principal
     instalar()
