@@ -37,6 +37,7 @@ sudo rm -rf /root/.config/nvim
 ```
 A veces suelen ocurrir fallos a la hora de instalar Nvim, por lo que hay que volver a ejecutar el script. Este script ya borra toda la configuración anterior de nvim de forma automática.
 
+# Utilidades:
 - **Kitty**: Emulador de terminal para usuarios avanzados.
 - **Powerlevel10k**: Tema de la zsh que proporciona un prompt rápido y altamente personalizable.
 - **zsh**: Shell poderoso y amigable con los desarrolladores, conocido por su robusta capacidad de configuración y plugins.
