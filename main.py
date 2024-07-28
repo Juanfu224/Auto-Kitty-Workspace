@@ -116,7 +116,7 @@ def nvim():
     os.system("sudo ln -s /squashfs-root/AppRun /usr/bin/nvim")
 
     # Configurar Nvim en usuario y root
-    os.system("git clone https://github.com/NvChad/starter ~/.config/nvim && nvim")
+    os.system("git clone https://github.com/NvChad/starter ~/.config/nvim")
     os.system("sudo git clone https://github.com/NvChad/starter /root/.config/nvim")
 
 
