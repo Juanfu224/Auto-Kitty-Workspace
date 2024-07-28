@@ -80,4 +80,8 @@ A veces suelen ocurrir fallos a la hora de instalar Nvim, por lo que hay que vol
 - Autor de Powerlevel10k: romkatv --> https://github.com/romkatv
 - Autor de bat: sharkdp --> https://github.com/sharkdp
 - Autor de lsd: Peltoche --> https://github.com/Peltoche
+- Autor de HNF: ryanoasis --> https://github.com/ryanoasis
+- Autor de FZF: junegunn --> https://github.com/junegunn
+- Autor de Nvim: Neovim --> https://github.com/neovim
+- Autor de Kitty: kovidgoyal --> https://github.com/kovidgoyal
 - Inspirado en S4vitar y Yorkox0 ❤️
