@@ -52,9 +52,9 @@ def p10k():
 def hnf():
     # Instalar Hack Nerd Fonts
     os.system("wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Hack.zip")
-    os.system("unzip Hack.zip")
+    os.system("sudo unzip Hack.zip")
     os.system("sudo cp -r Hack*.ttf /usr/share/fonts ")
-    os.system("rm -r Hack*")
+    os.system("sudo rm -r Hack*")
 
 def kitty():
     # Configurar Kitty
@@ -77,11 +77,11 @@ def zsh():
 
     # Instalar plugins
     os.system("sudo wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh")
-    os.system("sudo apt install zsh-autosuggestions zsh-syntax-highlighting -y")
+    os.system("sudo apt install zsh-autosuggestions zsh-syntax-highlighting lsd -y")
     os.system("sudo dpkg -i ~/Auto-Kitty-Workspace/tools/zsh/bat*")
     os.system("sudo mkdir -p /usr/share/zsh-sudo")
     os.system("sudo cp -r sudo.plugin.zsh /usr/share/zsh-sudo")
-    os.system("rm -r ~/Auto-Kitty-Workspace/sudo.plugin*")
+    os.system("sudo rm -r ~/Auto-Kitty-Workspace/sudo.plugin*")
 
 
 def fzf():
