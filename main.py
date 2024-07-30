@@ -131,6 +131,7 @@ def nvim():
     os.system("sudo rm -rf /root/.config/nvim")
 
     # Instalar Nvim
+    os.system("sudo apt install curl")
     os.system("curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage")
     os.system("chmod u+x nvim.appimage")
     os.system("./nvim.appimage --appimage-extract")
