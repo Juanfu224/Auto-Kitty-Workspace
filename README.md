@@ -1,7 +1,7 @@
 # Auto-Kitty-Workspace
 Automatiza la instalación y la configuración de un entorno de trabajo en la famosa terminal Kitty, con el ZSH, Powerlevel10k, Nvchad, FZF, compativilidad con NordVPN y algunas funciones mas.
 
-Es compatible con cualquier distribución basada en Ubuntu. Probado en Linux Mint 22 (Wilma) y Ubuntu 22.04 LTS.
+Es compatible con cualquier distribución basada en Ubuntu. Probado en Linux Mint 22 (Wilma) y Ubuntu 24.04 LTS.
 
 # Vista general
 ![vista general](https://raw.githubusercontent.com/Juanfu224/Auto-Linux-Workspace/master/tools/Vista.png)
