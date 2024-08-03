@@ -105,8 +105,9 @@ def zsh():
 
     # Instalar plugins
     os.system("sudo wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh")
-    os.system("sudo apt install zsh-autosuggestions zsh-syntax-highlighting lsd -y")
+    os.system("sudo apt install zsh-autosuggestions zsh-syntax-highlighting -y")
     os.system("sudo dpkg -i ~/Auto-Kitty-Workspace/tools/zsh/bat*")
+    os.system("sudo dpkg -i ~/Auto-Kitty-Workspace/tools/zsh/lsd*")
     os.system("sudo mkdir -p /usr/share/zsh-sudo")
     os.system("sudo cp -r sudo.plugin.zsh /usr/share/zsh-sudo")
     os.system("sudo rm -r ~/Auto-Kitty-Workspace/sudo.plugin*")
