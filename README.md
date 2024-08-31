@@ -14,7 +14,7 @@ cd ~/Auto-Kitty-Workspace
 python3 main.py
 ```
 
-## Script Features
+# Script Features
 The script consists of several distinct functions:
 - **Install and configure Kitty**: Terminal emulator for advanced users.
 
@@ -68,7 +68,7 @@ Sometimes, errors may occur during the installation of Nvim, so you may need to 
 
 - **Neovim**: Modernized text editor based on Vim, focused on extensibility and usability.
 
-## Shortcuts
+# Shortcuts
 <kbd>Ctrl</kbd> + <kbd>R</kbd> : View command history and search within it.
 
 <kbd>Ctrl</kbd> + <kbd>←</kbd> : Switch to the neighboring window on the left.
