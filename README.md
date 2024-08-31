@@ -1,12 +1,12 @@
 # Auto-Kitty-Workspace
-Automatiza la instalación y la configuración de un entorno de trabajo en la famosa terminal Kitty, con el ZSH, Powerlevel10k, Nvchad, FZF, compativilidad con NordVPN y algunas funciones mas.
+Automates the installation and configuration of a workspace environment in the popular Kitty terminal, with ZSH, Powerlevel10k, NvChad, FZF, NordVPN compatibility, and more.
 
-Es compatible con cualquier distribución basada en Ubuntu. Probado en Linux Mint 22 (Wilma) y Ubuntu 24.04 LTS.
+It is compatible with any Ubuntu-based distribution. Tested on Linux Mint 22 (Wilma) and Ubuntu 24.04 LTS.
 
-# Vista general
-![vista general](https://raw.githubusercontent.com/Juanfu224/Auto-Linux-Workspace/master/tools/Vista.png)
+# Overview
+![overview](https://raw.githubusercontent.com/Juanfu224/Auto-Linux-Workspace/master/tools/Vista.png)
 
-# Instalación
+# Installation
 ```
 sudo apt install git
 git clone https://github.com/Juanfu224/Auto-Kitty-Workspace.git ~/Auto-Kitty-Workspace
@@ -15,24 +15,25 @@ python3 main.py
 ```
 
 ## Funciones del Script
-El script consta de varias funciones distintas:
-- **Instalar y configurar Kitty**: Emulador de terminal para usuarios avanzados.
+## Script Features
+The script consists of several distinct functions:
+- **Install and configure Kitty**: Terminal emulator for advanced users.
 
-- **Instalar y configurar Powerlevel10k en la ZSH**: Tema de la zsh que proporciona un prompt rápido y altamente personalizable.
+- **Install and configure Powerlevel10k in ZSH**: ZSH theme that provides a fast and highly customizable prompt.
 
-- **Configurar Neovim con NvChad**: Configuración de Neovim para desarrolladores, proporcionando una experiencia de edición de texto moderna y modular.
+- **Configure Neovim with NvChad**: Neovim configuration for developers, providing a modern and modular text editing experience.
 
-- **Instalar FZF**: Buscador difuso de línea de comandos de propósito general, útil para buscar archivos, comandos y más.
+- **Install FZF**: General-purpose command-line fuzzy finder, useful for searching files, commands, and more.
 
-- **Proporcionar plugins**: Incluye Zsh-autosuggestions, Zsh-syntax-highlighting, bat, lsd, entre otros.
+- **Provide plugins**: Includes Zsh-autosuggestions, Zsh-syntax-highlighting, bat, lsd, among others.
 
-# Importante
-- Para que funcione correctamente Powerlevel10k en su terminal, es necesario tener las Hack Nerd Fonts puestas en la configuración de la tipografía. Aún asi, la Kitty ya viene configurada con todo lo necesario.
+# Important
+- To ensure Powerlevel10k works correctly in your terminal, you need to have Hack Nerd Fonts set in the font configuration. However, Kitty is already configured with everything necessary.
 
-- Es recomendable reiniciar el equipo después de hacer una instalación completa.
+- It is recommended to restart your system after completing the installation.
 
-## Reinstalar Nvim:
-En caso de tener una versión antigua de Neovim ya instalada, es muy recomendable desinstalarlo y borrar los archivos residuales que hayan quedado en el sistema con los siguientes comandos:
+## Reinstall Nvim:
+If you have an older version of Neovim already installed, it is highly recommended to uninstall it and remove any residual files left on the system with the following commands:
 ```
 sudo rm -rf ~/.config/nvim
 sudo rm -rf ~/.local/share/nvim
@@ -41,65 +42,65 @@ sudo rm -rf /root/.config/nvim
 sudo rm -rf /root/.local/share/nvim
 sudo rm -rf /root/.config/nvim
 ```
-A veces suelen ocurrir fallos a la hora de instalar Nvim, por lo que hay que volver a ejecutar el script. Este script ya borra toda la configuración anterior de nvim de forma automática.
+Sometimes, errors may occur during the installation of Nvim, so you may need to rerun the script. This script already automatically removes all previous Nvim configurations.
 
-# Utilidades:
-- **Kitty**: Emulador de terminal para usuarios avanzados.
+# Utilities:
+- **Kitty**: Terminal emulator for advanced users.
 
-- **Powerlevel10k**: Tema de la zsh que proporciona un prompt rápido y altamente personalizable.
+- **Powerlevel10k**: ZSH theme that provides a fast and highly customizable prompt.
 
-- **zsh**: Shell poderoso y amigable con los desarrolladores, conocido por su robusta capacidad de configuración y plugins.
+- **zsh**: Powerful and developer-friendly shell, known for its robust configuration capabilities and plugins.
 
-- **FZF**: Buscador difuso de línea de comandos de propósito general, útil para buscar archivos, comandos y más.
+- **FZF**: General-purpose command-line fuzzy finder, useful for searching files, commands, and more.
 
-- **Hack Nerd Font**: Fuente principal utilizada, diseñada para mejorar la legibilidad y compatibilidad con iconos en terminales y editores de código.
+- **Hack Nerd Font**: Primary font used, designed to improve readability and icon compatibility in terminals and code editors.
 
-- **NordVPN**: Red privada virtual de Nord, utilizada para mantener la privacidad y seguridad en línea.
+- **NordVPN**: Virtual private network from Nord, used to maintain online privacy and security.
 
-- **NvChad**: Configuración de Neovim para desarrolladores, proporcionando una experiencia de edición de texto moderna y modular.
+- **NvChad**: Neovim configuration for developers, providing a modern and modular text editing experience.
 
-- **Zsh-autosuggestions**: Plugin de Zsh que sugiere comandos mientras escribes basándose en tu historial.
+- **Zsh-autosuggestions**: Zsh plugin that suggests commands as you type based on your history.
 
-- **Zsh-syntax-highlighting**: Plugin de Zsh que resalta la sintaxis del comando actual.
+- **Zsh-syntax-highlighting**: Zsh plugin that highlights the syntax of the current command.
 
-- **bat**: Clon de `cat` con resaltado de sintaxis y paginación integrada, útil para visualizar archivos en la terminal.
+- **bat**: `cat` clone with syntax highlighting and integrated pagination, useful for viewing files in the terminal.
 
-- **lsd**: Mejorado y moderno `ls` que ofrece colores, iconos y una mejor experiencia visual al listar archivos y directorios en la terminal.
+- **lsd**: Enhanced and modern `ls` offering colors, icons, and a better visual experience when listing files and directories in the terminal.
 
-- **Neovim**: Editor de texto modernizado basado en Vim, enfocado en extensibilidad y usabilidad.
+- **Neovim**: Modernized text editor based on Vim, focused on extensibility and usability.
 
-## Shortcuts (atajos de teclado)
-<kbd>Ctrl</kbd> + <kbd>R</kbd> : Ver el historial del comando y buscar en ellos
+## Shortcuts
+<kbd>Ctrl</kbd> + <kbd>R</kbd> : View command history and search within it.
 
-<kbd>Ctrl</kbd> + <kbd>←</kbd> : Cambiar a la ventana vecina a la izquierda.
+<kbd>Ctrl</kbd> + <kbd>←</kbd> : Switch to the neighboring window on the left.
 
-<kbd>Ctrl</kbd> + <kbd>→</kbd> : Cambiar a la ventana vecina a la derecha.
+<kbd>Ctrl</kbd> + <kbd>→</kbd> : Switch to the neighboring window on the right.
 
-<kbd>Ctrl</kbd> + <kbd>↑</kbd> : Cambiar a la ventana vecina arriba.
+<kbd>Ctrl</kbd> + <kbd>↑</kbd> : Switch to the neighboring window above.
 
-<kbd>Ctrl</kbd> + <kbd>↓</kbd> : Cambiar a la ventana vecina abajo.
+<kbd>Ctrl</kbd> + <kbd>↓</kbd> : Switch to the neighboring window below.
 
-<kbd>F1</kbd> : Copiar al buffer a.
+<kbd>F1</kbd> : Copy to buffer a.
 
-<kbd>F2</kbd> : Pegar desde el buffer a.
+<kbd>F2</kbd> : Paste from buffer a.
 
-<kbd>F3</kbd> : Copiar al buffer b.
+<kbd>F3</kbd> : Copy to buffer b.
 
-<kbd>F4</kbd> : Pegar desde el buffer b.
+<kbd>F4</kbd> : Paste from buffer b.
 
-<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Z</kbd> : Cambiar al diseño de ventanas en pila.
+<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Z</kbd> : Switch to stacked window layout.
 
-<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Enter</kbd> : Abrir una nueva ventana con el directorio actual.
+<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Enter</kbd> : Open a new window with the current directory.
 
-<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>T</kbd> : Abrir una nueva pestaña con el directorio actual.
+<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>T</kbd> : Open a new tab with the current directory.
 
-## Créditos
-- Autor del script: Juanfu224 --> https://github.com/Juanfu224
-- Autor de Powerlevel10k: romkatv --> https://github.com/romkatv
-- Autor de bat: sharkdp --> https://github.com/sharkdp
-- Autor de lsd: Peltoche --> https://github.com/Peltoche
-- Autor de HNF: ryanoasis --> https://github.com/ryanoasis
-- Autor de FZF: junegunn --> https://github.com/junegunn
-- Autor de Nvim: Neovim --> https://github.com/neovim
-- Autor de Kitty: kovidgoyal --> https://github.com/kovidgoyal
-- Inspirado en S4vitar y Yorkox0 ❤️
+# Credits
+- Script Author: Juanfu224 --> https://github.com/Juanfu224
+- Powerlevel10k Author: romkatv --> https://github.com/romkatv
+- bat Author: sharkdp --> https://github.com/sharkdp
+- lsd Author: Peltoche --> https://github.com/Peltoche
+- Hack Nerd Font Author: ryanoasis --> https://github.com/ryanoasis
+- FZF Author: junegunn --> https://github.com/junegunn
+- Neovim Author: Neovim --> https://github.com/neovim
+- Kitty Author: kovidgoyal --> https://github.com/kovidgoyal
+- Inspired by S4vitar and Yorkox0 ❤️
