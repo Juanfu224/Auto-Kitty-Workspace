@@ -14,7 +14,6 @@ cd ~/Auto-Kitty-Workspace
 python3 main.py
 ```
 
-## Funciones del Script
 ## Script Features
 The script consists of several distinct functions:
 - **Install and configure Kitty**: Terminal emulator for advanced users.
