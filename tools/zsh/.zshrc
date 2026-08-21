@@ -1,4 +1,3 @@
-# GNU nano 6.2
 # Fix the Java Problem
 export _JAVA_AWT_WM_NONREPARENTING=1
 
@@ -25,7 +24,9 @@ zstyle ':completion:*' completer _expand _complete _correct _approximate
 zstyle ':completion:*' format 'Completing %d'
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' menu select=2
-eval "$(dircolors -b)"
+if command -v dircolors >/dev/null 2>&1; then
+  eval "$(dircolors -b)"
+fi
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' list-colors ''
 zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
@@ -40,8 +41,7 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 
 # Manual configuration
-
-PATH=/root/.local/bin:/snap/bin:/usr/sandbox/:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/share/games:/usr/local/sbin:/usr/sbin:/sbin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
+export PATH="$HOME/.local/bin:$PATH"
 
 # Manual aliases
 alias ll='lsd -lh --group-dirs=first'
@@ -49,19 +49,31 @@ alias la='lsd -a --group-dirs=first'
 alias l='lsd --group-dirs=first'
 alias lla='lsd -lha --group-dirs=first'
 alias ls='lsd --group-dirs=first'
-alias cat='bat'
+if command -v bat >/dev/null 2>&1; then
+  alias cat='bat'
+elif command -v batcat >/dev/null 2>&1; then
+  alias cat='batcat'
+fi
 alias clear-histfile='rm $HISTFILE'
 alias c='clear'
-alias nvim='/usr/bin/nvim/AppRun'
-alias update='sudo apt update && sudo apt full-upgrade -y && sudo flatpak update'
-alias autoremove='sudo apt autoclean && sudo apt autoremove'
+
+if command -v dnf >/dev/null 2>&1; then
+  alias update='sudo dnf upgrade -y; command -v flatpak >/dev/null 2>&1 && flatpak update -y'
+  alias autoremove='sudo dnf autoremove -y'
+elif command -v apt >/dev/null 2>&1; then
+  alias update='sudo apt update && sudo apt full-upgrade -y; command -v flatpak >/dev/null 2>&1 && flatpak update -y'
+  alias autoremove='sudo apt autoclean && sudo apt autoremove -y'
+fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Plugins
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh-sudo/sudo.plugin.zsh
+[[ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && \
+  source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[[ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]] && \
+  source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+[[ -f /usr/share/zsh-sudo/sudo.plugin.zsh ]] && \
+  source /usr/share/zsh-sudo/sudo.plugin.zsh
 
 # Functions
 
@@ -79,10 +91,13 @@ function man() {
 }
 
 # key-bindings zsh
-  if [ -x "$(command -v fzf)"  ]
-    then
+if [ -x "$(command -v fzf)" ]; then
+  if [ -f /usr/share/doc/fzf/examples/key-bindings.zsh ]; then
     source /usr/share/doc/fzf/examples/key-bindings.zsh
+  elif [ -f /usr/share/fzf/shell/key-bindings.zsh ]; then
+    source /usr/share/fzf/shell/key-bindings.zsh
   fi
+fi
 
 
 #Teclado
@@ -106,7 +121,7 @@ function zle-keymap-select {
   fi
 }
 zle -N zle-keymap-select
- 
+
 # Start with beam shape cursor on zsh startup and after every command.
 zle-line-init() { zle-keymap-select 'beam'}
 eval "$(starship init zsh)"

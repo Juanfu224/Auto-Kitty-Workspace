@@ -20,20 +20,20 @@
 - **Neovim** with the **NvChad** configuration.  
 - **Custom shortcuts** for a faster workflow.  
 
-> Compatible with any Debian-based distribution.  
-> Tested on **Linux Mint 22.3 (Zena)** and **Ubuntu 24.04 (Noble Numbat)**.
+> Compatible with **Debian-based** distributions and **Fedora** (and RHEL-like).  
+> Tested on **Linux Mint 22.3 (Zena)**, **Ubuntu 24.04 (Noble Numbat)**, and aimed at **Fedora 40+**.
 
 
 
 ## Installation
 
-> **Requirements:** Git and Python 3 must be installed.
+> **Requirements:** Git and Python 3 must be installed. The script detects your distro and uses `apt` or `dnf` automatically.
 
 ```bash
 git clone https://github.com/Juanfu224/Auto-Kitty-Workspace.git ~/Auto-Kitty-Workspace
 cd ~/Auto-Kitty-Workspace
 python3 main.py
-````
+```
 
 
 
@@ -41,18 +41,20 @@ python3 main.py
 
 The installation script performs the following tasks:
 
-* **Kitty installation & configuration** — Sets up the terminal with Catppuccin theme and keyboard shortcuts.
-* **Starship + ZSH setup** — Installs a fast, customizable shell prompt with helpful plugins.
-* **Neovim (NvChad)** — Sets up a modern, modular development environment.
-* **FZF** — Adds fuzzy finding for commands, files, and history.
-* **Plugins & utilities** — Installs `zsh-autosuggestions`, `zsh-syntax-highlighting`, `bat`, `lsd`, and more.
+* **Kitty installation & configuration** — Official binary installer + Catppuccin theme and shortcuts.
+* **Starship + ZSH setup** — Official Starship installer and distro zsh plugins.
+* **Neovim (NvChad)** — Official Neovim tarball + NvChad starter.
+* **FZF / bat / lsd** — Official upstream installs (latest).
+* **Plugins & utilities** — `zsh-autosuggestions`, `zsh-syntax-highlighting`, and more.
 
 
 
 ## Important Notes
 
-* It is **recommended to restart your system** after installation to apply all changes.
+* It is **recommended to restart your system** (or at least log out/in) after installation so the default shell and fonts apply.
 * The script automatically removes old Neovim configurations before installing NvChad.
+* **Default terminal:** on Debian/Ubuntu it uses `update-alternatives`; on Fedora (GNOME) it uses `gsettings`. Other desktops may need a manual setting.
+* **Packages:** system deps (`zsh`, `git`, `curl`, `unzip`, zsh plugins) come from `apt`/`dnf`. **Kitty**, **Starship**, **Neovim**, **bat**, **lsd**, and **fzf** are installed from their official upstream sources (latest release / official installer). Hack Nerd Font uses the latest GitHub release. The zsh `sudo` plugin is vendored in the repo.
 
 ### Reinstalling Neovim (Clean Setup)
 
