@@ -77,15 +77,17 @@ def run(cmd: list[str], *, check: bool = True) -> None:
         die(f"Error ejecutando: {' '.join(cmd)}", result.returncode)
 
 
-def cpu_triple() -> tuple[str, str]:
-    """(nvim_arch, rust_arch) — p.ej. ('x86_64','x86_64') o ('arm64','aarch64')."""
+def resolve_arch() -> tuple[str, str]:
+    """Devuelve (nvim_arch, rust_arch)."""
     m = platform.machine().lower()
     if m in {"x86_64", "amd64"}:
         return "x86_64", "x86_64"
     if m in {"aarch64", "arm64"}:
         return "arm64", "aarch64"
     die(f"Arquitectura no soportada: {m}")
-    raise SystemExit  # unreachable
+
+
+NVIM_ARCH, RUST_ARCH = resolve_arch()
 
 
 def download(url: str, dest: Path) -> None:
@@ -95,11 +97,26 @@ def download(url: str, dest: Path) -> None:
         shutil.copyfileobj(resp, out)
 
 
+def run_installer(url: str, *args: str) -> None:
+    with tempfile.TemporaryDirectory(prefix="akw-installer-") as tmp:
+        script = Path(tmp) / "install.sh"
+        download(url, script)
+        run(["sh", str(script), *args])
+
+
 def force_link(src: Path, dest: Path) -> None:
     dest.parent.mkdir(parents=True, exist_ok=True)
     if dest.exists() or dest.is_symlink():
         dest.unlink()
     dest.symlink_to(src)
+
+
+def wipe(*paths: Path) -> None:
+    for path in paths:
+        if str(path).startswith("/root"):
+            run(["sudo", "rm", "-rf", str(path)])
+        elif path.exists():
+            shutil.rmtree(path)
 
 
 def copy_user_root(src: Path, rel: str) -> None:
@@ -116,8 +133,7 @@ def git_clone(url: str, dest: Path, *, root: bool = False) -> None:
         run(["sudo", "rm", "-rf", str(dest)])
         run(["sudo", "git", "clone", "--depth=1", url, str(dest)])
     else:
-        if dest.exists():
-            shutil.rmtree(dest)
+        wipe(dest)
         run(["git", "clone", "--depth=1", url, str(dest)])
 
 
@@ -133,7 +149,6 @@ def github_asset(repo: str, needle: str) -> str:
         if needle in name and name.endswith(".tar.gz") and "sha" not in name.lower():
             return asset["browser_download_url"]
     die(f"Sin asset '{needle}' en {repo}")
-    raise SystemExit
 
 
 def install_tarball_bin(url: str, binary: str) -> None:
@@ -148,6 +163,21 @@ def install_tarball_bin(url: str, binary: str) -> None:
         dest = LOCAL_BIN / binary
         shutil.copy2(found, dest)
         dest.chmod(0o755)
+
+
+def detect_desktop() -> str:
+    blob = " ".join(
+        [
+            os.environ.get("XDG_CURRENT_DESKTOP", ""),
+            os.environ.get("DESKTOP_SESSION", ""),
+            os.environ.get("XDG_SESSION_DESKTOP", ""),
+        ]
+    ).lower()
+    if "kde" in blob or "plasma" in blob:
+        return "kde"
+    if "gnome" in blob:
+        return "gnome"
+    return "other"
 
 
 def detect_distro() -> str:
@@ -168,7 +198,91 @@ def detect_distro() -> str:
         f"Distro no soportada ({data.get('PRETTY_NAME', '?')}). "
         "Usa Debian/Ubuntu o Fedora."
     )
-    raise SystemExit
+
+
+def ensure_user_path() -> None:
+    LOCAL_BIN.mkdir(parents=True, exist_ok=True)
+    env_dir = HOME / ".config" / "environment.d"
+    env_dir.mkdir(parents=True, exist_ok=True)
+    (env_dir / "99-akw-path.conf").write_text(
+        f'PATH="{LOCAL_BIN}:${{PATH}}"\n', encoding="utf-8"
+    )
+    os.environ["PATH"] = f"{LOCAL_BIN}:{os.environ.get('PATH', '')}"
+
+
+def selinux_restore() -> None:
+    if not shutil.which("restorecon") or not shutil.which("getenforce"):
+        return
+    status = subprocess.run(
+        ["getenforce"], capture_output=True, text=True, check=False
+    )
+    if status.returncode != 0 or status.stdout.strip() == "Disabled":
+        return
+    local = HOME / ".local"
+    if local.exists():
+        run(["restorecon", "-Rv", str(local)], check=False)
+
+
+def apply_kitty_font() -> None:
+    cfg = HOME / ".config" / "kitty" / "kitty.conf"
+    if not cfg.exists():
+        return
+    result = subprocess.run(
+        ["fc-list", ":family"], capture_output=True, text=True, check=False
+    )
+    families: set[str] = set()
+    for line in result.stdout.splitlines():
+        for part in line.split(","):
+            name = part.strip()
+            if "hack" in name.lower() and "nerd" in name.lower():
+                families.add(name)
+    family = "Hack Nerd Font"
+    for preferred in ("Hack Nerd Font", "HackNerdFont", "Hack Nerd Font Mono"):
+        if preferred in families:
+            family = preferred
+            break
+    else:
+        if families:
+            family = sorted(families)[0]
+
+    lines = []
+    for line in cfg.read_text(encoding="utf-8").splitlines():
+        if line.strip().startswith("font_family"):
+            lines.append(f"font_family      {family}")
+        else:
+            lines.append(line)
+    cfg.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    cprint(GREEN, f"[+] Fuente Kitty: {family}")
+
+
+def kwrite(key: str, value: str) -> bool:
+    tool = shutil.which("kwriteconfig6") or shutil.which("kwriteconfig5")
+    if not tool:
+        return False
+    run(
+        [tool, "--file", "kdeglobals", "--group", "General", "--key", key, value],
+        check=False,
+    )
+    return True
+
+
+def set_kde_terminal(kitty_bin: str) -> bool:
+    if not kwrite("TerminalApplication", kitty_bin):
+        return False
+    kwrite("TerminalService", "kitty.desktop")
+    cprint(GREEN, "\n[+] Terminal por defecto configurada (KDE Plasma).")
+    cprint(YELLOW, "    Puede hacer falta cerrar sesión o reiniciar Dolphin.")
+    return True
+
+
+def set_gnome_terminal(kitty_bin: str) -> bool:
+    if not shutil.which("gsettings"):
+        return False
+    schema = "org.gnome.desktop.default-applications.terminal"
+    run(["gsettings", "set", schema, "exec", kitty_bin], check=False)
+    run(["gsettings", "set", schema, "exec-arg", ""], check=False)
+    cprint(GREEN, "\n[+] Terminal por defecto configurada (GNOME).")
+    return True
 
 
 def pkg_install() -> None:
@@ -184,10 +298,7 @@ def install_kitty() -> None:
     apps = HOME / ".local" / "share" / "applications"
     apps.mkdir(parents=True, exist_ok=True)
 
-    with tempfile.TemporaryDirectory(prefix="akw-kitty-") as tmp:
-        script = Path(tmp) / "installer.sh"
-        download(KITTY_INSTALLER, script)
-        run(["sh", str(script), "launch=n"])
+    run_installer(KITTY_INSTALLER, "launch=n")
 
     for name in ("kitty", "kitten"):
         src = kitty_app / "bin" / name
@@ -196,9 +307,7 @@ def install_kitty() -> None:
         force_link(src, LOCAL_BIN / name)
 
     kitty_bin = (kitty_app / "bin" / "kitty").resolve()
-    icon = (
-        kitty_app / "share/icons/hicolor/256x256/apps/kitty.png"
-    ).resolve()
+    icon = (kitty_app / "share/icons/hicolor/256x256/apps/kitty.png").resolve()
     for name in ("kitty.desktop", "kitty-open.desktop"):
         src = kitty_app / "share" / "applications" / name
         if not src.exists():
@@ -231,8 +340,7 @@ def install_zsh() -> None:
 
 
 def install_rust_tool(name: str, repo: str) -> None:
-    _, rust_arch = cpu_triple()
-    url = github_asset(repo, f"{rust_arch}-unknown-linux-musl.tar.gz")
+    url = github_asset(repo, f"{RUST_ARCH}-unknown-linux-musl.tar.gz")
     install_tarball_bin(url, name)
 
 
@@ -244,10 +352,8 @@ def install_fzf() -> None:
         if root:
             cmd = ["sudo", *cmd]
         run(cmd, check=False)
-        if not root:
-            binary = dest / "bin" / "fzf"
-            if binary.exists():
-                force_link(binary, LOCAL_BIN / "fzf")
+        if not root and (dest / "bin" / "fzf").exists():
+            force_link(dest / "bin" / "fzf", LOCAL_BIN / "fzf")
 
     setup(HOME, root=False)
     setup(Path("/root"), root=True)
@@ -255,44 +361,53 @@ def install_fzf() -> None:
 
 def install_fonts() -> None:
     user_fonts = HOME / ".local" / "share" / "fonts"
+    root_fonts = Path("/root/.local/share/fonts")
     user_fonts.mkdir(parents=True, exist_ok=True)
-    run(["sudo", "mkdir", "-p", "/root/.local/share/fonts"])
+    run(["sudo", "mkdir", "-p", str(root_fonts)])
 
     with tempfile.TemporaryDirectory(prefix="akw-fonts-") as tmp:
         archive = Path(tmp) / "Hack.zip"
         out = Path(tmp) / "out"
+        staged = Path(tmp) / "staged"
+        staged.mkdir()
         download(HACK_NF_URL, archive)
         run(["unzip", "-o", "-q", str(archive), "-d", str(out)])
-        fonts = [p for p in out.rglob("*") if p.suffix.lower() in {".ttf", ".otf"}]
-        for font in fonts:
-            shutil.copy2(font, user_fonts / font.name)
-        if fonts:
-            run(["sudo", "cp", "-f", *[str(user_fonts / f.name) for f in fonts], "/root/.local/share/fonts/"])
+        for font in out.rglob("*"):
+            if font.suffix.lower() in {".ttf", ".otf"}:
+                shutil.copy2(font, staged / font.name)
+                shutil.copy2(font, user_fonts / font.name)
+        if any(staged.iterdir()):
+            run(["sudo", "cp", "-t", str(root_fonts), "--", *map(str, staged.iterdir())])
 
     run(["fc-cache", "-f"], check=False)
     run(["sudo", "fc-cache", "-f"], check=False)
+    apply_kitty_font()
 
 
 def install_starship() -> None:
-    with tempfile.TemporaryDirectory(prefix="akw-starship-") as tmp:
-        script = Path(tmp) / "install.sh"
-        download(STARSHIP_INSTALLER, script)
-        run(["sh", str(script), "-y", "-b", str(LOCAL_BIN)])
-    copy_user_root(REPO_ROOT / "tools" / "starship" / "starship.toml", ".config/starship.toml")
+    run_installer(STARSHIP_INSTALLER, "-y", "-b", str(LOCAL_BIN))
+    copy_user_root(
+        REPO_ROOT / "tools" / "starship" / "starship.toml",
+        ".config/starship.toml",
+    )
 
 
 def install_nvim() -> None:
-    for rel in (".config/nvim", ".local/share/nvim", ".cache/nvim"):
-        path = HOME / rel
-        if path.exists():
-            shutil.rmtree(path)
-    run(["sudo", "rm", "-rf", "/root/.config/nvim", "/root/.local/share/nvim", "/root/.cache/nvim"])
+    wipe(
+        HOME / ".config" / "nvim",
+        HOME / ".local" / "share" / "nvim",
+        HOME / ".cache" / "nvim",
+        Path("/root/.config/nvim"),
+        Path("/root/.local/share/nvim"),
+        Path("/root/.cache/nvim"),
+    )
 
-    nvim_arch, _ = cpu_triple()
-    url = f"https://github.com/neovim/neovim/releases/latest/download/nvim-linux-{nvim_arch}.tar.gz"
+    url = (
+        "https://github.com/neovim/neovim/releases/latest/download/"
+        f"nvim-linux-{NVIM_ARCH}.tar.gz"
+    )
     nvim_home = HOME / ".local" / "nvim"
-    if nvim_home.exists():
-        shutil.rmtree(nvim_home)
+    wipe(nvim_home)
 
     with tempfile.TemporaryDirectory(prefix="akw-nvim-") as tmp:
         tmp_p = Path(tmp)
@@ -310,19 +425,20 @@ def install_nvim() -> None:
 
 
 def set_default_terminal() -> None:
-    kitty_bin = str(HOME / ".local" / "kitty.app" / "bin" / "kitty")
+    kitty_bin = str((HOME / ".local" / "kitty.app" / "bin" / "kitty").resolve())
     if not Path(kitty_bin).exists():
         kitty_bin = shutil.which("kitty") or "kitty"
 
     if DISTRO == "debian":
-        run(["sudo", "update-alternatives", "--config", "x-terminal-emulator"], check=False)
-        return
+        run(
+            ["sudo", "update-alternatives", "--config", "x-terminal-emulator"],
+            check=False,
+        )
 
-    if DISTRO == "fedora" and shutil.which("gsettings"):
-        schema = "org.gnome.desktop.default-applications.terminal"
-        run(["gsettings", "set", schema, "exec", kitty_bin], check=False)
-        run(["gsettings", "set", schema, "exec-arg", ""], check=False)
-        cprint(GREEN, "\n[+] Terminal por defecto configurada (GNOME).")
+    desktop = detect_desktop()
+    if desktop == "kde" and set_kde_terminal(kitty_bin):
+        return
+    if desktop == "gnome" and set_gnome_terminal(kitty_bin):
         return
 
     cprint(
@@ -333,6 +449,7 @@ def set_default_terminal() -> None:
 
 
 def instalar() -> None:
+    ensure_user_path()
     steps = (
         ("Paquetes del sistema", pkg_install),
         ("Kitty (oficial)", install_kitty),
@@ -343,6 +460,7 @@ def instalar() -> None:
         ("Hack Nerd Fonts", install_fonts),
         ("Starship (oficial)", install_starship),
         ("Neovim + NvChad (oficial)", install_nvim),
+        ("SELinux (restorecon)", selinux_restore),
     )
     for label, fn in steps:
         cprint(ORANGE, f"\n[+] {label}…\n")
@@ -350,12 +468,9 @@ def instalar() -> None:
 
 
 if __name__ == "__main__":
-    LOCAL_BIN.mkdir(parents=True, exist_ok=True)
-    os.environ["PATH"] = f"{LOCAL_BIN}:{os.environ.get('PATH', '')}"
-
     DISTRO = detect_distro()
     cprint(PURPLE, BANNER)
-    cprint(GREEN, f"[+] Distro detectada: {DISTRO}\n")
+    cprint(GREEN, f"[+] Distro detectada: {DISTRO} | Escritorio: {detect_desktop()}\n")
     instalar()
 
     while True:
@@ -367,4 +482,9 @@ if __name__ == "__main__":
             set_default_terminal()
         break
 
-    cprint(GREEN, "\n[+] Instalación completada. Abre Kitty para comprobarlo.\nDisfruta <3")
+    cprint(
+        GREEN,
+        "\n[+] Instalación completada. Abre Kitty para comprobarlo.\n"
+        "    Si acabas de instalar, cierra sesión para aplicar PATH y terminal por defecto.\n"
+        "Disfruta <3",
+    )
