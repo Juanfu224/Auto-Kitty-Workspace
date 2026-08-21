@@ -55,6 +55,7 @@ The installation script performs the following tasks:
 * The script automatically removes old Neovim configurations before installing NvChad.
 * **Default terminal:** Debian uses `update-alternatives`; **KDE Plasma** uses `kwriteconfig6` (`TerminalApplication` / `TerminalService`); **GNOME** uses `gsettings`. A logout may be needed for PATH (`~/.config/environment.d`) and the default terminal to apply.
 * **Fedora extras:** writes `~/.config/environment.d/99-akw-path.conf` so GUI apps see `~/.local/bin`, runs `restorecon` on `~/.local` when SELinux is active, and sets Kitty’s `font_family` from the installed Hack Nerd Font via `fc-list`.
+* **Shared CLI vs user apps:** `starship`, `lsd`, `bat`, `fzf`, and `nvim` install to `/usr/local/bin` (root-owned) so both your user and root (`sudo su`) share them safely without putting a user-writable path in root’s `PATH`. **Kitty** stays under `~/.local` (GUI app).
 * **Packages:** system deps (`zsh`, `git`, `curl`, `unzip`, zsh plugins) come from `apt`/`dnf`. **Kitty**, **Starship**, **Neovim**, **bat**, **lsd**, and **fzf** are installed from their official upstream sources (latest release / official installer). Hack Nerd Font uses the latest GitHub release. The zsh `sudo` plugin is vendored in the repo.
 
 ### Reinstalling Neovim (Clean Setup)

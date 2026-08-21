@@ -17,6 +17,8 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parent
 HOME = Path.home()
 LOCAL_BIN = HOME / ".local" / "bin"
+USR_LOCAL_BIN = Path("/usr/local/bin")
+USR_LOCAL_NVIM = Path("/usr/local/nvim")
 DISTRO: str | None = None
 
 PACKAGES = (
@@ -111,10 +113,16 @@ def force_link(src: Path, dest: Path) -> None:
     dest.symlink_to(src)
 
 
+def install_system_bin(src: Path, name: str) -> None:
+    """Instala un binario en /usr/local/bin (root-owned, 0755) para user y root."""
+    run(["sudo", "install", "-m", "755", str(src), str(USR_LOCAL_BIN / name)])
+
+
 def wipe(*paths: Path) -> None:
     for path in paths:
-        if str(path).startswith("/root"):
-            run(["sudo", "rm", "-rf", str(path)])
+        p = str(path)
+        if p.startswith(("/root", "/usr/local")):
+            run(["sudo", "rm", "-rf", p])
         elif path.exists():
             shutil.rmtree(path)
 
@@ -160,9 +168,7 @@ def install_tarball_bin(url: str, binary: str) -> None:
         found = next((p for p in tmp_p.rglob(binary) if p.is_file()), None)
         if not found:
             die(f"No se encontró '{binary}' en el archivo")
-        dest = LOCAL_BIN / binary
-        shutil.copy2(found, dest)
-        dest.chmod(0o755)
+        install_system_bin(found, binary)
 
 
 def detect_desktop() -> str:
@@ -352,11 +358,13 @@ def install_fzf() -> None:
         if root:
             cmd = ["sudo", *cmd]
         run(cmd, check=False)
-        if not root and (dest / "bin" / "fzf").exists():
-            force_link(dest / "bin" / "fzf", LOCAL_BIN / "fzf")
 
     setup(HOME, root=False)
     setup(Path("/root"), root=True)
+    fzf_bin = HOME / ".fzf" / "bin" / "fzf"
+    if not fzf_bin.is_file():
+        die("No se encontró fzf tras la instalación")
+    install_system_bin(fzf_bin, "fzf")
 
 
 def install_fonts() -> None:
@@ -385,7 +393,14 @@ def install_fonts() -> None:
 
 
 def install_starship() -> None:
-    run_installer(STARSHIP_INSTALLER, "-y", "-b", str(LOCAL_BIN))
+    with tempfile.TemporaryDirectory(prefix="akw-starship-") as tmp:
+        bindir = Path(tmp) / "bin"
+        bindir.mkdir()
+        run_installer(STARSHIP_INSTALLER, "-y", "-b", str(bindir))
+        binary = bindir / "starship"
+        if not binary.is_file():
+            die("No se encontró starship tras el instalador")
+        install_system_bin(binary, "starship")
     copy_user_root(
         REPO_ROOT / "tools" / "starship" / "starship.toml",
         ".config/starship.toml",
@@ -397,17 +412,17 @@ def install_nvim() -> None:
         HOME / ".config" / "nvim",
         HOME / ".local" / "share" / "nvim",
         HOME / ".cache" / "nvim",
+        HOME / ".local" / "nvim",
         Path("/root/.config/nvim"),
         Path("/root/.local/share/nvim"),
         Path("/root/.cache/nvim"),
+        USR_LOCAL_NVIM,
     )
 
     url = (
         "https://github.com/neovim/neovim/releases/latest/download/"
         f"nvim-linux-{NVIM_ARCH}.tar.gz"
     )
-    nvim_home = HOME / ".local" / "nvim"
-    wipe(nvim_home)
 
     with tempfile.TemporaryDirectory(prefix="akw-nvim-") as tmp:
         tmp_p = Path(tmp)
@@ -417,9 +432,12 @@ def install_nvim() -> None:
         extracted = next(tmp_p.glob("nvim-linux-*"), None)
         if not extracted or not extracted.is_dir():
             die("No se pudo extraer Neovim")
-        shutil.move(str(extracted), str(nvim_home))
+        run(["sudo", "mv", str(extracted), str(USR_LOCAL_NVIM)])
 
-    force_link(nvim_home / "bin" / "nvim", LOCAL_BIN / "nvim")
+    nvim_bin = USR_LOCAL_NVIM / "bin" / "nvim"
+    if not nvim_bin.is_file():
+        die(f"Falta {nvim_bin} tras instalar Neovim")
+    run(["sudo", "ln", "-sfn", str(nvim_bin), str(USR_LOCAL_BIN / "nvim")])
     git_clone(NVCHAD, HOME / ".config" / "nvim")
     git_clone(NVCHAD, Path("/root/.config/nvim"), root=True)
 

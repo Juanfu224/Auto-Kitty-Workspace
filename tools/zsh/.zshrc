@@ -44,11 +44,13 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 export PATH="$HOME/.local/bin:$PATH"
 
 # Manual aliases
-alias ll='lsd -lh --group-dirs=first'
-alias la='lsd -a --group-dirs=first'
-alias l='lsd --group-dirs=first'
-alias lla='lsd -lha --group-dirs=first'
-alias ls='lsd --group-dirs=first'
+if command -v lsd >/dev/null 2>&1; then
+  alias ll='lsd -lh --group-dirs=first'
+  alias la='lsd -a --group-dirs=first'
+  alias l='lsd --group-dirs=first'
+  alias lla='lsd -lha --group-dirs=first'
+  alias ls='lsd --group-dirs=first'
+fi
 if command -v bat >/dev/null 2>&1; then
   alias cat='bat'
 elif command -v batcat >/dev/null 2>&1; then
@@ -123,5 +125,8 @@ function zle-keymap-select {
 zle -N zle-keymap-select
 
 # Start with beam shape cursor on zsh startup and after every command.
-zle-line-init() { zle-keymap-select 'beam'}
-eval "$(starship init zsh)"
+zle-line-init() { zle-keymap-select 'beam' }
+zle -N zle-line-init
+if command -v starship >/dev/null 2>&1; then
+  eval "$(starship init zsh)"
+fi
