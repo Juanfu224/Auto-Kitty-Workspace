@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "profile": "standard",
+  "git": {
+    "push": "ask",
+    "force_push": "deny",
+    "protected_branches": ["main", "master", "production"]
+  },
+  "package_install": {
+    "default": "ask",
+    "allow_locked_without_prompt": true,
+    "locked_substrings": [
+      "npm ci",
+      "pnpm install --frozen-lockfile",
+      "yarn install --frozen-lockfile",
+      "composer install --no-update",
+      "uv sync --locked",
+      "pip install --require-hashes"
+    ]
+  }
+}

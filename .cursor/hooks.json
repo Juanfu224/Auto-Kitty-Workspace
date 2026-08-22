@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "hooks": {
+    "beforeShellExecution": [
+      {
+        "command": "python3 .agents/hooks/guard.py --runtime cursor --event beforeShellExecution",
+        "failClosed": true,
+        "timeout": 10
+      }
+    ],
+    "preToolUse": [
+      {
+        "command": "python3 .agents/hooks/guard.py --runtime cursor --event preToolUse",
+        "failClosed": true,
+        "timeout": 10,
+        "matcher": "Read|Write|StrReplace|Edit|ApplyPatch|Grep|Delete|Task|MCP:.*"
+      }
+    ],
+    "beforeMCPExecution": [
+      {
+        "command": "python3 .agents/hooks/guard.py --runtime cursor --event beforeMCPExecution",
+        "failClosed": true,
+        "timeout": 10
+      }
+    ],
+    "beforeReadFile": [
+      {
+        "command": "python3 .agents/hooks/guard.py --runtime cursor --event beforeReadFile",
+        "failClosed": true,
+        "timeout": 10
+      }
+    ],
+    "beforeSubmitPrompt": [
+      {
+        "command": "python3 .agents/hooks/guard.py --runtime cursor --event beforeSubmitPrompt",
+        "failClosed": true,
+        "timeout": 10
+      }
+    ]
+  }
+}

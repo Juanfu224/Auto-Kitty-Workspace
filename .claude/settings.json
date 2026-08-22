@@ -1,0 +1,63 @@
+{
+  "permissions": {
+    "deny": [
+      "Bash(git push --force *)",
+      "Bash(git push --force-with-lease *)",
+      "Bash(git push -f *)",
+      "Bash(git push --mirror *)",
+      "Bash(git reset --hard *)",
+      "Bash(git clean -fdx *)",
+      "Bash(git clean -fxd *)",
+      "Bash(rm -rf *)",
+      "Bash(rm -fr *)",
+      "Bash(rm -r -f *)",
+      "Bash(rm --recursive --force *)",
+      "Bash(sudo *)",
+      "Bash(doas *)",
+      "Bash(pkexec *)",
+      "Bash(find * -delete*)",
+      "Bash(find *-exec rm *)",
+      "Bash(base64 *)",
+      "Bash(xxd *)",
+      "Bash(openssl *)",
+      "Read(.env)",
+      "Read(.env.*)",
+      "Write(.agents/hooks/**)",
+      "Edit(.agents/hooks/**)",
+      "Write(.agents/policy/**)",
+      "Edit(.agents/policy/**)",
+      "Bash(python3 -c *)",
+      "Bash(python -c *)",
+      "Bash(node -e *)",
+      "Bash(nodejs -e *)",
+      "Bash(perl -e *)",
+      "Bash(ruby -e *)",
+      "Bash(eval *)"
+    ]
+  },
+  "sandbox": {
+    "enabled": true
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"${CLAUDE_PROJECT_DIR}/.agents/hooks/guard.py\" --runtime claude --event PreToolUse"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"${CLAUDE_PROJECT_DIR}/.agents/hooks/guard.py\" --runtime claude --event UserPromptSubmit"
+          }
+        ]
+      }
+    ]
+  }
+}

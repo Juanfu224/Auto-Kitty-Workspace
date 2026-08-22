@@ -1,0 +1,8 @@
+name: agent-policy-integrity
+on: [pull_request]
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: sh scripts/verify-agent-policy.sh

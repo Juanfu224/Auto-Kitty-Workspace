@@ -1,0 +1,11 @@
+{
+  "networkPolicy": {
+    "default": "deny",
+    "allow": [],
+    "deny": [
+      "169.254.169.254",
+      "metadata.google.internal",
+      "*.ngrok.io"
+    ]
+  }
+}

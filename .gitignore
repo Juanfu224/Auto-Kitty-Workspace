@@ -1,0 +1,14 @@
+.scratch/
+*.mcp.json
+.env
+.env.*
+!.env.example
+*.pem
+id_rsa
+id_ed25519
+id_ecdsa
+id_rsa.pub
+credentials.json
+__pycache__/
+*.pyc
+Gobernanza-Agentica/

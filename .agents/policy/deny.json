@@ -1,0 +1,119 @@
+{
+  "version": 1,
+  "secretPathPatterns": [
+    "(^|[/\\s])\\.env(?:$|[\\s;|&\"'])",
+    "(^|[/\\s])\\.env\\.(?!example(?:$|[\\s;|&\"']))[^/\\s;|&\"']+",
+    "(^|[/\\s])\\.envrc(?:$|[\\s;|&\"'])",
+    "(^|[/\\s])\\.npmrc(?:$|[\\s;|&\"'])",
+    "(^|[/\\s])id_rsa(?:$|[\\s;|&\"'])",
+    "(^|[/\\s])id_ed25519(?:$|[\\s;|&\"'])",
+    "(^|[/\\s])id_ecdsa(?:$|[\\s;|&\"'])",
+    "(^|[/\\s])credentials\\.json(?:$|[\\s;|&\"'])",
+    "(^|[/\\s])\\.netrc(?:$|[\\s;|&\"'])",
+    "(^|[/\\s])\\.aws/credentials(?:$|[\\s;|&\"'])",
+    "(^|[/\\s])\\.aws/config(?:$|[\\s;|&\"'])",
+    "(^|[/\\s])\\.kube/config(?:$|[\\s;|&\"'])",
+    "(^|[/\\s])[^/\\s;|&\"']+\\.pem(?:$|[\\s;|&\"'])"
+  ],
+  "secretContentPatterns": [
+    "-----BEGIN (OPENSSH |RSA |EC |DSA )?PRIVATE KEY-----",
+    "AKIA[0-9A-Z]{16}",
+    "xox[baprs]-[0-9A-Za-z-]{10,}",
+    "gh[pousr]_[0-9A-Za-z]{36,}",
+    "sk-(proj-)?[A-Za-z0-9]{20,}"
+  ],
+  "shellDeny": [
+    {
+      "id": "HS_RM_RF",
+      "regex": "(?:^|[\\n;]|&&|\\|\\||\\|)\\s*(?:(?:env|busybox|command)\\s+)?(?:\\\\|\\.?/)*(?:(?:usr/)?(?:local/)?bin/)?rm(?:\\.exe)?\\s+(?:-[a-zA-Z]*r[a-zA-Z]*f\\b|-[a-zA-Z]*f[a-zA-Z]*r\\b|-r\\s+-f\\b|-f\\s+-r\\b|--recursive\\s+--force\\b|--force\\s+--recursive\\b|--recursive\\s+-f\\b|-f\\s+--recursive\\b|-r\\s+--force\\b|--force\\s+-r\\b)",
+      "reason": "SHIELD §1.2 filesystem",
+      "mode": "deny"
+    },
+    {
+      "id": "HS_DROP",
+      "regex": "\\b(DROP|TRUNCATE)\\s+(TABLE|DATABASE|SCHEMA)\\b",
+      "reason": "SHIELD §1.1 database",
+      "mode": "deny"
+    },
+    {
+      "id": "HS_GIT_FORCE",
+      "regex": "(?:^|[\\s;/|&])(?:\\\\|\\.?/)*(?:(?:usr/)?(?:local/)?bin/)?git(?:\\.exe)?(?:\\s+-C\\s+\\S+)?\\s+(?:-[^\\s]+\\s+)*push\\b[^\\n]*(?:--force(?:-with-lease)?|(?<=\\s)-f\\b|--mirror\\b|(?<=\\s)\\+\\S)",
+      "reason": "SHIELD §1.2 git force",
+      "mode": "deny"
+    },
+    {
+      "id": "HS_GIT_RESET_HARD",
+      "regex": "(?:^|[\\s;/|&])(?:\\\\|\\.?/)*(?:(?:usr/)?(?:local/)?bin/)?git(?:\\.exe)?(?:\\s+-C\\s+\\S+)?\\s+(?:-[^\\s]+\\s+)*reset\\s+--hard\\b",
+      "reason": "SHIELD §1.2 git",
+      "mode": "deny"
+    },
+    {
+      "id": "HS_GIT_CLEAN_FDX",
+      "regex": "(?:^|[\\s;/|&])(?:\\\\|\\.?/)*(?:(?:usr/)?(?:local/)?bin/)?git(?:\\.exe)?(?:\\s+-C\\s+\\S+)?\\s+(?:-[^\\s]+\\s+)*clean\\s+-(?=\\S*[fF])(?=\\S*[dD])(?=\\S*[xX])\\S*",
+      "reason": "SHIELD §1.2 git clean",
+      "mode": "deny"
+    },
+    {
+      "id": "HS_GIT_PUSH",
+      "regex": "(?:^|[\\s;/|&])(?:\\\\|\\.?/)*(?:(?:usr/)?(?:local/)?bin/)?git(?:\\.exe)?(?:\\s+-C\\s+\\S+)?\\s+(?:-[^\\s]+\\s+)*push\\b",
+      "reason": "SHIELD §1.2 git push",
+      "mode": "ask"
+    },
+    {
+      "id": "HS_SUDO",
+      "regex": "(?:^|[\\s;/|&])(?:sudo|doas|pkexec)(?:\\.exe)?\\b",
+      "reason": "SHIELD ASI02/ASI03",
+      "mode": "deny"
+    },
+    {
+      "id": "HS_CURL_SH",
+      "regex": "(?:curl|wget|fetch)(?:\\.exe)?\\s+[^|;]*\\|\\s*(?:ba|z|k)?sh\\b",
+      "reason": "SHIELD ASI05 Unexpected Code Execution",
+      "mode": "deny"
+    },
+    {
+      "id": "HS_BASE64_PIPE_SH",
+      "regex": "\\b(?:base64|xxd|openssl)(?:\\.exe)?\\b[\\s\\S]{0,200}\\|\\s*(?:ba|z|k)?sh\\b",
+      "reason": "SHIELD ASI05 decode/hex pipe to shell",
+      "mode": "deny"
+    },
+    {
+      "id": "HS_FIND_DELETE",
+      "regex": "(?:^|[\\n;]|&&|\\|\\||\\|)\\s*(?:\\\\|\\.?/)*(?:(?:usr/)?(?:local/)?bin/)?find(?:\\.exe)?\\b[^\\n]*?(?:-delete\\b|-exec\\s+rm\\b)",
+      "reason": "SHIELD ASI05 find delete",
+      "mode": "deny"
+    },
+    {
+      "id": "HS_OPAQUE_EVAL",
+      "regex": "(?:^|[\\n;]|&&|\\|\\||\\|)\\s*(?:\\\\|\\.?/)*(?:(?:usr/)?(?:local/)?bin/)?(?:python3?|node(?:js)?|perl|ruby)(?:\\.exe)?\\s+(?:-[^\\s]*\\s+)*-[ce]\\b",
+      "reason": "SHIELD ASI05 opaque interpreter eval",
+      "mode": "deny"
+    },
+    {
+      "id": "HS_EVAL_INDIRECT",
+      "regex": "(?:^|[\\n;]|&&|\\|\\||\\|)\\s*(?:\\\\|\\.?/)*(?:(?:usr/)?(?:local/)?bin/)?eval(?:\\.exe)?\\b|(?:^|[\\n;]|&&|\\|\\||\\|)\\s*(?:source|\\.)\\s+<\\(",
+      "reason": "SHIELD ASI05 eval / process-substitution source",
+      "mode": "deny"
+    },
+    {
+      "id": "HS_ENV_WRITE",
+      "regex": "(>|>>)\\s*[^\\s]*\\.env(?:$|[\\s;|&\"'])|tee\\s+[^\\s]*\\.env(?:$|[\\s;|&\"'])",
+      "reason": "SHIELD §1.2 secrets",
+      "mode": "deny"
+    },
+    {
+      "id": "HS_HMAC_DISABLE",
+      "regex": "(hmac|verify_?signature|check_?signature).{0,80}(false|skip|disable|off|0\\b)|verify.*hmac.{0,40}(false|skip|disable)",
+      "reason": "SHIELD §1.3 firma CB-05",
+      "mode": "deny",
+      "surfaces": ["command", "content"]
+    },
+    {
+      "id": "IG_PACKAGE_INSTALL",
+      "regex": "\\b(npm|pnpm|yarn)\\s+(install|i|add|ci)\\b|\\bcomposer\\s+(require|remove|install)\\b|\\bpip(\\d)?\\s+install\\b|python3?\\s+-m\\s+pip\\s+install\\b|\\bcargo\\s+add\\b|\\bgo\\s+(get|install)\\b|\\buv\\s+(sync|add)\\b",
+      "reason": "SHIELD §2 Intent Gate ASI04",
+      "mode": "ask"
+    }
+  ],
+  "injectionMarkers": []
+}
